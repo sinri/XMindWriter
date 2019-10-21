@@ -1,0 +1,32 @@
+{
+  "name": "sinri/xmind-writer",
+  "description": "XMind File Writer",
+  "minimum-stability": "stable",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Sinri Edogawa",
+      "email": "e.joshua.s.e@gmail.com"
+    }
+  ],
+  "autoload": {
+    "psr-4": {
+      "sinri\\XMindWriter\\": "src/"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "sinri\\XMindWriter\\test\\": "test/"
+    }
+  },
+  "repositories": {
+    "packagist": {
+      "type": "composer",
+      "url": "https://mirrors.aliyun.com/composer/"
+    }
+  },
+  "require": {
+    "ext-xmlwriter": "*",
+    "ext-zip": "*"
+  }
+}
