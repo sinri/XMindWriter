@@ -48,49 +48,55 @@ class XMapContentSheetEntity extends XMapNodeEntity
     /**
      * @return XMapContentTitleEntity
      */
-    public function getTitle(): XMapContentTitleEntity
+    public function getTitle()
     {
         return $this->title;
     }
 
     /**
      * @param XMapContentTitleEntity $title
+     * @return XMapContentSheetEntity
      */
-    public function setTitle(XMapContentTitleEntity $title)
+    public function setTitle($title)
     {
         $this->title = $title;
+        return $this;
     }
 
     /**
      * @return XMapContentTopicEntity
      */
-    public function getTopic(): XMapContentTopicEntity
+    public function getTopic()
     {
         return $this->topic;
     }
 
     /**
      * @param XMapContentTopicEntity $topic
+     * @return XMapContentSheetEntity
      */
-    public function setTopic(XMapContentTopicEntity $topic)
+    public function setTopic($topic)
     {
         $this->topic = $topic;
+        return $this;
     }
 
     /**
      * @return XMapContentRelationshipsEntity
      */
-    public function getRelationships(): XMapContentRelationshipsEntity
+    public function getRelationships()
     {
         return $this->relationships;
     }
 
     /**
      * @param XMapContentRelationshipsEntity $relationships
+     * @return XMapContentSheetEntity
      */
-    public function setRelationships(XMapContentRelationshipsEntity $relationships)
+    public function setRelationships($relationships)
     {
         $this->relationships = $relationships;
+        return $this;
     }
 
     /**
@@ -102,17 +108,19 @@ class XMapContentSheetEntity extends XMapNodeEntity
     }
 
     /**
-     * @param mixed $legend
+     * @param ? $legend
+     * @return XMapContentSheetEntity
      */
     public function setLegend($legend)
     {
         $this->legend = $legend;
+        return $this;
     }
 
     /**
      * @return string
      */
-    public function getAttrId(): string
+    public function getAttrId()
     {
         return $this->attrId;
     }
@@ -120,7 +128,7 @@ class XMapContentSheetEntity extends XMapNodeEntity
     /**
      * @return string
      */
-    public function getAttrStyleId(): string
+    public function getAttrStyleId()
     {
         return $this->attrStyleId;
     }
@@ -128,14 +136,13 @@ class XMapContentSheetEntity extends XMapNodeEntity
     /**
      * @return string
      */
-    public function getAttrTheme(): string
+    public function getAttrTheme()
     {
         return $this->attrTheme;
     }
 
     /**
      * @param XMLWriter $xmlWriter
-     * @return mixed
      */
     protected function writeThisNode($xmlWriter)
     {

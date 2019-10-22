@@ -14,6 +14,24 @@ class XMapContentControlPositionsEntity extends XMapNodeEntity
      */
     protected $controlPointList;
 
+    /**
+     * @return XMapContentControlPositionEntity[]
+     */
+    public function getControlPointList()
+    {
+        return $this->controlPointList;
+    }
+
+    /**
+     * @param XMapContentControlPositionEntity[] $controlPointList
+     * @return XMapContentControlPositionsEntity
+     */
+    public function setControlPointList($controlPointList)
+    {
+        $this->controlPointList = $controlPointList;
+        return $this;
+    }
+
     protected function nodeTag()
     {
         return "control-points";

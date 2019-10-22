@@ -23,9 +23,47 @@ class XMapContentEntity extends XMapNodeEntity
 
     /**
      * @param XMapContentSheetEntity $sheet
+     * @return XMapContentEntity
      */
     public function addSheet($sheet){
         $this->sheetList[]=$sheet;
+        return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function getAttrVersion()
+    {
+        return $this->attrVersion;
+    }
+
+    /**
+     * @param string $attrVersion
+     * @return XMapContentEntity
+     */
+    public function setAttrVersion($attrVersion)
+    {
+        $this->attrVersion = $attrVersion;
+        return $this;
+    }
+
+    /**
+     * @return XMapContentSheetEntity[]
+     */
+    public function getSheetList()
+    {
+        return $this->sheetList;
+    }
+
+    /**
+     * @param XMapContentSheetEntity[] $sheetList
+     * @return XMapContentEntity
+     */
+    public function setSheetList($sheetList)
+    {
+        $this->sheetList = $sheetList;
+        return $this;
     }
 
     protected function nodeTag()

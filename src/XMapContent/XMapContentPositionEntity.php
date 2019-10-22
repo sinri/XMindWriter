@@ -17,6 +17,42 @@ class XMapContentPositionEntity extends XMapNodeEntity
      * @var int `svg:x` the horizontal coordinate of this position (in pixels)
      */
     protected $attrSvgX;
+
+    /**
+     * @return int
+     */
+    public function getAttrSvgX()
+    {
+        return $this->attrSvgX;
+    }
+
+    /**
+     * @param int $attrSvgX
+     * @return XMapContentPositionEntity
+     */
+    public function setAttrSvgX($attrSvgX)
+    {
+        $this->attrSvgX = $attrSvgX;
+        return $this;
+    }
+
+    /**
+     * @return int
+     */
+    public function getAttrSvgY()
+    {
+        return $this->attrSvgY;
+    }
+
+    /**
+     * @param int $attrSvgY
+     * @return XMapContentPositionEntity
+     */
+    public function setAttrSvgY($attrSvgY)
+    {
+        $this->attrSvgY = $attrSvgY;
+        return $this;
+    }
     /**
      * @var int `svg:y` the vertical coordinate of this position (in pixels)
      */

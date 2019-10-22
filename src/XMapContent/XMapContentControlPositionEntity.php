@@ -25,6 +25,42 @@ class XMapContentControlPositionEntity extends XMapNodeEntity
     }
 
     /**
+     * @return int
+     */
+    public function getAttrIndex()
+    {
+        return $this->attrIndex;
+    }
+
+    /**
+     * @param int $attrIndex
+     * @return XMapContentControlPositionEntity
+     */
+    public function setAttrIndex($attrIndex)
+    {
+        $this->attrIndex = $attrIndex;
+        return $this;
+    }
+
+    /**
+     * @return XMapContentPositionEntity
+     */
+    public function getPosition()
+    {
+        return $this->position;
+    }
+
+    /**
+     * @param XMapContentPositionEntity $position
+     * @return XMapContentControlPositionEntity
+     */
+    public function setPosition($position)
+    {
+        $this->position = $position;
+        return $this;
+    }
+
+    /**
      * @param XMLWriter $xmlWriter
      * @return void
      */

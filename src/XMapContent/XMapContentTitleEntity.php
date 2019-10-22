@@ -31,33 +31,37 @@ class XMapContentTitleEntity extends XMapNodeEntity
     /**
      * @return string
      */
-    public function getAttrSvgWidth(): string
+    public function getAttrSvgWidth()
     {
         return $this->attrSvgWidth;
     }
 
     /**
      * @param string $attrSvgWidth
+     * @return XMapContentTitleEntity
      */
-    public function setAttrSvgWidth(string $attrSvgWidth)
+    public function setAttrSvgWidth($attrSvgWidth)
     {
         $this->attrSvgWidth = $attrSvgWidth;
+        return $this;
     }
 
     /**
      * @return string
      */
-    public function getTextContent(): string
+    public function getTextContent()
     {
         return $this->textContent;
     }
 
     /**
      * @param string $textContent
+     * @return XMapContentTitleEntity
      */
-    public function setTextContent(string $textContent)
+    public function setTextContent($textContent)
     {
         $this->textContent = $textContent;
+        return $this;
     }
 
     /**

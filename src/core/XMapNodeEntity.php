@@ -33,6 +33,9 @@ abstract class XMapNodeEntity
     final public function generateXML(){
         $xw=new XMLWriter();
         $xw->openMemory();
+        $xw->setIndent(true);
+        $xw->setIndentString("  ");
+
         $xw->startDocument("1.0");
 
         $this->writeThisNode($xw);

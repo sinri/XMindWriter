@@ -8,6 +8,9 @@ use sinri\XMindWriter\XMetaInfo\XManifestEntity;
 
 require_once __DIR__ . '/../../vendor/autoload.php';
 
+$srcOutputDir = __DIR__ . '/../../debug/sample';
+$xmindFile = __DIR__ . '/../../debug/sample.xmind';
+
 $XMapContentInstance = new XMapContentEntity();
 
 $sheet1=new XMapContentSheetEntity("S1","Sheet1");
@@ -29,21 +32,37 @@ $topicHiring=new XMapContentTopicEntity("Topic-1-1","Hiring");
 $topicAdmin=new XMapContentTopicEntity("Topic-1-2","Admin");
 $topicHR->addChildTopicToTopics($topicHiring);
 $topicHR->addChildTopicToTopics($topicAdmin);
-
+{
+    $notesForFinance = new \sinri\XMindWriter\XMapContent\XMapContentNotesEntity();
+    $notesForFinance->setPlain(new \sinri\XMindWriter\XMapContent\XMapContentPlainNoteEntity("It is a plain note for finance"));
+    $topicFinance->setNotes($notesForFinance);
+}
 $topicProduct=new XMapContentTopicEntity("Topic-3-1","Product");
 $topicSupport=new XMapContentTopicEntity("Topic-3-2","Support");
 $topicIT->addChildTopicToTopics($topicProduct);
 $topicIT->addChildTopicToTopics($topicSupport);
+{
+    $notesForSupport = new \sinri\XMindWriter\XMapContent\XMapContentNotesEntity();
+    $notesForSupportHtmlNote = new \sinri\XMindWriter\XMapContent\XMapContentHtmlNoteEntity();
+    $p1 = new \sinri\XMindWriter\XMapContent\XMapContentHtmlParagraphEntity();
+    $p1->addSpanEntity(new \sinri\XMindWriter\XMapContent\XMapContentHtmlSpanEntity("Support Note Span 1"));
+    $p1->addSpanEntity(new \sinri\XMindWriter\XMapContent\XMapContentHtmlSpanEntity("Support Note Span 2"));
+    $p1->addAnchorEntity(
+        (new \sinri\XMindWriter\XMapContent\XMapContentHtmlAnchorEntity())
+            ->setAttrXLinkHref("https://www.leqee.com")
+            ->setTextContent("Let us open site of leqee")
+    );
+    $notesForSupportHtmlNote->addXHtmlPEntity($p1);
+    $notesForSupport->setHtml($notesForSupportHtmlNote);
+    $topicSupport->setNotes($notesForSupport);
+}
 
-$srcOutputDir=__DIR__ . '/../../debug/sample';
-$xmindFile=__DIR__ . '/../../debug/sample.xmind';
-
-$XMapContentInstance->generateXMLToFile($srcOutputDir . '/content.xml');
-
-(new XManifestEntity())
+$manifest = (new XManifestEntity())
     ->addFileEntry("content.xml", "text/xml")
     ->addFileEntry("META-INF/", "")
-    ->addFileEntry("META-INF/manifest.xml", "text/xml")
-    ->generateXMLToFile($srcOutputDir.'/META-INF/manifest.xml');
+    ->addFileEntry("META-INF/manifest.xml", "text/xml");
 
-(new XMindDirZipper())->work($srcOutputDir, $xmindFile);
+(new XMindDirZipper($srcOutputDir, $xmindFile))
+    ->setContentEntity($XMapContentInstance)
+    ->setManifestEntity($manifest)
+    ->buildXMind();

@@ -22,33 +22,37 @@ class XMapContentTopicsEntity extends XMapNodeEntity
     /**
      * @return string
      */
-    public function getAttrType(): string
+    public function getAttrType()
     {
         return $this->attrType;
     }
 
     /**
      * @param string $attrType
+     * @return XMapContentTopicsEntity
      */
-    public function setAttrType(string $attrType)
+    public function setAttrType($attrType)
     {
         $this->attrType = $attrType;
+        return $this;
     }
 
     /**
      * @return XMapContentTopicEntity[]
      */
-    public function getTopicList(): array
+    public function getTopicList()
     {
         return $this->topicList;
     }
 
     /**
      * @param XMapContentTopicEntity[] $topicList
+     * @return XMapContentTopicsEntity
      */
-    public function setTopicList(array $topicList)
+    public function setTopicList($topicList)
     {
         $this->topicList = $topicList;
+        return $this;
     }
     /**
      * @var XMapContentTopicEntity[] [0,n) the grouped topics
@@ -62,9 +66,11 @@ class XMapContentTopicsEntity extends XMapNodeEntity
 
     /**
      * @param XMapContentTopicEntity $topicEntity
+     * @return XMapContentTopicsEntity
      */
     public function addTopicEntity($topicEntity){
         $this->topicList[]=$topicEntity;
+        return $this;
     }
 
     protected function nodeTag()

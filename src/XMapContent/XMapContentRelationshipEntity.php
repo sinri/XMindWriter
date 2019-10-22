@@ -49,97 +49,109 @@ class XMapContentRelationshipEntity extends XMapNodeEntity
     /**
      * @return string
      */
-    public function getAttrId(): string
+    public function getAttrId()
     {
         return $this->attrId;
     }
 
     /**
      * @param string $attrId
+     * @return XMapContentRelationshipEntity
      */
-    public function setAttrId(string $attrId)
+    public function setAttrId($attrId)
     {
         $this->attrId = $attrId;
+        return $this;
     }
 
     /**
      * @return string
      */
-    public function getAttrStyleId(): string
+    public function getAttrStyleId()
     {
         return $this->attrStyleId;
     }
 
     /**
      * @param string $attrStyleId
+     * @return XMapContentRelationshipEntity
      */
-    public function setAttrStyleId(string $attrStyleId)
+    public function setAttrStyleId($attrStyleId)
     {
         $this->attrStyleId = $attrStyleId;
+        return $this;
     }
 
     /**
      * @return string
      */
-    public function getAttrEnd1(): string
+    public function getAttrEnd1()
     {
         return $this->attrEnd1;
     }
 
     /**
      * @param string $attrEnd1
+     * @return XMapContentRelationshipEntity
      */
-    public function setAttrEnd1(string $attrEnd1)
+    public function setAttrEnd1($attrEnd1)
     {
         $this->attrEnd1 = $attrEnd1;
+        return $this;
     }
 
     /**
      * @return string
      */
-    public function getAttrEnd2(): string
+    public function getAttrEnd2()
     {
         return $this->attrEnd2;
     }
 
     /**
      * @param string $attrEnd2
+     * @return XMapContentRelationshipEntity
      */
-    public function setAttrEnd2(string $attrEnd2)
+    public function setAttrEnd2($attrEnd2)
     {
         $this->attrEnd2 = $attrEnd2;
+        return $this;
     }
 
     /**
      * @return XMapContentTitleEntity
      */
-    public function getTitle(): XMapContentTitleEntity
+    public function getTitle()
     {
         return $this->title;
     }
 
     /**
      * @param XMapContentTitleEntity $title
+     * @return XMapContentRelationshipEntity
      */
-    public function setTitle(XMapContentTitleEntity $title)
+    public function setTitle($title)
     {
         $this->title = $title;
+        return $this;
     }
 
     /**
      * @return XMapContentControlPositionsEntity
      */
-    public function getControlPoints(): XMapContentControlPositionsEntity
+    public function getControlPoints()
     {
         return $this->controlPoints;
     }
 
     /**
      * @param XMapContentControlPositionsEntity $controlPoints
+     * @return XMapContentRelationshipEntity
      */
-    public function setControlPoints(XMapContentControlPositionsEntity $controlPoints)
+    public function setControlPoints($controlPoints)
     {
         $this->controlPoints = $controlPoints;
+        return $this;
     }
 
     /**

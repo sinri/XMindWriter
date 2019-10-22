@@ -17,24 +17,28 @@ class XMapContentRelationshipsEntity extends XMapNodeEntity
     /**
      * @return XMapContentRelationshipEntity[]
      */
-    public function getRelationshipList(): array
+    public function getRelationshipList()
     {
         return $this->relationshipList;
     }
 
     /**
      * @param XMapContentRelationshipEntity[] $relationshipList
+     * @return XMapContentRelationshipsEntity
      */
-    public function setRelationshipList(array $relationshipList)
+    public function setRelationshipList($relationshipList)
     {
         $this->relationshipList = $relationshipList;
+        return $this;
     }
 
     /**
      * @param XMapContentRelationshipEntity $relationshipEntity
+     * @return XMapContentRelationshipsEntity
      */
     public function addRelationshipEntity($relationshipEntity){
         $this->relationshipList[]=$relationshipEntity;
+        return $this;
     }
 
     /**

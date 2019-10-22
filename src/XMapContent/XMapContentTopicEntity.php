@@ -43,8 +43,7 @@ class XMapContentTopicEntity extends XMapNodeEntity
      */
     protected $image;
     /**
-     * @var ? [0,1] the notes of this topic
-     * @todo
+     * @var XMapContentNotesEntity [0,1] the notes of this topic
      */
     protected $notes;
     /**
@@ -95,151 +94,170 @@ class XMapContentTopicEntity extends XMapNodeEntity
     /**
      * @return string
      */
-    public function getAttrId(): string
+    public function getAttrId()
     {
         return $this->attrId;
     }
 
     /**
      * @param string $attrId
+     * @return XMapContentTopicEntity
      */
-    public function setAttrId(string $attrId)
+    public function setAttrId($attrId)
     {
         $this->attrId = $attrId;
+        return $this;
     }
 
     /**
      * @return string
      */
-    public function getAttrStyleId(): string
+    public function getAttrStyleId()
     {
         return $this->attrStyleId;
     }
 
     /**
      * @param string $attrStyleId
+     * @return XMapContentTopicEntity
      */
-    public function setAttrStyleId(string $attrStyleId)
+    public function setAttrStyleId($attrStyleId)
     {
         $this->attrStyleId = $attrStyleId;
+        return $this;
     }
 
     /**
      * @return string
      */
-    public function getAttrXlinkHref(): string
+    public function getAttrXlinkHref()
     {
         return $this->attrXlinkHref;
     }
 
     /**
      * @param string $attrXlinkHref
+     * @return XMapContentTopicEntity
      */
-    public function setAttrXlinkHref(string $attrXlinkHref)
+    public function setAttrXlinkHref($attrXlinkHref)
     {
         $this->attrXlinkHref = $attrXlinkHref;
+        return $this;
     }
 
     /**
      * @return string
      */
-    public function getAttrTimestamp(): string
+    public function getAttrTimestamp()
     {
         return $this->attrTimestamp;
     }
 
     /**
      * @param string $attrTimestamp
+     * @return XMapContentTopicEntity
      */
-    public function setAttrTimestamp(string $attrTimestamp)
+    public function setAttrTimestamp($attrTimestamp)
     {
         $this->attrTimestamp = $attrTimestamp;
+        return $this;
     }
 
     /**
      * @return string
      */
-    public function getAttrBranch(): string
+    public function getAttrBranch()
     {
         return $this->attrBranch;
     }
 
     /**
      * @param string $attrBranch
+     * @return XMapContentTopicEntity
      */
-    public function setAttrBranch(string $attrBranch)
+    public function setAttrBranch($attrBranch)
     {
         $this->attrBranch = $attrBranch;
+        return $this;
     }
 
     /**
      * @return string
      */
-    public function getAttrStructureClass(): string
+    public function getAttrStructureClass()
     {
         return $this->attrStructureClass;
     }
 
     /**
      * @param string $attrStructureClass
+     * @return XMapContentTopicEntity
      */
-    public function setAttrStructureClass(string $attrStructureClass)
+    public function setAttrStructureClass($attrStructureClass)
     {
         $this->attrStructureClass = $attrStructureClass;
+        return $this;
     }
 
     /**
      * @return XMapContentTitleEntity
      */
-    public function getTitle(): XMapContentTitleEntity
+    public function getTitle()
     {
         return $this->title;
     }
 
     /**
      * @param XMapContentTitleEntity $title
+     * @return XMapContentTopicEntity
      */
-    public function setTitle(XMapContentTitleEntity $title)
+    public function setTitle($title)
     {
         $this->title = $title;
+        return $this;
     }
 
     /**
      * @return XMapContentPositionEntity
      */
-    public function getPosition(): XMapContentPositionEntity
+    public function getPosition()
     {
         return $this->position;
     }
 
     /**
      * @param XMapContentPositionEntity $position
+     * @return XMapContentTopicEntity
      */
-    public function setPosition(XMapContentPositionEntity $position)
+    public function setPosition($position)
     {
         $this->position = $position;
+        return $this;
     }
 
     /**
      * @return XMapContentChildrenOfTopicsEntity
      */
-    public function getChildren(): XMapContentChildrenOfTopicsEntity
+    public function getChildren()
     {
         return $this->children;
     }
 
     /**
      * @param XMapContentChildrenOfTopicsEntity $children
+     * @return XMapContentTopicEntity
      */
-    public function setChildren(XMapContentChildrenOfTopicsEntity $children)
+    public function setChildren($children)
     {
         $this->children = $children;
+        return $this;
     }
 
     /**
      * Note: this is not a final resolution, just a trail for quick experience
      * @param XMapContentTopicEntity $childTopic
      * @param int $topicsIndex
+     * @return XMapContentTopicEntity
      */
     public function addChildTopicToTopics($childTopic,$topicsIndex=0){
         if($this->children===null){
@@ -247,6 +265,25 @@ class XMapContentTopicEntity extends XMapNodeEntity
             $this->children->addTopicsEntity(new XMapContentTopicsEntity(XMapContentTopicsEntity::ATTR_TYPE_ATTACHED));
         }
         $this->children->getTopicsList()[$topicsIndex]->addTopicEntity($childTopic);
+        return $this;
+    }
+
+    /**
+     * @return XMapContentNotesEntity
+     */
+    public function getNotes()
+    {
+        return $this->notes;
+    }
+
+    /**
+     * @param XMapContentNotesEntity $notes
+     * @return XMapContentTopicEntity
+     */
+    public function setNotes($notes)
+    {
+        $this->notes = $notes;
+        return $this;
     }
 
     /**

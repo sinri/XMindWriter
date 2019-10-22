@@ -26,24 +26,28 @@ class XMapContentChildrenOfTopicsEntity extends XMapNodeEntity
     /**
      * @return XMapContentTopicsEntity[]
      */
-    public function getTopicsList(): array
+    public function getTopicsList()
     {
         return $this->topicsList;
     }
 
     /**
      * @param XMapContentTopicsEntity[] $topicsList
+     * @return XMapContentChildrenOfTopicsEntity
      */
-    public function setTopicsList(array $topicsList)
+    public function setTopicsList($topicsList)
     {
         $this->topicsList = $topicsList;
+        return $this;
     }
 
     /**
      * @param XMapContentTopicsEntity $topicsEntity
+     * @return XMapContentChildrenOfTopicsEntity
      */
     public function addTopicsEntity($topicsEntity){
         $this->topicsList[]=$topicsEntity;
+        return $this;
     }
 
     /**

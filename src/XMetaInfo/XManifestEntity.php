@@ -18,7 +18,7 @@ class XManifestEntity extends XMapNodeEntity
     /**
      * @return string
      */
-    public function getAttrVersion(): string
+    public function getAttrVersion()
     {
         return $this->attrVersion;
     }
@@ -26,7 +26,7 @@ class XManifestEntity extends XMapNodeEntity
     /**
      * @param string $attrVersion
      */
-    public function setAttrVersion(string $attrVersion)
+    public function setAttrVersion($attrVersion)
     {
         $this->attrVersion = $attrVersion;
     }
@@ -34,7 +34,7 @@ class XManifestEntity extends XMapNodeEntity
     /**
      * @return XManifestFileEntryEntity[]
      */
-    public function getFileEntryList(): array
+    public function getFileEntryList()
     {
         return $this->fileEntryList;
     }
@@ -42,7 +42,7 @@ class XManifestEntity extends XMapNodeEntity
     /**
      * @param XManifestFileEntryEntity[] $fileEntryList
      */
-    public function setFileEntryList(array $fileEntryList)
+    public function setFileEntryList($fileEntryList)
     {
         $this->fileEntryList = $fileEntryList;
     }

@@ -17,33 +17,37 @@ class XManifestFileEntryEntity extends XMapNodeEntity
     /**
      * @return string
      */
-    public function getAttrFullPath(): string
+    public function getAttrFullPath()
     {
         return $this->attrFullPath;
     }
 
     /**
      * @param string $attrFullPath
+     * @return XManifestFileEntryEntity
      */
-    public function setAttrFullPath(string $attrFullPath)
+    public function setAttrFullPath($attrFullPath)
     {
         $this->attrFullPath = $attrFullPath;
+        return $this;
     }
 
     /**
      * @return string
      */
-    public function getAttrMediaType(): string
+    public function getAttrMediaType()
     {
         return $this->attrMediaType;
     }
 
     /**
      * @param string $attrMediaType
+     * @return XManifestFileEntryEntity
      */
-    public function setAttrMediaType(string $attrMediaType)
+    public function setAttrMediaType($attrMediaType)
     {
         $this->attrMediaType = $attrMediaType;
+        return $this;
     }
     /**
      * @var string the media type of this file entry
