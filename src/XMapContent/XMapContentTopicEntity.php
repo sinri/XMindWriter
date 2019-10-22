@@ -9,6 +9,8 @@ use XMLWriter;
 
 class XMapContentTopicEntity extends XMapNodeEntity
 {
+    const BRANCH_FOLDED = "folded";
+
     /**
      * @var string (required) the unique identifier of this topic
      */
@@ -182,6 +184,20 @@ class XMapContentTopicEntity extends XMapNodeEntity
     }
 
     /**
+     * @param boolean $folded make the children invisible
+     * @return $this
+     */
+    public function setChildrenFolded($folded)
+    {
+        if ($folded) {
+            $this->attrBranch = self::BRANCH_FOLDED;
+        } else {
+            $this->attrBranch = null;
+        }
+        return $this;
+    }
+
+    /**
      * @return string
      */
     public function getAttrStructureClass()
@@ -283,6 +299,24 @@ class XMapContentTopicEntity extends XMapNodeEntity
     public function setNotes($notes)
     {
         $this->notes = $notes;
+        return $this;
+    }
+
+    /**
+     * @return XMapContentNumberingEntity
+     */
+    public function getNumbering()
+    {
+        return $this->numbering;
+    }
+
+    /**
+     * @param XMapContentNumberingEntity $numbering
+     * @return XMapContentTopicEntity
+     */
+    public function setNumbering($numbering)
+    {
+        $this->numbering = $numbering;
         return $this;
     }
 

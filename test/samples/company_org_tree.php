@@ -2,6 +2,12 @@
 
 use sinri\XMindWriter\core\XMindDirZipper;
 use sinri\XMindWriter\XMapContent\XMapContentEntity;
+use sinri\XMindWriter\XMapContent\XMapContentHtmlAnchorEntity;
+use sinri\XMindWriter\XMapContent\XMapContentHtmlNoteEntity;
+use sinri\XMindWriter\XMapContent\XMapContentHtmlParagraphEntity;
+use sinri\XMindWriter\XMapContent\XMapContentHtmlSpanEntity;
+use sinri\XMindWriter\XMapContent\XMapContentNotesEntity;
+use sinri\XMindWriter\XMapContent\XMapContentPlainNoteEntity;
 use sinri\XMindWriter\XMapContent\XMapContentSheetEntity;
 use sinri\XMindWriter\XMapContent\XMapContentTopicEntity;
 use sinri\XMindWriter\XMetaInfo\XManifestEntity;
@@ -33,8 +39,8 @@ $topicAdmin=new XMapContentTopicEntity("Topic-1-2","Admin");
 $topicHR->addChildTopicToTopics($topicHiring);
 $topicHR->addChildTopicToTopics($topicAdmin);
 {
-    $notesForFinance = new \sinri\XMindWriter\XMapContent\XMapContentNotesEntity();
-    $notesForFinance->setPlain(new \sinri\XMindWriter\XMapContent\XMapContentPlainNoteEntity("It is a plain note for finance"));
+    $notesForFinance = new XMapContentNotesEntity();
+    $notesForFinance->setPlain(new XMapContentPlainNoteEntity("It is a plain note for finance"));
     $topicFinance->setNotes($notesForFinance);
 }
 $topicProduct=new XMapContentTopicEntity("Topic-3-1","Product");
@@ -42,13 +48,13 @@ $topicSupport=new XMapContentTopicEntity("Topic-3-2","Support");
 $topicIT->addChildTopicToTopics($topicProduct);
 $topicIT->addChildTopicToTopics($topicSupport);
 {
-    $notesForSupport = new \sinri\XMindWriter\XMapContent\XMapContentNotesEntity();
-    $notesForSupportHtmlNote = new \sinri\XMindWriter\XMapContent\XMapContentHtmlNoteEntity();
-    $p1 = new \sinri\XMindWriter\XMapContent\XMapContentHtmlParagraphEntity();
-    $p1->addSpanEntity(new \sinri\XMindWriter\XMapContent\XMapContentHtmlSpanEntity("Support Note Span 1"));
-    $p1->addSpanEntity(new \sinri\XMindWriter\XMapContent\XMapContentHtmlSpanEntity("Support Note Span 2"));
+    $notesForSupport = new XMapContentNotesEntity();
+    $notesForSupportHtmlNote = new XMapContentHtmlNoteEntity();
+    $p1 = new XMapContentHtmlParagraphEntity();
+    $p1->addSpanEntity(new XMapContentHtmlSpanEntity("Support Note Span 1"));
+    $p1->addSpanEntity(new XMapContentHtmlSpanEntity("Support Note Span 2"));
     $p1->addAnchorEntity(
-        (new \sinri\XMindWriter\XMapContent\XMapContentHtmlAnchorEntity())
+        (new XMapContentHtmlAnchorEntity())
             ->setAttrXLinkHref("https://www.leqee.com")
             ->setTextContent("Let us open site of leqee")
     );
@@ -56,6 +62,8 @@ $topicIT->addChildTopicToTopics($topicSupport);
     $notesForSupport->setHtml($notesForSupportHtmlNote);
     $topicSupport->setNotes($notesForSupport);
 }
+//$topicIT->setAttrBranch(XMapContentTopicEntity::BRANCH_FOLDED);
+$topicIT->setChildrenFolded(true);
 
 $manifest = (new XManifestEntity())
     ->addFileEntry("content.xml", "text/xml")
