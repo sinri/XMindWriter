@@ -272,15 +272,22 @@ class XMapContentTopicEntity extends XMapNodeEntity
     /**
      * Note: this is not a final resolution, just a trail for quick experience
      * @param XMapContentTopicEntity $childTopic
-     * @param int $topicsIndex
+     * @param string $type
      * @return XMapContentTopicEntity
      */
-    public function addChildTopicToTopics($childTopic,$topicsIndex=0){
+    public function addChildTopicToTopics($childTopic, $type = XMapContentTopicsEntity::ATTR_TYPE_ATTACHED)
+    {
         if($this->children===null){
             $this->children=new XMapContentChildrenOfTopicsEntity();
-            $this->children->addTopicsEntity(new XMapContentTopicsEntity(XMapContentTopicsEntity::ATTR_TYPE_ATTACHED));
         }
-        $this->children->getTopicsList()[$topicsIndex]->addTopicEntity($childTopic);
+        $list = $this->children->getTopicsList();
+        if (isset($list[$type])) {
+            $list[$type]->addTopicEntity($childTopic);
+        } else {
+            $topics = new XMapContentTopicsEntity($type);
+            $this->children->addTopicsEntity($topics);
+            $topics->addTopicEntity($childTopic);
+        }
         return $this;
     }
 
@@ -318,6 +325,22 @@ class XMapContentTopicEntity extends XMapNodeEntity
     {
         $this->numbering = $numbering;
         return $this;
+    }
+
+    /**
+     * @return XMapContentSummariesEntity
+     */
+    public function getSummaries()
+    {
+        return $this->summaries;
+    }
+
+    /**
+     * @param XMapContentSummariesEntity $summaries
+     */
+    public function setSummaries($summaries)
+    {
+        $this->summaries = $summaries;
     }
 
     /**

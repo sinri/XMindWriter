@@ -46,7 +46,7 @@ class XMapContentChildrenOfTopicsEntity extends XMapNodeEntity
      * @return XMapContentChildrenOfTopicsEntity
      */
     public function addTopicsEntity($topicsEntity){
-        $this->topicsList[]=$topicsEntity;
+        $this->topicsList[$topicsEntity->getAttrType()] = $topicsEntity;
         return $this;
     }
 

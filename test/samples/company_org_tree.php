@@ -36,8 +36,20 @@ $mainTopic->addChildTopicToTopics($topicMarketing);
 
 $topicHiring=new XMapContentTopicEntity("Topic-1-1","Hiring");
 $topicAdmin=new XMapContentTopicEntity("Topic-1-2","Admin");
+$topicHRBP1 = new XMapContentTopicEntity("Topic-1-3", "HRBP-1");
+$topicHRBP2 = new XMapContentTopicEntity("Topic-1-4", "HRBP-2");
 $topicHR->addChildTopicToTopics($topicHiring);
 $topicHR->addChildTopicToTopics($topicAdmin);
+$topicHR->addChildTopicToTopics($topicHRBP1);
+$topicHR->addChildTopicToTopics($topicHRBP2);
+
+$summaries = (new \sinri\XMindWriter\XMapContent\XMapContentSummariesEntity());
+$summaryTopicHRBP = new XMapContentTopicEntity("Summary-Topic-HRBP", "Summary-Topic-HRBP");
+$topicHR->addChildTopicToTopics($summaryTopicHRBP, \sinri\XMindWriter\XMapContent\XMapContentTopicsEntity::ATTR_TYPE_SUMMARY);
+$summaries->addSummaryEntity((new \sinri\XMindWriter\XMapContent\XMapContentSummaryEntity("Summary-HRBP", 2, 3, "Summary-Topic-HRBP")));
+
+$topicHR->setSummaries($summaries);
+
 {
     $notesForFinance = new XMapContentNotesEntity();
     $notesForFinance->setPlain(new XMapContentPlainNoteEntity("It is a plain note for finance"));
