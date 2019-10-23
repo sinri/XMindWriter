@@ -34,8 +34,7 @@ class XMapContentSheetEntity extends XMapNodeEntity
      */
     protected $relationships;
     /**
-     * @var ? [0,1] the legend of this sheet
-     * @todo
+     * @var XMapContentLegendEntity [0,1] the legend of this sheet
      */
     protected $legend;
 
@@ -100,7 +99,7 @@ class XMapContentSheetEntity extends XMapNodeEntity
     }
 
     /**
-     * @return mixed
+     * @return XMapContentLegendEntity
      */
     public function getLegend()
     {
@@ -108,7 +107,7 @@ class XMapContentSheetEntity extends XMapNodeEntity
     }
 
     /**
-     * @param ? $legend
+     * @param XMapContentLegendEntity $legend
      * @return XMapContentSheetEntity
      */
     public function setLegend($legend)
