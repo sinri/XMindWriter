@@ -94,8 +94,7 @@ class XMapContentTopicEntity extends XMapNodeEntity
      */
     protected $summaries;
     /**
-     * @var ? [0,1] the container of extensions of this topic
-     * @todo
+     * @var XMapContentResourceRefsEntity [0,1] the container of extensions of this topic
      */
     protected $extensions;
 
@@ -406,6 +405,24 @@ class XMapContentTopicEntity extends XMapNodeEntity
     public function setBoundaries($boundaries)
     {
         $this->boundaries = $boundaries;
+        return $this;
+    }
+
+    /**
+     * @return XMapContentResourceRefsEntity
+     */
+    public function getExtensions()
+    {
+        return $this->extensions;
+    }
+
+    /**
+     * @param XMapContentResourceRefsEntity $extensions
+     * @return XMapContentTopicEntity
+     */
+    public function setExtensions($extensions)
+    {
+        $this->extensions = $extensions;
         return $this;
     }
 
