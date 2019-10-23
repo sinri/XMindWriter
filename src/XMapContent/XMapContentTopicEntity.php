@@ -86,8 +86,7 @@ class XMapContentTopicEntity extends XMapNodeEntity
      */
     protected $labels;
     /**
-     * @var ? [0,1] the container of boundaries of this topic
-     * @todo
+     * @var XMapContentBoundariesEntity [0,1] the container of boundaries of this topic
      */
     protected $boundaries;
     /**
@@ -389,6 +388,24 @@ class XMapContentTopicEntity extends XMapNodeEntity
     public function setLabels($labels)
     {
         $this->labels = $labels;
+        return $this;
+    }
+
+    /**
+     * @return XMapContentBoundariesEntity
+     */
+    public function getBoundaries()
+    {
+        return $this->boundaries;
+    }
+
+    /**
+     * @param XMapContentBoundariesEntity $boundaries
+     * @return XMapContentTopicEntity
+     */
+    public function setBoundaries($boundaries)
+    {
+        $this->boundaries = $boundaries;
         return $this;
     }
 
