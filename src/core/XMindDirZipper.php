@@ -44,19 +44,22 @@ class XMindDirZipper
      */
     protected $markerSheetEntity;
 
-    public function __construct($workspace, $target)
+    public function __construct($workspace)
     {
         $this->workspace = $workspace;
-        $this->targetXMindFile = $target;
+
 
         if (!file_exists($this->workspace)) @mkdir($workspace, 0777, true);
     }
 
     /**
+     * @param string $target
      * @throws Exception
      */
-    public function buildXMind()
+    public function buildXMind($target)
     {
+        $this->targetXMindFile = $target;
+
         // generate XML files
         $this->contentEntity->generateXMLToFile($this->workspace . DIRECTORY_SEPARATOR . 'content.xml');
         $this->manifestEntity->generateXMLToFile($this->workspace . DIRECTORY_SEPARATOR . 'META-INF' . DIRECTORY_SEPARATOR . 'manifest.xml');

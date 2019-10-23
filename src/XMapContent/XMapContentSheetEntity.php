@@ -38,6 +38,11 @@ class XMapContentSheetEntity extends XMapNodeEntity
      */
     protected $legend;
 
+    /**
+     * XMapContentSheetEntity constructor.
+     * @param string $id
+     * @param string|null $titleText
+     */
     public function __construct($id,$titleText=null)
     {
         $this->attrId=$id;

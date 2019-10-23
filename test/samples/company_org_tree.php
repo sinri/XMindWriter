@@ -132,9 +132,9 @@ $meta = (new \sinri\XMindWriter\XMetaInfo\XMetaEntity())
     ->setCreatorName("sinri-xmind-writer");
 
 
-(new XMindDirZipper($srcOutputDir, $xmindFile))
+(new XMindDirZipper($srcOutputDir))
     ->setContentEntity($XMapContentInstance)
     ->setManifestEntity($manifest)
     ->setStylesEntity($stylesInstance)
     ->setMetaEntity($meta)
-    ->buildXMind();
+    ->buildXMind($xmindFile);
