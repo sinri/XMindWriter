@@ -14,6 +14,34 @@ class XMapNormalStylesEntity extends XMapNodeEntity
      */
     protected $styleList;
 
+    /**
+     * @return XMapStyleEntity[]
+     */
+    public function getStyleList()
+    {
+        return $this->styleList;
+    }
+
+    /**
+     * @param XMapStyleEntity[] $styleList
+     * @return XMapNormalStylesEntity
+     */
+    public function setStyleList($styleList)
+    {
+        $this->styleList = $styleList;
+        return $this;
+    }
+
+    /**
+     * @param XMapStyleEntity $styleEntity
+     * @return $this
+     */
+    public function addStyleEntity($styleEntity)
+    {
+        $this->styleList[] = $styleEntity;
+        return $this;
+    }
+
     protected function nodeTag()
     {
         return "styles";
