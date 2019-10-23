@@ -77,9 +77,21 @@ $topicIT->addChildTopicToTopics($topicSupport);
     $notesForSupport->setHtml($notesForSupportHtmlNote);
     $topicSupport->setNotes($notesForSupport);
 }
-//$topicIT->setAttrBranch(XMapContentTopicEntity::BRANCH_FOLDED);
 $topicIT->setChildrenFolded(true);
-
+{
+    // Could not be validated in ZEN trail version
+    $image = (new \sinri\XMindWriter\XMapContent\XMapContentImageEntity())
+        ->setAttrXHtmlSrc("https://www.leqee.com/leqee_new/img/logo_leqee.png")
+        ->setAttrAlign(\sinri\XMindWriter\XMapContent\XMapContentImageEntity::ALIGN_BOTTOM);
+    $topicProduct->setImage($image);
+}
+{
+    $topicProduct->setLabels(
+        (new \sinri\XMindWriter\XMapContent\XMapContentLabelsEntity())
+            ->addLabelWithText("Wang")
+            ->addLabelWithText("Miao")
+    );
+}
 $manifest = (new XManifestEntity())
     ->addFileEntry("content.xml", "text/xml")
     ->addFileEntry("META-INF/", "")

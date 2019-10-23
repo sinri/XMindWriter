@@ -40,8 +40,7 @@ class XMapContentTopicEntity extends XMapNodeEntity
      */
     protected $title;
     /**
-     * @var ? [0,1] the image of this topic
-     * @todo
+     * @var XMapContentImageEntity [0,1] the image of this topic
      */
     protected $image;
     /**
@@ -53,8 +52,7 @@ class XMapContentTopicEntity extends XMapNodeEntity
      */
     protected $position;
     /**
-     * @var ?  [0,1] the numbering information of this topic's subtopics
-     * @todo
+     * @var XMapContentNumberingEntity [0,1] the numbering information of this topic's subtopics
      */
     protected $numbering;
     /**
@@ -63,7 +61,6 @@ class XMapContentTopicEntity extends XMapNodeEntity
     protected $children;
     /**
      * @var XMapContentMarkerRefsEntity $marker -refs: [0,1] the container of marker references from this topic
-     * @todo
      */
     protected $markerRefs;
 
@@ -85,8 +82,7 @@ class XMapContentTopicEntity extends XMapNodeEntity
         return $this;
     }
     /**
-     * @var ? [0,1] the container of labels of this topic
-     * @todo
+     * @var XMapContentLabelsEntity [0,1] the container of labels of this topic
      */
     protected $labels;
     /**
@@ -95,8 +91,7 @@ class XMapContentTopicEntity extends XMapNodeEntity
      */
     protected $boundaries;
     /**
-     * @var ? [0,1] the container of summaries of this topic
-     * @todo
+     * @var XMapContentSummariesEntity [0,1] the container of summaries of this topic
      */
     protected $summaries;
     /**
@@ -359,6 +354,42 @@ class XMapContentTopicEntity extends XMapNodeEntity
     public function setSummaries($summaries)
     {
         $this->summaries = $summaries;
+    }
+
+    /**
+     * @param XMapContentImageEntity $image
+     * @return XMapContentTopicEntity
+     */
+    public function setImage($image)
+    {
+        $this->image = $image;
+        return $this;
+    }
+
+    /**
+     * @return XMapContentImageEntity
+     */
+    public function getImage()
+    {
+        return $this->image;
+    }
+
+    /**
+     * @return XMapContentLabelsEntity
+     */
+    public function getLabels()
+    {
+        return $this->labels;
+    }
+
+    /**
+     * @param XMapContentLabelsEntity $labels
+     * @return XMapContentTopicEntity
+     */
+    public function setLabels($labels)
+    {
+        $this->labels = $labels;
+        return $this;
     }
 
     /**
