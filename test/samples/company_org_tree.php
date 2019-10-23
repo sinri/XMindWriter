@@ -9,7 +9,10 @@ use sinri\XMindWriter\XMapContent\XMapContentHtmlSpanEntity;
 use sinri\XMindWriter\XMapContent\XMapContentNotesEntity;
 use sinri\XMindWriter\XMapContent\XMapContentPlainNoteEntity;
 use sinri\XMindWriter\XMapContent\XMapContentSheetEntity;
+use sinri\XMindWriter\XMapContent\XMapContentSummariesEntity;
+use sinri\XMindWriter\XMapContent\XMapContentSummaryEntity;
 use sinri\XMindWriter\XMapContent\XMapContentTopicEntity;
+use sinri\XMindWriter\XMapContent\XMapContentTopicsEntity;
 use sinri\XMindWriter\XMetaInfo\XManifestEntity;
 
 require_once __DIR__ . '/../../vendor/autoload.php';
@@ -43,10 +46,10 @@ $topicHR->addChildTopicToTopics($topicAdmin);
 $topicHR->addChildTopicToTopics($topicHRBP1);
 $topicHR->addChildTopicToTopics($topicHRBP2);
 
-$summaries = (new \sinri\XMindWriter\XMapContent\XMapContentSummariesEntity());
+$summaries = (new XMapContentSummariesEntity());
 $summaryTopicHRBP = new XMapContentTopicEntity("Summary-Topic-HRBP", "Summary-Topic-HRBP");
-$topicHR->addChildTopicToTopics($summaryTopicHRBP, \sinri\XMindWriter\XMapContent\XMapContentTopicsEntity::ATTR_TYPE_SUMMARY);
-$summaries->addSummaryEntity((new \sinri\XMindWriter\XMapContent\XMapContentSummaryEntity("Summary-HRBP", 2, 3, "Summary-Topic-HRBP")));
+$topicHR->addChildTopicToTopics($summaryTopicHRBP, XMapContentTopicsEntity::ATTR_TYPE_SUMMARY);
+$summaries->addSummaryEntity((new XMapContentSummaryEntity("Summary-HRBP", 2, 3, "Summary-Topic-HRBP")));
 
 $topicHR->setSummaries($summaries);
 

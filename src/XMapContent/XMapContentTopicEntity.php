@@ -62,10 +62,28 @@ class XMapContentTopicEntity extends XMapNodeEntity
      */
     protected $children;
     /**
-     * @var ? $marker-refs: [0,1] the container of marker references from this topic
+     * @var XMapContentMarkerRefsEntity $marker -refs: [0,1] the container of marker references from this topic
      * @todo
      */
     protected $markerRefs;
+
+    /**
+     * @return XMapContentMarkerRefsEntity
+     */
+    public function getMarkerRefs()
+    {
+        return $this->markerRefs;
+    }
+
+    /**
+     * @param XMapContentMarkerRefsEntity $markerRefs
+     * @return XMapContentTopicEntity
+     */
+    public function setMarkerRefs($markerRefs)
+    {
+        $this->markerRefs = $markerRefs;
+        return $this;
+    }
     /**
      * @var ? [0,1] the container of labels of this topic
      * @todo
