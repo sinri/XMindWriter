@@ -8,6 +8,7 @@ use Exception;
 use sinri\XMindWriter\XMapContent\XMapContentEntity;
 use sinri\XMindWriter\XMapStyles\XMapStylesEntity;
 use sinri\XMindWriter\XMetaInfo\XManifestEntity;
+use sinri\XMindWriter\XMetaInfo\XMetaEntity;
 use ZipArchive;
 
 class XMindDirZipper
@@ -33,6 +34,10 @@ class XMindDirZipper
      * @var XMapStylesEntity
      */
     protected $stylesEntity;
+    /**
+     * @var XMetaEntity
+     */
+    protected $metaEntity;
 
     public function __construct($workspace, $target)
     {
@@ -54,6 +59,9 @@ class XMindDirZipper
         // more XML files
         if ($this->stylesEntity !== null) {
             $this->stylesEntity->generateXMLToFile($this->workspace . DIRECTORY_SEPARATOR . 'styles.xml');
+        }
+        if ($this->metaEntity !== null) {
+            $this->metaEntity->generateXMLToFile($this->workspace . DIRECTORY_SEPARATOR . 'meta.xml');
         }
 
         // generate ZIP file
@@ -105,6 +113,16 @@ class XMindDirZipper
     public function setStylesEntity($stylesEntity)
     {
         $this->stylesEntity = $stylesEntity;
+        return $this;
+    }
+
+    /**
+     * @param XMetaEntity $metaEntity
+     * @return XMindDirZipper
+     */
+    public function setMetaEntity($metaEntity)
+    {
+        $this->metaEntity = $metaEntity;
         return $this;
     }
 }

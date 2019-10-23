@@ -15,6 +15,9 @@ use sinri\XMindWriter\XMapContent\XMapContentSummariesEntity;
 use sinri\XMindWriter\XMapContent\XMapContentSummaryEntity;
 use sinri\XMindWriter\XMapContent\XMapContentTopicEntity;
 use sinri\XMindWriter\XMapContent\XMapContentTopicsEntity;
+use sinri\XMindWriter\XMapStyles\XMapNormalStylesEntity;
+use sinri\XMindWriter\XMapStyles\XMapStyleEntity;
+use sinri\XMindWriter\XMapStyles\XMapStyleTypePropertiesEntity;
 use sinri\XMindWriter\XMetaInfo\XManifestEntity;
 
 require_once __DIR__ . '/../../vendor/autoload.php';
@@ -24,13 +27,13 @@ $xmindFile = __DIR__ . '/../../debug/sample.xmind';
 
 $stylesInstance = new sinri\XMindWriter\XMapStyles\XMapStylesEntity();
 {
-    $normalStyles = new \sinri\XMindWriter\XMapStyles\XMapNormalStylesEntity();
+    $normalStyles = new XMapNormalStylesEntity();
 
-    $properties = (new \sinri\XMindWriter\XMapStyles\XMapStyleTypePropertiesEntity(\sinri\XMindWriter\XMapStyles\XMapStyleEntity::TYPE_TOPIC));
+    $properties = (new XMapStyleTypePropertiesEntity(XMapStyleEntity::TYPE_TOPIC));
     $properties->setAttrSvgFill("#FF0000");
 
     $normalStyles->addStyleEntity(
-        (new \sinri\XMindWriter\XMapStyles\XMapStyleEntity(
+        (new XMapStyleEntity(
             "style-topic-1",
             $properties->getType(),
             "style-topic-1",
@@ -122,8 +125,16 @@ $manifest = (new XManifestEntity())
     ->addFileEntry("META-INF/", "")
     ->addFileEntry("META-INF/manifest.xml", "text/xml");
 
+$meta = (new \sinri\XMindWriter\XMetaInfo\XMetaEntity())
+    ->setAuthorName("Sinri Edogawa")
+    ->setAuthorEmail("a@b.c")
+    ->setCreateTime(date("Y-m-d H:i:s"))
+    ->setCreatorName("sinri-xmind-writer");
+
+
 (new XMindDirZipper($srcOutputDir, $xmindFile))
     ->setContentEntity($XMapContentInstance)
     ->setManifestEntity($manifest)
     ->setStylesEntity($stylesInstance)
+    ->setMetaEntity($meta)
     ->buildXMind();

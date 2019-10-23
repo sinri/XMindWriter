@@ -78,7 +78,7 @@ class XMapContentEntity extends XMapNodeEntity
     protected function writeThisNode($xmlWriter)
     {
         $xmlWriter->startElement($this->nodeTag());
-        $xmlWriter->writeAttribute('xmlns',"urn:xmind:xmap:xmlns:content:".$this->attrVersion);
+        $xmlWriter->writeAttribute('xmlns', "urn:xmind:xmap:xmlns:content:2.0");
         $xmlWriter->writeAttribute('version',$this->attrVersion);
 
         foreach ($this->sheetList as $sheetEntity){

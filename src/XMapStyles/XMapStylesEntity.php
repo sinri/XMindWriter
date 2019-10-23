@@ -116,7 +116,7 @@ class XMapStylesEntity extends XMapNodeEntity
     {
         $xmlWriter->startElement($this->nodeTag());
 
-        $xmlWriter->writeAttribute("xmlns","urn:xmind:xmap:xmlns:style:".$this->attrVersion);
+        $xmlWriter->writeAttribute("xmlns", "urn:xmind:xmap:xmlns:style:2.0");
         $xmlWriter->writeAttribute("xmlns:fo","http://www.w3.org/1999/XSL/Format");
         $xmlWriter->writeAttribute("xmlns:svg","http://www.w3.org/2000/svg");
         $xmlWriter->writeAttribute("version",$this->attrVersion);
