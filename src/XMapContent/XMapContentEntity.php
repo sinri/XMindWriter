@@ -73,7 +73,6 @@ class XMapContentEntity extends XMapNodeEntity
 
     /**
      * @param XMLWriter $xmlWriter
-     * @return mixed
      */
     protected function writeThisNode($xmlWriter)
     {
@@ -82,7 +81,6 @@ class XMapContentEntity extends XMapNodeEntity
         $xmlWriter->writeAttribute('version',$this->attrVersion);
 
         foreach ($this->sheetList as $sheetEntity){
-//            $sheetEntity->writeThisNode($xmlWriter);
             self::writeThatNode($xmlWriter,$sheetEntity);
         }
 

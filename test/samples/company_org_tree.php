@@ -19,6 +19,7 @@ use sinri\XMindWriter\XMapStyles\XMapNormalStylesEntity;
 use sinri\XMindWriter\XMapStyles\XMapStyleEntity;
 use sinri\XMindWriter\XMapStyles\XMapStyleTypePropertiesEntity;
 use sinri\XMindWriter\XMetaInfo\XManifestEntity;
+use sinri\XMindWriter\XMetaInfo\XMetaEntity;
 
 require_once __DIR__ . '/../../vendor/autoload.php';
 
@@ -125,7 +126,7 @@ $manifest = (new XManifestEntity())
     ->addFileEntry("META-INF/", "")
     ->addFileEntry("META-INF/manifest.xml", "text/xml");
 
-$meta = (new \sinri\XMindWriter\XMetaInfo\XMetaEntity())
+$meta = (new XMetaEntity())
     ->setAuthorName("Sinri Edogawa")
     ->setAuthorEmail("a@b.c")
     ->setCreateTime(date("Y-m-d H:i:s"))
