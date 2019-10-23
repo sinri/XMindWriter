@@ -6,6 +6,8 @@ use sinri\XMindWriter\XMapContent\XMapContentHtmlAnchorEntity;
 use sinri\XMindWriter\XMapContent\XMapContentHtmlNoteEntity;
 use sinri\XMindWriter\XMapContent\XMapContentHtmlParagraphEntity;
 use sinri\XMindWriter\XMapContent\XMapContentHtmlSpanEntity;
+use sinri\XMindWriter\XMapContent\XMapContentImageEntity;
+use sinri\XMindWriter\XMapContent\XMapContentLabelsEntity;
 use sinri\XMindWriter\XMapContent\XMapContentNotesEntity;
 use sinri\XMindWriter\XMapContent\XMapContentPlainNoteEntity;
 use sinri\XMindWriter\XMapContent\XMapContentSheetEntity;
@@ -80,14 +82,14 @@ $topicIT->addChildTopicToTopics($topicSupport);
 $topicIT->setChildrenFolded(true);
 {
     // Could not be validated in ZEN trail version
-    $image = (new \sinri\XMindWriter\XMapContent\XMapContentImageEntity())
+    $image = (new XMapContentImageEntity())
         ->setAttrXHtmlSrc("https://www.leqee.com/leqee_new/img/logo_leqee.png")
-        ->setAttrAlign(\sinri\XMindWriter\XMapContent\XMapContentImageEntity::ALIGN_BOTTOM);
+        ->setAttrAlign(XMapContentImageEntity::ALIGN_BOTTOM);
     $topicProduct->setImage($image);
 }
 {
     $topicProduct->setLabels(
-        (new \sinri\XMindWriter\XMapContent\XMapContentLabelsEntity())
+        (new XMapContentLabelsEntity())
             ->addLabelWithText("Wang")
             ->addLabelWithText("Miao")
     );
