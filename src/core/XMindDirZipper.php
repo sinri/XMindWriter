@@ -7,6 +7,7 @@ namespace sinri\XMindWriter\core;
 use Exception;
 use sinri\XMindWriter\XMapContent\XMapContentEntity;
 use sinri\XMindWriter\XMapStyles\XMapStylesEntity;
+use sinri\XMindWriter\XMarker\XMarkerSheetEntity;
 use sinri\XMindWriter\XMetaInfo\XManifestEntity;
 use sinri\XMindWriter\XMetaInfo\XMetaEntity;
 use ZipArchive;
@@ -38,6 +39,10 @@ class XMindDirZipper
      * @var XMetaEntity
      */
     protected $metaEntity;
+    /**
+     * @var XMarkerSheetEntity
+     */
+    protected $markerSheetEntity;
 
     public function __construct($workspace, $target)
     {
@@ -63,6 +68,9 @@ class XMindDirZipper
         if ($this->metaEntity !== null) {
             $this->metaEntity->generateXMLToFile($this->workspace . DIRECTORY_SEPARATOR . 'meta.xml');
         }
+        if ($this->markerSheetEntity !== null) {
+            $this->markerSheetEntity->generateXMLToFile($this->workspace . DIRECTORY_SEPARATOR . 'markers' . DIRECTORY_SEPARATOR . 'markerSheet.xml');
+        }
 
         // generate ZIP file
         $rootDir = realpath($this->workspace) . DIRECTORY_SEPARATOR;
@@ -83,6 +91,15 @@ class XMindDirZipper
             echo $item.PHP_EOL;
             $zip->addFile($item,substr($item,strlen($rootDir)));
         }
+
+        if ($this->markerSheetEntity !== null) {
+            $list = glob($rootDir . 'markers' . DIRECTORY_SEPARATOR . '*');
+            if ($list) foreach ($list as $item) {
+                echo $item . PHP_EOL;
+                $zip->addFile($item, substr($item, strlen($rootDir)));
+            }
+        }
+
         $zip->close();
     }
 
@@ -123,6 +140,16 @@ class XMindDirZipper
     public function setMetaEntity($metaEntity)
     {
         $this->metaEntity = $metaEntity;
+        return $this;
+    }
+
+    /**
+     * @param XMarkerSheetEntity $markerSheetEntity
+     * @return XMindDirZipper
+     */
+    public function setMarkerSheetEntity($markerSheetEntity)
+    {
+        $this->markerSheetEntity = $markerSheetEntity;
         return $this;
     }
 }
