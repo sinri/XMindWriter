@@ -171,7 +171,7 @@ class XMapContentHtmlParagraphEntity extends XMapNodeEntity
 
     protected function nodeTag()
     {
-//        return "xhtml:p";
-        return "p";
+        return "xhtml:p";
+//        return "p";
     }
 }

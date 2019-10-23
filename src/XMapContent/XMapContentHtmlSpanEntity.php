@@ -74,7 +74,7 @@ class XMapContentHtmlSpanEntity extends XMapNodeEntity
 
     protected function nodeTag()
     {
-//        return "xhtml:span";
-        return "span";
+        return "xhtml:span";
+//        return "span";
     }
 }

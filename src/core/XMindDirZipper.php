@@ -100,7 +100,40 @@ class XMindDirZipper
             }
         }
 
+        $thumbnailsDir = $rootDir . 'Thumbnails';
+        if (file_exists($thumbnailsDir) && is_dir($thumbnailsDir)) {
+            $list = glob($thumbnailsDir . DIRECTORY_SEPARATOR . '*');
+            if ($list) foreach ($list as $item) {
+                echo $item . PHP_EOL;
+                $zip->addFile($item, substr($item, strlen($rootDir)));
+            }
+        }
+
+        $attachmentsDir = $rootDir . 'attachments';
+        if (file_exists($attachmentsDir) && is_dir($attachmentsDir)) {
+            $list = [];
+            $this->fetchFolderChildrenAsList($rootDir, $attachmentsDir, $list);
+            if ($list) foreach ($list as $item) {
+                echo $item . PHP_EOL;
+                $zip->addFile($item, substr($item, strlen($rootDir)));
+            }
+        }
+
         $zip->close();
+    }
+
+    protected function fetchFolderChildrenAsList($rootDir, $parent, &$items)
+    {
+        $list = glob($parent . DIRECTORY_SEPARATOR . '*');
+        if (!empty($list)) {
+            foreach ($list as $item) {
+                if (is_dir($item)) {
+                    $this->fetchFolderChildrenAsList($rootDir, $item, $items);
+                } else {
+                    $items[] = $item;
+                }
+            }
+        }
     }
 
     /**

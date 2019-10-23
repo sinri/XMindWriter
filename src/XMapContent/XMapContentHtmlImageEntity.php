@@ -50,7 +50,7 @@ class XMapContentHtmlImageEntity extends XMapNodeEntity
 
     protected function nodeTag()
     {
-//        return "xhtml:img";
-        return "img";
+        return "xhtml:img";
+//        return "img";
     }
 }

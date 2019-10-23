@@ -96,8 +96,8 @@ class XMapContentHtmlAnchorEntity extends XMapNodeEntity
         $xmlWriter->startElement($this->nodeTag());
 
         if ($this->attrXLinkHref !== null) {
-//            $xmlWriter->writeAttribute("xlink:href",$this->attrXLinkHref);
-            $xmlWriter->writeAttribute("href", $this->attrXLinkHref);
+            $xmlWriter->writeAttribute("xlink:href", $this->attrXLinkHref);
+//            $xmlWriter->writeAttribute("href", $this->attrXLinkHref);
         }
 
         if ($this->xHtmlSpanList !== null) {
@@ -113,7 +113,7 @@ class XMapContentHtmlAnchorEntity extends XMapNodeEntity
 
     protected function nodeTag()
     {
-//        return 'xhtml:a';
-        return "a";
+        return 'xhtml:a';
+//        return "a";
     }
 }
