@@ -8,6 +8,8 @@ use Exception;
 use sinri\XMindWriter\core\XMindDirZipper;
 use sinri\XMindWriter\XMapContent\XMapContentChildrenOfTopicsEntity;
 use sinri\XMindWriter\XMapContent\XMapContentEntity;
+use sinri\XMindWriter\XMapContent\XMapContentRelationshipEntity;
+use sinri\XMindWriter\XMapContent\XMapContentRelationshipsEntity;
 use sinri\XMindWriter\XMapContent\XMapContentSheetEntity;
 use sinri\XMindWriter\XMapContent\XMapContentTopicEntity;
 use sinri\XMindWriter\XMapContent\XMapContentTopicsEntity;
@@ -21,13 +23,23 @@ class StaticTreeXMindWriter
      */
     protected $tree;
     /**
+     * @var StaticTreeNode[]
+     */
+    protected $floatingNodes;
+    /**
+     * @var StaticTreeNodeRelationship[]
+     */
+    protected $relationships;
+    /**
      * @var XMindDirZipper
      */
     protected $zipper;
 
-    public function __construct($tree, $workspace)
+    public function __construct($tree, $floatingNodes, $relationships, $workspace)
     {
         $this->tree = $tree;
+        $this->floatingNodes = $floatingNodes;
+        $this->relationships = $relationships;
         $this->zipper = new XMindDirZipper($workspace);
     }
 
@@ -44,7 +56,11 @@ class StaticTreeXMindWriter
 
         $this->zipper->setContentEntity($contentEntity);
 
-        $this->appendChildren($rootTopic, $this->tree->children);
+        $this->appendChildren($rootTopic, $this->tree->children, XMapContentTopicsEntity::ATTR_TYPE_ATTACHED);
+
+        $this->appendChildren($rootTopic, $this->floatingNodes, XMapContentTopicsEntity::ATTR_TYPE_DETACHED);
+
+        $this->appendRelationships($contentSheetEntity, $this->relationships);
 
         return $this;
     }
@@ -52,23 +68,50 @@ class StaticTreeXMindWriter
     /**
      * @param XMapContentTopicEntity $parentTopic
      * @param StaticTreeNode[] $children
+     * @param string $type
      */
-    protected function appendChildren($parentTopic, $children)
+    protected function appendChildren($parentTopic, $children, $type)
     {
         if (empty($children)) return;
 
-        $topicsEntity = (new XMapContentTopicsEntity(XMapContentTopicsEntity::ATTR_TYPE_ATTACHED));
-
-        $childrenEntity = new XMapContentChildrenOfTopicsEntity();
-        $childrenEntity->addTopicsEntity($topicsEntity);
-        $parentTopic->setChildren($childrenEntity);
+        $childrenEntity = $parentTopic->getChildren();
+        if ($childrenEntity === null) {
+            $childrenEntity = new XMapContentChildrenOfTopicsEntity();
+            $parentTopic->setChildren($childrenEntity);
+        }
+        $topicsEntity = isset($childrenEntity->getTopicsList()[$type]) ? $childrenEntity->getTopicsList()[$type] : null;
+        if ($topicsEntity === null) {
+            $topicsEntity = (new XMapContentTopicsEntity($type));
+            $childrenEntity->addTopicsEntity($topicsEntity);
+        }
 
         foreach ($children as $child) {
             $topicEntity = (new XMapContentTopicEntity($child->id, $child->title))
                 ->setChildrenFolded($child->isBranchFolded);
             $topicsEntity->addTopicEntity($topicEntity);
 
-            $this->appendChildren($topicEntity, $child->children);
+            $this->appendChildren($topicEntity, $child->children, $type);
+        }
+    }
+
+    /**
+     * @param XMapContentSheetEntity $sheetEntity
+     * @param StaticTreeNodeRelationship[] $relationships
+     */
+    protected function appendRelationships($sheetEntity, $relationships)
+    {
+        $relationshipsEntity = new XMapContentRelationshipsEntity();
+        $sheetEntity->setRelationships($relationshipsEntity);
+
+        foreach ($relationships as $relationshipItem) {
+            $relationshipsEntity->addRelationshipEntity(
+                new XMapContentRelationshipEntity(
+                    $relationshipItem->id,
+                    $relationshipItem->title,
+                    $relationshipItem->startNodeId,
+                    $relationshipItem->endNodeId
+                )
+            );
         }
     }
 

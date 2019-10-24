@@ -5,6 +5,7 @@
  */
 
 use sinri\XMindWriter\tools\StaticTreeNode;
+use sinri\XMindWriter\tools\StaticTreeNodeRelationship;
 use sinri\XMindWriter\tools\StaticTreeXMindWriter;
 
 require_once __DIR__ . '/../../vendor/autoload.php';
@@ -26,8 +27,16 @@ for ($i = 0; $i < 100; $i++) {
     if (2 * $i + 2 <= 100) $nodes[$i]->children[] = $nodes[2 * $i + 2];
 }
 
+$floatingNodes = [];
+$floatingNodes[] = new StaticTreeNode('Point-A', "Point A");
 
-(new StaticTreeXMindWriter($nodes[0], $srcOutputDir))
+$relationships = [];
+for ($i = 1; $i < 90; $i += 7) {
+    $relationships[] = new StaticTreeNodeRelationship("R-" . $i, "R-" . $i, 'Point-A', $nodes[$i]->id);
+}
+
+
+(new StaticTreeXMindWriter($nodes[0], $floatingNodes, $relationships, $srcOutputDir))
     ->buildContent("Static Tree Sample")
     ->buildMeta("Tester", "no-reply@xmind.cc")
     ->archiveXMindFile($xmindFile);
