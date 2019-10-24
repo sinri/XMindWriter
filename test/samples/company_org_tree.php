@@ -121,10 +121,7 @@ $XMapContentInstance = new XMapContentEntity();
     }
 }
 
-$manifest = (new XManifestEntity())
-    ->addFileEntry("content.xml", "text/xml")
-    ->addFileEntry("META-INF/", "")
-    ->addFileEntry("META-INF/manifest.xml", "text/xml");
+$manifest = (new XManifestEntity());
 
 $meta = (new XMetaEntity())
     ->setAuthorName("Sinri Edogawa")

@@ -72,20 +72,18 @@ class StaticTreeXMindWriter
         }
     }
 
-    public function buildMeta($authorName = null, $authEmail = null)
+    public function buildMeta($authorName = null, $authEmail = null, $creator = null)
     {
-        $manifest = (new XManifestEntity())
-            ->addFileEntry("content.xml", "text/xml")
-            ->addFileEntry("META-INF/", "")
-            ->addFileEntry("META-INF/manifest.xml", "text/xml");
-        $this->zipper->setManifestEntity($manifest);
-
         $meta = (new XMetaEntity())
             ->setAuthorName($authorName)
             ->setAuthorEmail($authEmail)
             ->setCreateTime(date("Y-m-d H:i:s"))
-            ->setCreatorName(__CLASS__);
+            ->setCreatorName($creator);
         $this->zipper->setMetaEntity($meta);
+
+        $manifest = (new XManifestEntity())
+            ->addFileEntry("meta.xml", "text/xml");
+        $this->zipper->setManifestEntity($manifest);
 
         return $this;
     }

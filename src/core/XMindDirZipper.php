@@ -49,7 +49,18 @@ class XMindDirZipper
         $this->workspace = $workspace;
 
 
-        if (!file_exists($this->workspace)) @mkdir($workspace, 0777, true);
+        if (!file_exists($this->workspace)) {
+            @mkdir($workspace, 0777, true);
+            if (!file_exists($this->workspace . DIRECTORY_SEPARATOR . 'META-INF')) {
+                @mkdir($workspace . DIRECTORY_SEPARATOR . 'META-INF', 0777, true);
+            }
+            if (!file_exists($this->workspace . DIRECTORY_SEPARATOR . 'attachments')) {
+                @mkdir($workspace . DIRECTORY_SEPARATOR . 'attachments', 0777, true);
+            }
+            if (!file_exists($this->workspace . DIRECTORY_SEPARATOR . 'Thumbnails')) {
+                @mkdir($workspace . DIRECTORY_SEPARATOR . 'Thumbnails', 0777, true);
+            }
+        }
     }
 
     /**
@@ -85,20 +96,20 @@ class XMindDirZipper
         $list=glob($rootDir.'*');
         if($list)foreach ($list as $item) {
             if(is_dir($item))continue;
-            echo $item.PHP_EOL;
+            //echo $item.PHP_EOL;
             $zip->addFile($item,substr($item,strlen($rootDir)));
         }
         $zip->addEmptyDir("META-INF");
         $list=glob($rootDir.'META-INF'.DIRECTORY_SEPARATOR.'*');
         if($list)foreach ($list as $item) {
-            echo $item.PHP_EOL;
+            //echo $item.PHP_EOL;
             $zip->addFile($item,substr($item,strlen($rootDir)));
         }
 
         if ($this->markerSheetEntity !== null) {
             $list = glob($rootDir . 'markers' . DIRECTORY_SEPARATOR . '*');
             if ($list) foreach ($list as $item) {
-                echo $item . PHP_EOL;
+                //echo $item . PHP_EOL;
                 $zip->addFile($item, substr($item, strlen($rootDir)));
             }
         }
@@ -107,7 +118,7 @@ class XMindDirZipper
         if (file_exists($thumbnailsDir) && is_dir($thumbnailsDir)) {
             $list = glob($thumbnailsDir . DIRECTORY_SEPARATOR . '*');
             if ($list) foreach ($list as $item) {
-                echo $item . PHP_EOL;
+                //echo $item . PHP_EOL;
                 $zip->addFile($item, substr($item, strlen($rootDir)));
             }
         }
@@ -117,7 +128,7 @@ class XMindDirZipper
             $list = [];
             $this->fetchFolderChildrenAsList($rootDir, $attachmentsDir, $list);
             if ($list) foreach ($list as $item) {
-                echo $item . PHP_EOL;
+                //echo $item . PHP_EOL;
                 $zip->addFile($item, substr($item, strlen($rootDir)));
             }
         }

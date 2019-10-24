@@ -51,6 +51,11 @@ class XManifestEntity extends XMapNodeEntity
     {
         $this->attrVersion=$version;
         $this->fileEntryList=[];
+
+        // default entries
+        $this->addFileEntry("content.xml", "text/xml")
+            ->addFileEntry("META-INF/", "")
+            ->addFileEntry("META-INF/manifest.xml", "text/xml");
     }
 
     public function addFileEntryEntity($fileEntry){
