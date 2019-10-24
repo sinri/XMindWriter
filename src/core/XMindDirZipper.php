@@ -60,6 +60,9 @@ class XMindDirZipper
             if (!file_exists($this->workspace . DIRECTORY_SEPARATOR . 'Thumbnails')) {
                 @mkdir($workspace . DIRECTORY_SEPARATOR . 'Thumbnails', 0777, true);
             }
+            if (!file_exists($this->workspace . DIRECTORY_SEPARATOR . 'markers')) {
+                @mkdir($workspace . DIRECTORY_SEPARATOR . 'markers', 0777, true);
+            }
         }
     }
 
