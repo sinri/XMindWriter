@@ -12,7 +12,7 @@ class XMapContentRelationshipsEntity extends XMapNodeEntity
     /**
      * @var XMapContentRelationshipEntity[] [0,n) relationships of this sheet
      */
-    protected $relationshipList;
+    protected $relationshipList = [];
 
     /**
      * @return XMapContentRelationshipEntity[]
