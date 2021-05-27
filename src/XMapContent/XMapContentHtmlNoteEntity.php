@@ -32,7 +32,7 @@ class XMapContentHtmlNoteEntity extends XMapNodeEntity
     /**
      * @return string
      */
-    public function getXHtmlRaw()
+    public function getXHtmlRaw(): string
     {
         return $this->xHtmlRaw;
     }
@@ -41,7 +41,7 @@ class XMapContentHtmlNoteEntity extends XMapNodeEntity
      * @param string $xHtmlRaw
      * @return XMapContentHtmlNoteEntity
      */
-    public function setXHtmlRaw($xHtmlRaw)
+    public function setXHtmlRaw(string $xHtmlRaw): XMapContentHtmlNoteEntity
     {
         $this->xHtmlRaw = $xHtmlRaw;
         return $this;
@@ -51,7 +51,7 @@ class XMapContentHtmlNoteEntity extends XMapNodeEntity
      * @param XMLWriter $xmlWriter
      * @return void
      */
-    protected function writeThisNode($xmlWriter)
+    protected function writeThisNode(XMLWriter $xmlWriter)
     {
         $xmlWriter->startElement($this->nodeTag());
 
@@ -66,7 +66,7 @@ class XMapContentHtmlNoteEntity extends XMapNodeEntity
         $xmlWriter->endElement();
     }
 
-    protected function nodeTag()
+    protected function nodeTag(): string
     {
         return "html";
     }

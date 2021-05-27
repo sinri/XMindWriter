@@ -40,7 +40,7 @@ class XMapContentTitleEntity extends XMapNodeEntity
      * @param string $attrSvgWidth
      * @return XMapContentTitleEntity
      */
-    public function setAttrSvgWidth($attrSvgWidth)
+    public function setAttrSvgWidth(string $attrSvgWidth): XMapContentTitleEntity
     {
         $this->attrSvgWidth = $attrSvgWidth;
         return $this;
@@ -49,7 +49,7 @@ class XMapContentTitleEntity extends XMapNodeEntity
     /**
      * @return string
      */
-    public function getTextContent()
+    public function getTextContent(): string
     {
         return $this->textContent;
     }
@@ -58,7 +58,7 @@ class XMapContentTitleEntity extends XMapNodeEntity
      * @param string $textContent
      * @return XMapContentTitleEntity
      */
-    public function setTextContent($textContent)
+    public function setTextContent(string $textContent): XMapContentTitleEntity
     {
         $this->textContent = $textContent;
         return $this;
@@ -68,18 +68,18 @@ class XMapContentTitleEntity extends XMapNodeEntity
      * @param XMLWriter $xmlWriter
      * @return void
      */
-    protected function writeThisNode($xmlWriter)
+    protected function writeThisNode(XMLWriter $xmlWriter)
     {
         $xmlWriter->startElement($this->nodeTag());
 
-        if($this->attrSvgWidth!==null)$xmlWriter->writeAttribute('svg:width',$this->attrSvgWidth);
+        if ($this->attrSvgWidth !== null) $xmlWriter->writeAttribute('svg:width', $this->attrSvgWidth);
 
         $xmlWriter->text($this->textContent);
 
         $xmlWriter->endElement();
     }
 
-    protected function nodeTag()
+    protected function nodeTag(): string
     {
         return "title";
     }

@@ -29,7 +29,7 @@ class StaticTreeNode
      * @param string $title
      * @param boolean $isBranchFolded
      */
-    public function __construct($id, $title, $isBranchFolded = false)
+    public function __construct(string $id, string $title, bool $isBranchFolded = false)
     {
         $this->id = $id;
         $this->title = $title;

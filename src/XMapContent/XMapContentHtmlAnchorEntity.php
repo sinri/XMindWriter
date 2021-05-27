@@ -26,7 +26,7 @@ class XMapContentHtmlAnchorEntity extends XMapNodeEntity
     /**
      * @return string
      */
-    public function getAttrXLinkHref()
+    public function getAttrXLinkHref(): string
     {
         return $this->attrXLinkHref;
     }
@@ -35,7 +35,7 @@ class XMapContentHtmlAnchorEntity extends XMapNodeEntity
      * @param string $attrXLinkHref
      * @return XMapContentHtmlAnchorEntity
      */
-    public function setAttrXLinkHref($attrXLinkHref)
+    public function setAttrXLinkHref(string $attrXLinkHref): XMapContentHtmlAnchorEntity
     {
         $this->attrXLinkHref = $attrXLinkHref;
         return $this;
@@ -44,7 +44,7 @@ class XMapContentHtmlAnchorEntity extends XMapNodeEntity
     /**
      * @return XMapContentHtmlSpanEntity[]
      */
-    public function getXHtmlSpanList()
+    public function getXHtmlSpanList(): array
     {
         return $this->xHtmlSpanList;
     }
@@ -53,7 +53,7 @@ class XMapContentHtmlAnchorEntity extends XMapNodeEntity
      * @param XMapContentHtmlSpanEntity[] $xHtmlSpanList
      * @return XMapContentHtmlAnchorEntity
      */
-    public function setXHtmlSpanList($xHtmlSpanList)
+    public function setXHtmlSpanList(array $xHtmlSpanList): XMapContentHtmlAnchorEntity
     {
         $this->xHtmlSpanList = $xHtmlSpanList;
         return $this;
@@ -62,7 +62,7 @@ class XMapContentHtmlAnchorEntity extends XMapNodeEntity
     /**
      * @return string
      */
-    public function getTextContent()
+    public function getTextContent(): string
     {
         return $this->textContent;
     }
@@ -71,7 +71,7 @@ class XMapContentHtmlAnchorEntity extends XMapNodeEntity
      * @param string $textContent
      * @return XMapContentHtmlAnchorEntity
      */
-    public function setTextContent($textContent)
+    public function setTextContent(string $textContent): XMapContentHtmlAnchorEntity
     {
         $this->textContent = $textContent;
         return $this;
@@ -81,7 +81,7 @@ class XMapContentHtmlAnchorEntity extends XMapNodeEntity
      * @param XMapContentHtmlSpanEntity $span
      * @return XMapContentHtmlAnchorEntity
      */
-    public function addSpanEntity($span)
+    public function addSpanEntity(XMapContentHtmlSpanEntity $span): XMapContentHtmlAnchorEntity
     {
         $this->xHtmlSpanList[] = $span;
         return $this;
@@ -91,7 +91,7 @@ class XMapContentHtmlAnchorEntity extends XMapNodeEntity
      * @param XMLWriter $xmlWriter
      * @return void
      */
-    protected function writeThisNode($xmlWriter)
+    protected function writeThisNode(XMLWriter $xmlWriter)
     {
         $xmlWriter->startElement($this->nodeTag());
 
@@ -111,7 +111,7 @@ class XMapContentHtmlAnchorEntity extends XMapNodeEntity
         $xmlWriter->endElement();
     }
 
-    protected function nodeTag()
+    protected function nodeTag(): string
     {
         return 'xhtml:a';
 //        return "a";

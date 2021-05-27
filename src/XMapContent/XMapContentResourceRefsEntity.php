@@ -22,7 +22,7 @@ class XMapContentResourceRefsEntity extends XMapNodeEntity
     /**
      * @return XMapContentResourceRefEntity[]
      */
-    public function getResourceRefList()
+    public function getResourceRefList(): array
     {
         return $this->resourceRefList;
     }
@@ -31,7 +31,7 @@ class XMapContentResourceRefsEntity extends XMapNodeEntity
      * @param XMapContentResourceRefEntity[] $resourceRefList
      * @return XMapContentResourceRefsEntity
      */
-    public function setResourceRefList($resourceRefList)
+    public function setResourceRefList(array $resourceRefList): XMapContentResourceRefsEntity
     {
         $this->resourceRefList = $resourceRefList;
         return $this;
@@ -41,7 +41,7 @@ class XMapContentResourceRefsEntity extends XMapNodeEntity
      * @param XMLWriter $xmlWriter
      * @return void
      */
-    protected function writeThisNode($xmlWriter)
+    protected function writeThisNode(XMLWriter $xmlWriter)
     {
         $xmlWriter->startElement($this->nodeTag());
         if ($this->resourceRefList !== null) {
@@ -52,7 +52,7 @@ class XMapContentResourceRefsEntity extends XMapNodeEntity
         $xmlWriter->endElement();
     }
 
-    protected function nodeTag()
+    protected function nodeTag(): string
     {
         return "resource-refs";
     }

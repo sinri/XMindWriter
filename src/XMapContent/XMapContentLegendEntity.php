@@ -27,7 +27,7 @@ class XMapContentLegendEntity extends XMapNodeEntity
     /**
      * @return XMapContentPositionEntity
      */
-    public function getPosition()
+    public function getPosition(): XMapContentPositionEntity
     {
         return $this->position;
     }
@@ -36,7 +36,7 @@ class XMapContentLegendEntity extends XMapNodeEntity
      * @param XMapContentPositionEntity $position
      * @return XMapContentLegendEntity
      */
-    public function setPosition($position)
+    public function setPosition(XMapContentPositionEntity $position): XMapContentLegendEntity
     {
         $this->position = $position;
         return $this;
@@ -45,7 +45,7 @@ class XMapContentLegendEntity extends XMapNodeEntity
     /**
      * @return XMapContentMarkerDescriptionsEntity
      */
-    public function getMarkerDescriptions()
+    public function getMarkerDescriptions(): XMapContentMarkerDescriptionsEntity
     {
         return $this->markerDescriptions;
     }
@@ -54,7 +54,7 @@ class XMapContentLegendEntity extends XMapNodeEntity
      * @param XMapContentMarkerDescriptionsEntity $markerDescriptions
      * @return XMapContentLegendEntity
      */
-    public function setMarkerDescriptions($markerDescriptions)
+    public function setMarkerDescriptions(XMapContentMarkerDescriptionsEntity $markerDescriptions): XMapContentLegendEntity
     {
         $this->markerDescriptions = $markerDescriptions;
         return $this;
@@ -82,7 +82,7 @@ class XMapContentLegendEntity extends XMapNodeEntity
      * @param XMLWriter $xmlWriter
      * @return void
      */
-    protected function writeThisNode($xmlWriter)
+    protected function writeThisNode(XMLWriter $xmlWriter)
     {
         $xmlWriter->startElement($this->nodeTag());
         if ($this->attrVisibility !== null) {
@@ -93,7 +93,7 @@ class XMapContentLegendEntity extends XMapNodeEntity
         $xmlWriter->endElement();
     }
 
-    protected function nodeTag()
+    protected function nodeTag(): string
     {
         return "legend";
     }

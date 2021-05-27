@@ -30,7 +30,7 @@ class XMapContentResourceRefEntity extends XMapNodeEntity
     /**
      * @return string
      */
-    public function getAttrType()
+    public function getAttrType(): string
     {
         return $this->attrType;
     }
@@ -39,7 +39,7 @@ class XMapContentResourceRefEntity extends XMapNodeEntity
      * @param string $attrType
      * @return XMapContentResourceRefEntity
      */
-    public function setAttrType($attrType)
+    public function setAttrType(string $attrType): XMapContentResourceRefEntity
     {
         $this->attrType = $attrType;
         return $this;
@@ -48,7 +48,7 @@ class XMapContentResourceRefEntity extends XMapNodeEntity
     /**
      * @return string
      */
-    public function getAttrResourceId()
+    public function getAttrResourceId(): string
     {
         return $this->attrResourceId;
     }
@@ -57,7 +57,7 @@ class XMapContentResourceRefEntity extends XMapNodeEntity
      * @param string $attrResourceId
      * @return XMapContentResourceRefEntity
      */
-    public function setAttrResourceId($attrResourceId)
+    public function setAttrResourceId(string $attrResourceId): XMapContentResourceRefEntity
     {
         $this->attrResourceId = $attrResourceId;
         return $this;
@@ -67,7 +67,7 @@ class XMapContentResourceRefEntity extends XMapNodeEntity
      * @param XMLWriter $xmlWriter
      * @return void
      */
-    protected function writeThisNode($xmlWriter)
+    protected function writeThisNode(XMLWriter $xmlWriter)
     {
         $xmlWriter->startElement($this->nodeTag());
         $xmlWriter->writeAttribute("resource-id", $this->attrResourceId);
@@ -75,7 +75,7 @@ class XMapContentResourceRefEntity extends XMapNodeEntity
         $xmlWriter->endElement();
     }
 
-    protected function nodeTag()
+    protected function nodeTag(): string
     {
         return "resource-ref";
     }

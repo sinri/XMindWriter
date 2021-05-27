@@ -34,7 +34,7 @@ class XMapContentImageEntity extends XMapNodeEntity
     /**
      * @return string
      */
-    public function getAttrXHtmlSrc()
+    public function getAttrXHtmlSrc(): string
     {
         return $this->attrXHtmlSrc;
     }
@@ -43,7 +43,7 @@ class XMapContentImageEntity extends XMapNodeEntity
      * @param string $attrXHtmlSrc
      * @return XMapContentImageEntity
      */
-    public function setAttrXHtmlSrc($attrXHtmlSrc)
+    public function setAttrXHtmlSrc(string $attrXHtmlSrc): XMapContentImageEntity
     {
         $this->attrXHtmlSrc = $attrXHtmlSrc;
         return $this;
@@ -52,7 +52,7 @@ class XMapContentImageEntity extends XMapNodeEntity
     /**
      * @return string
      */
-    public function getAttrAlign()
+    public function getAttrAlign(): string
     {
         return $this->attrAlign;
     }
@@ -61,7 +61,7 @@ class XMapContentImageEntity extends XMapNodeEntity
      * @param string $attrAlign
      * @return XMapContentImageEntity
      */
-    public function setAttrAlign($attrAlign)
+    public function setAttrAlign(string $attrAlign): XMapContentImageEntity
     {
         $this->attrAlign = $attrAlign;
         return $this;
@@ -70,7 +70,7 @@ class XMapContentImageEntity extends XMapNodeEntity
     /**
      * @return int
      */
-    public function getAttrSvgHeight()
+    public function getAttrSvgHeight(): int
     {
         return $this->attrSvgHeight;
     }
@@ -79,7 +79,7 @@ class XMapContentImageEntity extends XMapNodeEntity
      * @param int $attrSvgHeight
      * @return XMapContentImageEntity
      */
-    public function setAttrSvgHeight($attrSvgHeight)
+    public function setAttrSvgHeight(int $attrSvgHeight): XMapContentImageEntity
     {
         $this->attrSvgHeight = $attrSvgHeight;
         return $this;
@@ -88,7 +88,7 @@ class XMapContentImageEntity extends XMapNodeEntity
     /**
      * @return int
      */
-    public function getAttrSvgWidth()
+    public function getAttrSvgWidth(): int
     {
         return $this->attrSvgWidth;
     }
@@ -97,7 +97,7 @@ class XMapContentImageEntity extends XMapNodeEntity
      * @param int $attrSvgWidth
      * @return XMapContentImageEntity
      */
-    public function setAttrSvgWidth($attrSvgWidth)
+    public function setAttrSvgWidth(int $attrSvgWidth): XMapContentImageEntity
     {
         $this->attrSvgWidth = $attrSvgWidth;
         return $this;
@@ -107,7 +107,7 @@ class XMapContentImageEntity extends XMapNodeEntity
      * @param XMLWriter $xmlWriter
      * @return void
      */
-    protected function writeThisNode($xmlWriter)
+    protected function writeThisNode(XMLWriter $xmlWriter)
     {
         $xmlWriter->startElement($this->nodeTag());
         $xmlWriter->writeAttribute("xhtml:src", $this->attrXHtmlSrc);
@@ -118,7 +118,7 @@ class XMapContentImageEntity extends XMapNodeEntity
         $xmlWriter->endElement();
     }
 
-    protected function nodeTag()
+    protected function nodeTag(): string
     {
         return "image";
     }

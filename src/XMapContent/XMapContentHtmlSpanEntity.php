@@ -27,7 +27,7 @@ class XMapContentHtmlSpanEntity extends XMapNodeEntity
     /**
      * @return string
      */
-    public function getTextContent()
+    public function getTextContent(): string
     {
         return $this->textContent;
     }
@@ -36,7 +36,7 @@ class XMapContentHtmlSpanEntity extends XMapNodeEntity
      * @param string $textContent
      * @return XMapContentHtmlSpanEntity
      */
-    public function setTextContent($textContent)
+    public function setTextContent(string $textContent): XMapContentHtmlSpanEntity
     {
         $this->textContent = $textContent;
         return $this;
@@ -54,7 +54,7 @@ class XMapContentHtmlSpanEntity extends XMapNodeEntity
      * @param string $attrStyleId
      * @return XMapContentHtmlSpanEntity
      */
-    public function setAttrStyleId($attrStyleId)
+    public function setAttrStyleId(string $attrStyleId): XMapContentHtmlSpanEntity
     {
         $this->attrStyleId = $attrStyleId;
         return $this;
@@ -64,7 +64,7 @@ class XMapContentHtmlSpanEntity extends XMapNodeEntity
      * @param XMLWriter $xmlWriter
      * @return void
      */
-    protected function writeThisNode($xmlWriter)
+    protected function writeThisNode(XMLWriter $xmlWriter)
     {
         $xmlWriter->startElement($this->nodeTag());
         if ($this->attrStyleId !== null) $xmlWriter->writeAttribute("style-id", $this->attrStyleId);
@@ -72,7 +72,7 @@ class XMapContentHtmlSpanEntity extends XMapNodeEntity
         $xmlWriter->endElement();
     }
 
-    protected function nodeTag()
+    protected function nodeTag(): string
     {
         return "xhtml:span";
 //        return "span";

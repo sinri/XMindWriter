@@ -18,15 +18,15 @@ class XMapContentChildrenOfTopicsEntity extends XMapNodeEntity
      * XMapContentChildrenOfTopicsEntity constructor.
      * @param XMapContentTopicsEntity[] $topicsList
      */
-    public function __construct($topicsList=[])
+    public function __construct(array $topicsList = [])
     {
-        $this->topicsList=$topicsList;
+        $this->topicsList = $topicsList;
     }
 
     /**
      * @return XMapContentTopicsEntity[]
      */
-    public function getTopicsList()
+    public function getTopicsList(): array
     {
         return $this->topicsList;
     }
@@ -35,7 +35,7 @@ class XMapContentChildrenOfTopicsEntity extends XMapNodeEntity
      * @param XMapContentTopicsEntity[] $topicsList
      * @return XMapContentChildrenOfTopicsEntity
      */
-    public function setTopicsList($topicsList)
+    public function setTopicsList(array $topicsList): XMapContentChildrenOfTopicsEntity
     {
         $this->topicsList = $topicsList;
         return $this;
@@ -45,7 +45,8 @@ class XMapContentChildrenOfTopicsEntity extends XMapNodeEntity
      * @param XMapContentTopicsEntity $topicsEntity
      * @return XMapContentChildrenOfTopicsEntity
      */
-    public function addTopicsEntity($topicsEntity){
+    public function addTopicsEntity(XMapContentTopicsEntity $topicsEntity): XMapContentChildrenOfTopicsEntity
+    {
         $this->topicsList[$topicsEntity->getAttrType()] = $topicsEntity;
         return $this;
     }
@@ -54,7 +55,7 @@ class XMapContentChildrenOfTopicsEntity extends XMapNodeEntity
      * @param XMLWriter $xmlWriter
      * @return void
      */
-    protected function writeThisNode($xmlWriter)
+    protected function writeThisNode(XMLWriter $xmlWriter)
     {
         $xmlWriter->startElement($this->nodeTag());
 
@@ -65,7 +66,7 @@ class XMapContentChildrenOfTopicsEntity extends XMapNodeEntity
         $xmlWriter->endElement();
     }
 
-    protected function nodeTag()
+    protected function nodeTag(): string
     {
         return "children";
     }

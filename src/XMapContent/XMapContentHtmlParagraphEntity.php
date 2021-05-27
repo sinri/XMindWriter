@@ -33,7 +33,7 @@ class XMapContentHtmlParagraphEntity extends XMapNodeEntity
     /**
      * @return string
      */
-    public function getAttrStyleId()
+    public function getAttrStyleId(): string
     {
         return $this->attrStyleId;
     }
@@ -42,7 +42,7 @@ class XMapContentHtmlParagraphEntity extends XMapNodeEntity
      * @param string $attrStyleId
      * @return XMapContentHtmlParagraphEntity
      */
-    public function setAttrStyleId($attrStyleId)
+    public function setAttrStyleId(string $attrStyleId): XMapContentHtmlParagraphEntity
     {
         $this->attrStyleId = $attrStyleId;
         return $this;
@@ -51,7 +51,7 @@ class XMapContentHtmlParagraphEntity extends XMapNodeEntity
     /**
      * @return XMapContentHtmlSpanEntity[]
      */
-    public function getXHtmlSpanList()
+    public function getXHtmlSpanList(): array
     {
         return $this->xHtmlSpanList;
     }
@@ -60,7 +60,7 @@ class XMapContentHtmlParagraphEntity extends XMapNodeEntity
      * @param XMapContentHtmlSpanEntity[] $xHtmlSpanList
      * @return XMapContentHtmlParagraphEntity
      */
-    public function setXHtmlSpanList($xHtmlSpanList)
+    public function setXHtmlSpanList(array $xHtmlSpanList): XMapContentHtmlParagraphEntity
     {
         $this->xHtmlSpanList = $xHtmlSpanList;
         return $this;
@@ -69,7 +69,7 @@ class XMapContentHtmlParagraphEntity extends XMapNodeEntity
     /**
      * @return XMapContentHtmlImageEntity[]
      */
-    public function getXHtmlImgList()
+    public function getXHtmlImgList(): array
     {
         return $this->xHtmlImgList;
     }
@@ -78,7 +78,7 @@ class XMapContentHtmlParagraphEntity extends XMapNodeEntity
      * @param XMapContentHtmlImageEntity[] $xHtmlImgList
      * @return XMapContentHtmlParagraphEntity
      */
-    public function setXHtmlImgList($xHtmlImgList)
+    public function setXHtmlImgList(array $xHtmlImgList): XMapContentHtmlParagraphEntity
     {
         $this->xHtmlImgList = $xHtmlImgList;
         return $this;
@@ -87,7 +87,7 @@ class XMapContentHtmlParagraphEntity extends XMapNodeEntity
     /**
      * @return XMapContentHtmlAnchorEntity[]
      */
-    public function getXHtmlAList()
+    public function getXHtmlAList(): array
     {
         return $this->xHtmlAList;
     }
@@ -96,7 +96,7 @@ class XMapContentHtmlParagraphEntity extends XMapNodeEntity
      * @param XMapContentHtmlAnchorEntity[] $xHtmlAList
      * @return XMapContentHtmlParagraphEntity
      */
-    public function setXHtmlAList($xHtmlAList)
+    public function setXHtmlAList(array $xHtmlAList): XMapContentHtmlParagraphEntity
     {
         $this->xHtmlAList = $xHtmlAList;
         return $this;
@@ -105,7 +105,7 @@ class XMapContentHtmlParagraphEntity extends XMapNodeEntity
     /**
      * @return string
      */
-    public function getTextContent()
+    public function getTextContent(): string
     {
         return $this->textContent;
     }
@@ -114,25 +114,25 @@ class XMapContentHtmlParagraphEntity extends XMapNodeEntity
      * @param string $textContent
      * @return XMapContentHtmlParagraphEntity
      */
-    public function setTextContent($textContent)
+    public function setTextContent(string $textContent): XMapContentHtmlParagraphEntity
     {
         $this->textContent = $textContent;
         return $this;
     }
 
-    public function addSpanEntity($span)
+    public function addSpanEntity($span): XMapContentHtmlParagraphEntity
     {
         $this->xHtmlSpanList[] = $span;
         return $this;
     }
 
-    public function addImageEntity($image)
+    public function addImageEntity($image): XMapContentHtmlParagraphEntity
     {
         $this->xHtmlImgList[] = $image;
         return $this;
     }
 
-    public function addAnchorEntity($anchor)
+    public function addAnchorEntity($anchor): XMapContentHtmlParagraphEntity
     {
         $this->xHtmlAList[] = $anchor;
         return $this;
@@ -142,7 +142,7 @@ class XMapContentHtmlParagraphEntity extends XMapNodeEntity
      * @param XMLWriter $xmlWriter
      * @return void
      */
-    protected function writeThisNode($xmlWriter)
+    protected function writeThisNode(XMLWriter $xmlWriter)
     {
         $xmlWriter->startElement($this->nodeTag());
 
@@ -169,7 +169,7 @@ class XMapContentHtmlParagraphEntity extends XMapNodeEntity
         $xmlWriter->endElement();
     }
 
-    protected function nodeTag()
+    protected function nodeTag(): string
     {
         return "xhtml:p";
 //        return "p";

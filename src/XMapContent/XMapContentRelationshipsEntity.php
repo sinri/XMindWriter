@@ -17,7 +17,7 @@ class XMapContentRelationshipsEntity extends XMapNodeEntity
     /**
      * @return XMapContentRelationshipEntity[]
      */
-    public function getRelationshipList()
+    public function getRelationshipList(): array
     {
         return $this->relationshipList;
     }
@@ -26,7 +26,7 @@ class XMapContentRelationshipsEntity extends XMapNodeEntity
      * @param XMapContentRelationshipEntity[] $relationshipList
      * @return XMapContentRelationshipsEntity
      */
-    public function setRelationshipList($relationshipList)
+    public function setRelationshipList(array $relationshipList): XMapContentRelationshipsEntity
     {
         $this->relationshipList = $relationshipList;
         return $this;
@@ -36,8 +36,9 @@ class XMapContentRelationshipsEntity extends XMapNodeEntity
      * @param XMapContentRelationshipEntity $relationshipEntity
      * @return XMapContentRelationshipsEntity
      */
-    public function addRelationshipEntity($relationshipEntity){
-        $this->relationshipList[]=$relationshipEntity;
+    public function addRelationshipEntity(XMapContentRelationshipEntity $relationshipEntity): XMapContentRelationshipsEntity
+    {
+        $this->relationshipList[] = $relationshipEntity;
         return $this;
     }
 
@@ -45,18 +46,18 @@ class XMapContentRelationshipsEntity extends XMapNodeEntity
      * @param XMLWriter $xmlWriter
      * @return void
      */
-    protected function writeThisNode($xmlWriter)
+    protected function writeThisNode(XMLWriter $xmlWriter)
     {
         $xmlWriter->startElement($this->nodeTag());
 
-        foreach ($this->relationshipList as $relationshipEntity){
-            self::writeThatNode($xmlWriter,$relationshipEntity);
+        foreach ($this->relationshipList as $relationshipEntity) {
+            self::writeThatNode($xmlWriter, $relationshipEntity);
         }
 
         $xmlWriter->endElement();
     }
 
-    protected function nodeTag()
+    protected function nodeTag(): string
     {
         return "relationships";
     }

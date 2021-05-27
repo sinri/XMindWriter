@@ -21,7 +21,7 @@ class XMapContentPositionEntity extends XMapNodeEntity
     /**
      * @return int
      */
-    public function getAttrSvgX()
+    public function getAttrSvgX(): int
     {
         return $this->attrSvgX;
     }
@@ -30,7 +30,7 @@ class XMapContentPositionEntity extends XMapNodeEntity
      * @param int $attrSvgX
      * @return XMapContentPositionEntity
      */
-    public function setAttrSvgX($attrSvgX)
+    public function setAttrSvgX(int $attrSvgX): XMapContentPositionEntity
     {
         $this->attrSvgX = $attrSvgX;
         return $this;
@@ -39,7 +39,7 @@ class XMapContentPositionEntity extends XMapNodeEntity
     /**
      * @return int
      */
-    public function getAttrSvgY()
+    public function getAttrSvgY(): int
     {
         return $this->attrSvgY;
     }
@@ -48,7 +48,7 @@ class XMapContentPositionEntity extends XMapNodeEntity
      * @param int $attrSvgY
      * @return XMapContentPositionEntity
      */
-    public function setAttrSvgY($attrSvgY)
+    public function setAttrSvgY(int $attrSvgY): XMapContentPositionEntity
     {
         $this->attrSvgY = $attrSvgY;
         return $this;
@@ -64,7 +64,7 @@ class XMapContentPositionEntity extends XMapNodeEntity
         $this->attrSvgY=$y;
     }
 
-    protected function nodeTag()
+    protected function nodeTag(): string
     {
         return "position";
     }
@@ -73,12 +73,12 @@ class XMapContentPositionEntity extends XMapNodeEntity
      * @param XMLWriter $xmlWriter
      * @return void
      */
-    protected function writeThisNode($xmlWriter)
+    protected function writeThisNode(XMLWriter $xmlWriter)
     {
         $xmlWriter->startElement($this->nodeTag());
 
-        $xmlWriter->writeAttribute("svg:x",$this->attrSvgX);
-        $xmlWriter->writeAttribute("svg:y",$this->attrSvgY);
+        $xmlWriter->writeAttribute("svg:x", $this->attrSvgX);
+        $xmlWriter->writeAttribute("svg:y", $this->attrSvgY);
 
         $xmlWriter->endElement();
     }

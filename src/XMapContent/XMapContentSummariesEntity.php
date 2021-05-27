@@ -17,7 +17,7 @@ class XMapContentSummariesEntity extends XMapNodeEntity
     /**
      * @return XMapContentSummaryEntity[]
      */
-    public function getSummaryList()
+    public function getSummaryList(): array
     {
         return $this->summaryList;
     }
@@ -25,12 +25,12 @@ class XMapContentSummariesEntity extends XMapNodeEntity
     /**
      * @param XMapContentSummaryEntity[] $summaryList
      */
-    public function setSummaryList($summaryList)
+    public function setSummaryList(array $summaryList)
     {
         $this->summaryList = $summaryList;
     }
 
-    public function addSummaryEntity($summary)
+    public function addSummaryEntity($summary): XMapContentSummariesEntity
     {
         $this->summaryList[] = $summary;
         return $this;
@@ -40,7 +40,7 @@ class XMapContentSummariesEntity extends XMapNodeEntity
      * @param XMLWriter $xmlWriter
      * @return void
      */
-    protected function writeThisNode($xmlWriter)
+    protected function writeThisNode(XMLWriter $xmlWriter)
     {
         $xmlWriter->startElement($this->nodeTag());
 
@@ -53,7 +53,7 @@ class XMapContentSummariesEntity extends XMapNodeEntity
         $xmlWriter->endElement();
     }
 
-    protected function nodeTag()
+    protected function nodeTag(): string
     {
         return "summaries";
     }

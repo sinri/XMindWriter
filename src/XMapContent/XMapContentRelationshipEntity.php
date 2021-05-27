@@ -49,7 +49,7 @@ class XMapContentRelationshipEntity extends XMapNodeEntity
     /**
      * @return string
      */
-    public function getAttrId()
+    public function getAttrId(): string
     {
         return $this->attrId;
     }
@@ -58,7 +58,7 @@ class XMapContentRelationshipEntity extends XMapNodeEntity
      * @param string $attrId
      * @return XMapContentRelationshipEntity
      */
-    public function setAttrId($attrId)
+    public function setAttrId(string $attrId): XMapContentRelationshipEntity
     {
         $this->attrId = $attrId;
         return $this;
@@ -67,7 +67,7 @@ class XMapContentRelationshipEntity extends XMapNodeEntity
     /**
      * @return string
      */
-    public function getAttrStyleId()
+    public function getAttrStyleId(): string
     {
         return $this->attrStyleId;
     }
@@ -76,7 +76,7 @@ class XMapContentRelationshipEntity extends XMapNodeEntity
      * @param string $attrStyleId
      * @return XMapContentRelationshipEntity
      */
-    public function setAttrStyleId($attrStyleId)
+    public function setAttrStyleId(string $attrStyleId): XMapContentRelationshipEntity
     {
         $this->attrStyleId = $attrStyleId;
         return $this;
@@ -85,7 +85,7 @@ class XMapContentRelationshipEntity extends XMapNodeEntity
     /**
      * @return string
      */
-    public function getAttrEnd1()
+    public function getAttrEnd1(): string
     {
         return $this->attrEnd1;
     }
@@ -94,7 +94,7 @@ class XMapContentRelationshipEntity extends XMapNodeEntity
      * @param string $attrEnd1
      * @return XMapContentRelationshipEntity
      */
-    public function setAttrEnd1($attrEnd1)
+    public function setAttrEnd1(string $attrEnd1): XMapContentRelationshipEntity
     {
         $this->attrEnd1 = $attrEnd1;
         return $this;
@@ -103,7 +103,7 @@ class XMapContentRelationshipEntity extends XMapNodeEntity
     /**
      * @return string
      */
-    public function getAttrEnd2()
+    public function getAttrEnd2(): string
     {
         return $this->attrEnd2;
     }
@@ -112,7 +112,7 @@ class XMapContentRelationshipEntity extends XMapNodeEntity
      * @param string $attrEnd2
      * @return XMapContentRelationshipEntity
      */
-    public function setAttrEnd2($attrEnd2)
+    public function setAttrEnd2(string $attrEnd2): XMapContentRelationshipEntity
     {
         $this->attrEnd2 = $attrEnd2;
         return $this;
@@ -121,7 +121,7 @@ class XMapContentRelationshipEntity extends XMapNodeEntity
     /**
      * @return XMapContentTitleEntity
      */
-    public function getTitle()
+    public function getTitle(): XMapContentTitleEntity
     {
         return $this->title;
     }
@@ -130,7 +130,7 @@ class XMapContentRelationshipEntity extends XMapNodeEntity
      * @param XMapContentTitleEntity $title
      * @return XMapContentRelationshipEntity
      */
-    public function setTitle($title)
+    public function setTitle(XMapContentTitleEntity $title): XMapContentRelationshipEntity
     {
         $this->title = $title;
         return $this;
@@ -139,7 +139,7 @@ class XMapContentRelationshipEntity extends XMapNodeEntity
     /**
      * @return XMapContentControlPositionsEntity
      */
-    public function getControlPoints()
+    public function getControlPoints(): XMapContentControlPositionsEntity
     {
         return $this->controlPoints;
     }
@@ -148,7 +148,7 @@ class XMapContentRelationshipEntity extends XMapNodeEntity
      * @param XMapContentControlPositionsEntity $controlPoints
      * @return XMapContentRelationshipEntity
      */
-    public function setControlPoints($controlPoints)
+    public function setControlPoints(XMapContentControlPositionsEntity $controlPoints): XMapContentRelationshipEntity
     {
         $this->controlPoints = $controlPoints;
         return $this;
@@ -158,22 +158,22 @@ class XMapContentRelationshipEntity extends XMapNodeEntity
      * @param XMLWriter $xmlWriter
      * @return void
      */
-    protected function writeThisNode($xmlWriter)
+    protected function writeThisNode(XMLWriter $xmlWriter)
     {
         $xmlWriter->startElement($this->nodeTag());
 
-        $xmlWriter->writeAttribute('id',$this->attrId);
-        if($this->attrStyleId!==null)$xmlWriter->writeAttribute('style-id',$this->attrStyleId);
-        $xmlWriter->writeAttribute('end1',$this->attrEnd1);
-        $xmlWriter->writeAttribute('end2',$this->attrEnd2);
+        $xmlWriter->writeAttribute('id', $this->attrId);
+        if ($this->attrStyleId !== null) $xmlWriter->writeAttribute('style-id', $this->attrStyleId);
+        $xmlWriter->writeAttribute('end1', $this->attrEnd1);
+        $xmlWriter->writeAttribute('end2', $this->attrEnd2);
 
-        self::writeThatNode($xmlWriter,$this->title);
-        self::writeThatNode($xmlWriter,$this->controlPoints);
+        self::writeThatNode($xmlWriter, $this->title);
+        self::writeThatNode($xmlWriter, $this->controlPoints);
 
         $xmlWriter->endElement();
     }
 
-    protected function nodeTag()
+    protected function nodeTag(): string
     {
         return "relationship";
     }

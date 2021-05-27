@@ -17,7 +17,7 @@ class XMapContentExtensionsEntity extends XMapNodeEntity
     /**
      * @return XMapContentExtensionEntity[]
      */
-    public function getExtensionList()
+    public function getExtensionList(): array
     {
         return $this->extensionList;
     }
@@ -26,7 +26,7 @@ class XMapContentExtensionsEntity extends XMapNodeEntity
      * @param XMapContentExtensionEntity[] $extensionList
      * @return XMapContentExtensionsEntity
      */
-    public function setExtensionList($extensionList)
+    public function setExtensionList(array $extensionList): XMapContentExtensionsEntity
     {
         $this->extensionList = $extensionList;
         return $this;
@@ -36,7 +36,7 @@ class XMapContentExtensionsEntity extends XMapNodeEntity
      * @param XMapContentExtensionEntity $extension
      * @return $this
      */
-    public function addExtension($extension)
+    public function addExtension(XMapContentExtensionEntity $extension): XMapContentExtensionsEntity
     {
         $this->extensionList[] = $extension;
         return $this;
@@ -46,7 +46,7 @@ class XMapContentExtensionsEntity extends XMapNodeEntity
      * @param XMLWriter $xmlWriter
      * @return void
      */
-    protected function writeThisNode($xmlWriter)
+    protected function writeThisNode(XMLWriter $xmlWriter)
     {
         $xmlWriter->startElement($this->nodeTag());
         if ($this->extensionList !== null) {
@@ -57,7 +57,7 @@ class XMapContentExtensionsEntity extends XMapNodeEntity
         $xmlWriter->endElement();
     }
 
-    protected function nodeTag()
+    protected function nodeTag(): string
     {
         return "extensions";
     }

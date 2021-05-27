@@ -6,7 +6,7 @@ namespace sinri\XMindWriter\XMapStyles;
 
 class XMapMasterStylesEntity extends XMapNormalStylesEntity
 {
-    protected function nodeTag()
+    protected function nodeTag(): string
     {
         return "master-styles";
     }

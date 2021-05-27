@@ -4,7 +4,6 @@
 namespace sinri\XMindWriter\tools;
 
 
-use Exception;
 use sinri\XMindWriter\core\XMindDirZipper;
 use sinri\XMindWriter\XMapContent\XMapContentChildrenOfTopicsEntity;
 use sinri\XMindWriter\XMapContent\XMapContentEntity;
@@ -43,7 +42,7 @@ class StaticTreeXMindWriter
         $this->zipper = new XMindDirZipper($workspace);
     }
 
-    public function buildContent($title)
+    public function buildContent($title): StaticTreeXMindWriter
     {
         $contentEntity = new XMapContentEntity();
         $contentSheetEntity = new XMapContentSheetEntity("sheet-1", $title);
@@ -70,7 +69,7 @@ class StaticTreeXMindWriter
      * @param StaticTreeNode[] $children
      * @param string $type
      */
-    protected function appendChildren($parentTopic, $children, $type)
+    protected function appendChildren(XMapContentTopicEntity $parentTopic, array $children, string $type)
     {
         if (empty($children)) return;
 
@@ -79,7 +78,7 @@ class StaticTreeXMindWriter
             $childrenEntity = new XMapContentChildrenOfTopicsEntity();
             $parentTopic->setChildren($childrenEntity);
         }
-        $topicsEntity = isset($childrenEntity->getTopicsList()[$type]) ? $childrenEntity->getTopicsList()[$type] : null;
+        $topicsEntity = $childrenEntity->getTopicsList()[$type] ?? null;
         if ($topicsEntity === null) {
             $topicsEntity = (new XMapContentTopicsEntity($type));
             $childrenEntity->addTopicsEntity($topicsEntity);
@@ -98,7 +97,7 @@ class StaticTreeXMindWriter
      * @param XMapContentSheetEntity $sheetEntity
      * @param StaticTreeNodeRelationship[] $relationships
      */
-    protected function appendRelationships($sheetEntity, $relationships)
+    protected function appendRelationships(XMapContentSheetEntity $sheetEntity, array $relationships)
     {
         $relationshipsEntity = new XMapContentRelationshipsEntity();
         $sheetEntity->setRelationships($relationshipsEntity);
@@ -115,7 +114,7 @@ class StaticTreeXMindWriter
         }
     }
 
-    public function buildMeta($authorName = null, $authEmail = null, $creator = null)
+    public function buildMeta($authorName = null, $authEmail = null, $creator = null): StaticTreeXMindWriter
     {
         $meta = (new XMetaEntity())
             ->setAuthorName($authorName)
@@ -133,7 +132,6 @@ class StaticTreeXMindWriter
 
     /**
      * @param $target
-     * @throws Exception
      */
     public function archiveXMindFile($target)
     {

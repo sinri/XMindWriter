@@ -17,7 +17,7 @@ class XMapContentControlPositionsEntity extends XMapNodeEntity
     /**
      * @return XMapContentControlPositionEntity[]
      */
-    public function getControlPointList()
+    public function getControlPointList(): array
     {
         return $this->controlPointList;
     }
@@ -26,13 +26,13 @@ class XMapContentControlPositionsEntity extends XMapNodeEntity
      * @param XMapContentControlPositionEntity[] $controlPointList
      * @return XMapContentControlPositionsEntity
      */
-    public function setControlPointList($controlPointList)
+    public function setControlPointList(array $controlPointList): XMapContentControlPositionsEntity
     {
         $this->controlPointList = $controlPointList;
         return $this;
     }
 
-    protected function nodeTag()
+    protected function nodeTag(): string
     {
         return "control-points";
     }
@@ -41,12 +41,12 @@ class XMapContentControlPositionsEntity extends XMapNodeEntity
      * @param XMLWriter $xmlWriter
      * @return void
      */
-    protected function writeThisNode($xmlWriter)
+    protected function writeThisNode(XMLWriter $xmlWriter)
     {
         $xmlWriter->startElement($this->nodeTag());
 
-        foreach ($this->controlPointList as $controlPositionEntity){
-            self::writeThatNode($xmlWriter,$controlPositionEntity);
+        foreach ($this->controlPointList as $controlPositionEntity) {
+            self::writeThatNode($xmlWriter, $controlPositionEntity);
         }
 
         $xmlWriter->endElement();

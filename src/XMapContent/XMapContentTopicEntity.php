@@ -67,7 +67,7 @@ class XMapContentTopicEntity extends XMapNodeEntity
     /**
      * @return XMapContentMarkerRefsEntity
      */
-    public function getMarkerRefs()
+    public function getMarkerRefs(): XMapContentMarkerRefsEntity
     {
         return $this->markerRefs;
     }
@@ -76,7 +76,7 @@ class XMapContentTopicEntity extends XMapNodeEntity
      * @param XMapContentMarkerRefsEntity $markerRefs
      * @return XMapContentTopicEntity
      */
-    public function setMarkerRefs($markerRefs)
+    public function setMarkerRefs(XMapContentMarkerRefsEntity $markerRefs): XMapContentTopicEntity
     {
         $this->markerRefs = $markerRefs;
         return $this;
@@ -107,7 +107,7 @@ class XMapContentTopicEntity extends XMapNodeEntity
     /**
      * @return string
      */
-    public function getAttrId()
+    public function getAttrId(): string
     {
         return $this->attrId;
     }
@@ -116,7 +116,7 @@ class XMapContentTopicEntity extends XMapNodeEntity
      * @param string $attrId
      * @return XMapContentTopicEntity
      */
-    public function setAttrId($attrId)
+    public function setAttrId(string $attrId): XMapContentTopicEntity
     {
         $this->attrId = $attrId;
         return $this;
@@ -125,7 +125,7 @@ class XMapContentTopicEntity extends XMapNodeEntity
     /**
      * @return string
      */
-    public function getAttrStyleId()
+    public function getAttrStyleId(): string
     {
         return $this->attrStyleId;
     }
@@ -134,7 +134,7 @@ class XMapContentTopicEntity extends XMapNodeEntity
      * @param string $attrStyleId
      * @return XMapContentTopicEntity
      */
-    public function setAttrStyleId($attrStyleId)
+    public function setAttrStyleId(string $attrStyleId): XMapContentTopicEntity
     {
         $this->attrStyleId = $attrStyleId;
         return $this;
@@ -143,7 +143,7 @@ class XMapContentTopicEntity extends XMapNodeEntity
     /**
      * @return string
      */
-    public function getAttrXlinkHref()
+    public function getAttrXlinkHref(): string
     {
         return $this->attrXlinkHref;
     }
@@ -152,7 +152,7 @@ class XMapContentTopicEntity extends XMapNodeEntity
      * @param string $attrXlinkHref
      * @return XMapContentTopicEntity
      */
-    public function setAttrXlinkHref($attrXlinkHref)
+    public function setAttrXlinkHref(string $attrXlinkHref): XMapContentTopicEntity
     {
         $this->attrXlinkHref = $attrXlinkHref;
         return $this;
@@ -161,7 +161,7 @@ class XMapContentTopicEntity extends XMapNodeEntity
     /**
      * @return string
      */
-    public function getAttrTimestamp()
+    public function getAttrTimestamp(): string
     {
         return $this->attrTimestamp;
     }
@@ -170,7 +170,7 @@ class XMapContentTopicEntity extends XMapNodeEntity
      * @param string $attrTimestamp
      * @return XMapContentTopicEntity
      */
-    public function setAttrTimestamp($attrTimestamp)
+    public function setAttrTimestamp(string $attrTimestamp): XMapContentTopicEntity
     {
         $this->attrTimestamp = $attrTimestamp;
         return $this;
@@ -179,7 +179,7 @@ class XMapContentTopicEntity extends XMapNodeEntity
     /**
      * @return string
      */
-    public function getAttrBranch()
+    public function getAttrBranch(): string
     {
         return $this->attrBranch;
     }
@@ -188,7 +188,7 @@ class XMapContentTopicEntity extends XMapNodeEntity
      * @param string $attrBranch
      * @return XMapContentTopicEntity
      */
-    public function setAttrBranch($attrBranch)
+    public function setAttrBranch(string $attrBranch): XMapContentTopicEntity
     {
         $this->attrBranch = $attrBranch;
         return $this;
@@ -198,7 +198,7 @@ class XMapContentTopicEntity extends XMapNodeEntity
      * @param boolean $folded make the children invisible
      * @return $this
      */
-    public function setChildrenFolded($folded)
+    public function setChildrenFolded(bool $folded): XMapContentTopicEntity
     {
         if ($folded) {
             $this->attrBranch = self::BRANCH_FOLDED;
@@ -211,7 +211,7 @@ class XMapContentTopicEntity extends XMapNodeEntity
     /**
      * @return string
      */
-    public function getAttrStructureClass()
+    public function getAttrStructureClass(): string
     {
         return $this->attrStructureClass;
     }
@@ -220,7 +220,7 @@ class XMapContentTopicEntity extends XMapNodeEntity
      * @param string $attrStructureClass
      * @return XMapContentTopicEntity
      */
-    public function setAttrStructureClass($attrStructureClass)
+    public function setAttrStructureClass(string $attrStructureClass): XMapContentTopicEntity
     {
         $this->attrStructureClass = $attrStructureClass;
         return $this;
@@ -229,7 +229,7 @@ class XMapContentTopicEntity extends XMapNodeEntity
     /**
      * @return XMapContentTitleEntity
      */
-    public function getTitle()
+    public function getTitle(): XMapContentTitleEntity
     {
         return $this->title;
     }
@@ -238,7 +238,7 @@ class XMapContentTopicEntity extends XMapNodeEntity
      * @param XMapContentTitleEntity $title
      * @return XMapContentTopicEntity
      */
-    public function setTitle($title)
+    public function setTitle(XMapContentTitleEntity $title): XMapContentTopicEntity
     {
         $this->title = $title;
         return $this;
@@ -247,7 +247,7 @@ class XMapContentTopicEntity extends XMapNodeEntity
     /**
      * @return XMapContentPositionEntity
      */
-    public function getPosition()
+    public function getPosition(): XMapContentPositionEntity
     {
         return $this->position;
     }
@@ -256,7 +256,7 @@ class XMapContentTopicEntity extends XMapNodeEntity
      * @param XMapContentPositionEntity $position
      * @return XMapContentTopicEntity
      */
-    public function setPosition($position)
+    public function setPosition(XMapContentPositionEntity $position): XMapContentTopicEntity
     {
         $this->position = $position;
         return $this;
@@ -265,7 +265,7 @@ class XMapContentTopicEntity extends XMapNodeEntity
     /**
      * @return XMapContentChildrenOfTopicsEntity
      */
-    public function getChildren()
+    public function getChildren(): XMapContentChildrenOfTopicsEntity
     {
         return $this->children;
     }
@@ -274,7 +274,7 @@ class XMapContentTopicEntity extends XMapNodeEntity
      * @param XMapContentChildrenOfTopicsEntity $children
      * @return XMapContentTopicEntity
      */
-    public function setChildren($children)
+    public function setChildren(XMapContentChildrenOfTopicsEntity $children): XMapContentTopicEntity
     {
         $this->children = $children;
         return $this;
@@ -286,10 +286,10 @@ class XMapContentTopicEntity extends XMapNodeEntity
      * @param string $type
      * @return XMapContentTopicEntity
      */
-    public function addChildTopicToTopics($childTopic, $type = XMapContentTopicsEntity::ATTR_TYPE_ATTACHED)
+    public function addChildTopicToTopics(XMapContentTopicEntity $childTopic, string $type = XMapContentTopicsEntity::ATTR_TYPE_ATTACHED): XMapContentTopicEntity
     {
-        if($this->children===null){
-            $this->children=new XMapContentChildrenOfTopicsEntity();
+        if ($this->children === null) {
+            $this->children = new XMapContentChildrenOfTopicsEntity();
         }
         $list = $this->children->getTopicsList();
         if (isset($list[$type])) {
@@ -305,7 +305,7 @@ class XMapContentTopicEntity extends XMapNodeEntity
     /**
      * @return XMapContentNotesEntity
      */
-    public function getNotes()
+    public function getNotes(): XMapContentNotesEntity
     {
         return $this->notes;
     }
@@ -314,7 +314,7 @@ class XMapContentTopicEntity extends XMapNodeEntity
      * @param XMapContentNotesEntity $notes
      * @return XMapContentTopicEntity
      */
-    public function setNotes($notes)
+    public function setNotes(XMapContentNotesEntity $notes): XMapContentTopicEntity
     {
         $this->notes = $notes;
         return $this;
@@ -323,7 +323,7 @@ class XMapContentTopicEntity extends XMapNodeEntity
     /**
      * @return XMapContentNumberingEntity
      */
-    public function getNumbering()
+    public function getNumbering(): XMapContentNumberingEntity
     {
         return $this->numbering;
     }
@@ -332,7 +332,7 @@ class XMapContentTopicEntity extends XMapNodeEntity
      * @param XMapContentNumberingEntity $numbering
      * @return XMapContentTopicEntity
      */
-    public function setNumbering($numbering)
+    public function setNumbering(XMapContentNumberingEntity $numbering): XMapContentTopicEntity
     {
         $this->numbering = $numbering;
         return $this;
@@ -341,7 +341,7 @@ class XMapContentTopicEntity extends XMapNodeEntity
     /**
      * @return XMapContentSummariesEntity
      */
-    public function getSummaries()
+    public function getSummaries(): XMapContentSummariesEntity
     {
         return $this->summaries;
     }
@@ -349,7 +349,7 @@ class XMapContentTopicEntity extends XMapNodeEntity
     /**
      * @param XMapContentSummariesEntity $summaries
      */
-    public function setSummaries($summaries)
+    public function setSummaries(XMapContentSummariesEntity $summaries)
     {
         $this->summaries = $summaries;
     }
@@ -358,7 +358,7 @@ class XMapContentTopicEntity extends XMapNodeEntity
      * @param XMapContentImageEntity $image
      * @return XMapContentTopicEntity
      */
-    public function setImage($image)
+    public function setImage(XMapContentImageEntity $image): XMapContentTopicEntity
     {
         $this->image = $image;
         return $this;
@@ -367,7 +367,7 @@ class XMapContentTopicEntity extends XMapNodeEntity
     /**
      * @return XMapContentImageEntity
      */
-    public function getImage()
+    public function getImage(): XMapContentImageEntity
     {
         return $this->image;
     }
@@ -375,7 +375,7 @@ class XMapContentTopicEntity extends XMapNodeEntity
     /**
      * @return XMapContentLabelsEntity
      */
-    public function getLabels()
+    public function getLabels(): XMapContentLabelsEntity
     {
         return $this->labels;
     }
@@ -384,7 +384,7 @@ class XMapContentTopicEntity extends XMapNodeEntity
      * @param XMapContentLabelsEntity $labels
      * @return XMapContentTopicEntity
      */
-    public function setLabels($labels)
+    public function setLabels(XMapContentLabelsEntity $labels): XMapContentTopicEntity
     {
         $this->labels = $labels;
         return $this;
@@ -393,7 +393,7 @@ class XMapContentTopicEntity extends XMapNodeEntity
     /**
      * @return XMapContentBoundariesEntity
      */
-    public function getBoundaries()
+    public function getBoundaries(): XMapContentBoundariesEntity
     {
         return $this->boundaries;
     }
@@ -402,7 +402,7 @@ class XMapContentTopicEntity extends XMapNodeEntity
      * @param XMapContentBoundariesEntity $boundaries
      * @return XMapContentTopicEntity
      */
-    public function setBoundaries($boundaries)
+    public function setBoundaries(XMapContentBoundariesEntity $boundaries): XMapContentTopicEntity
     {
         $this->boundaries = $boundaries;
         return $this;
@@ -411,7 +411,7 @@ class XMapContentTopicEntity extends XMapNodeEntity
     /**
      * @return XMapContentResourceRefsEntity
      */
-    public function getExtensions()
+    public function getExtensions(): XMapContentResourceRefsEntity
     {
         return $this->extensions;
     }
@@ -420,7 +420,7 @@ class XMapContentTopicEntity extends XMapNodeEntity
      * @param XMapContentResourceRefsEntity $extensions
      * @return XMapContentTopicEntity
      */
-    public function setExtensions($extensions)
+    public function setExtensions(XMapContentResourceRefsEntity $extensions): XMapContentTopicEntity
     {
         $this->extensions = $extensions;
         return $this;
@@ -430,16 +430,16 @@ class XMapContentTopicEntity extends XMapNodeEntity
      * @param XMLWriter $xmlWriter
      * @return void
      */
-    protected function writeThisNode($xmlWriter)
+    protected function writeThisNode(XMLWriter $xmlWriter)
     {
         $xmlWriter->startElement($this->nodeTag());
 
-        $xmlWriter->writeAttribute("id",$this->attrId);
-        if($this->attrStyleId!==null)$xmlWriter->writeAttribute("style-id",$this->attrStyleId);
-        if($this->attrXlinkHref!==null)$xmlWriter->writeAttribute("xlink:href",$this->attrXlinkHref);
-        if($this->attrTimestamp!==null)$xmlWriter->writeAttribute("timestamp",$this->attrTimestamp);
-        if($this->attrBranch!==null)$xmlWriter->writeAttribute("branch",$this->attrBranch);
-        if($this->attrStructureClass!==null)$xmlWriter->writeAttribute("structure-class",$this->attrStructureClass);
+        $xmlWriter->writeAttribute("id", $this->attrId);
+        if ($this->attrStyleId !== null) $xmlWriter->writeAttribute("style-id", $this->attrStyleId);
+        if ($this->attrXlinkHref !== null) $xmlWriter->writeAttribute("xlink:href", $this->attrXlinkHref);
+        if ($this->attrTimestamp !== null) $xmlWriter->writeAttribute("timestamp", $this->attrTimestamp);
+        if ($this->attrBranch !== null) $xmlWriter->writeAttribute("branch", $this->attrBranch);
+        if ($this->attrStructureClass !== null) $xmlWriter->writeAttribute("structure-class", $this->attrStructureClass);
 
         self::writeThatNode($xmlWriter,$this->title);
         self::writeThatNode($xmlWriter,$this->image);
@@ -456,7 +456,7 @@ class XMapContentTopicEntity extends XMapNodeEntity
         $xmlWriter->endElement();
     }
 
-    protected function nodeTag()
+    protected function nodeTag(): string
     {
         return "topic";
     }

@@ -59,7 +59,7 @@ class XMapStyleTypePropertiesEntity extends XMapNodeEntity
     /**
      * @return string
      */
-    public function getType()
+    public function getType(): string
     {
         return $this->type;
     }
@@ -68,7 +68,7 @@ class XMapStyleTypePropertiesEntity extends XMapNodeEntity
      * @param string $type
      * @return XMapStyleTypePropertiesEntity
      */
-    public function setType($type)
+    public function setType(string $type): XMapStyleTypePropertiesEntity
     {
         $this->type = $type;
         return $this;
@@ -77,7 +77,7 @@ class XMapStyleTypePropertiesEntity extends XMapNodeEntity
     /**
      * @return string
      */
-    public function getAttrAngle()
+    public function getAttrAngle(): string
     {
         return $this->attrAngle;
     }
@@ -86,7 +86,7 @@ class XMapStyleTypePropertiesEntity extends XMapNodeEntity
      * @param string $attrAngle
      * @return XMapStyleTypePropertiesEntity
      */
-    public function setAttrAngle($attrAngle)
+    public function setAttrAngle(string $attrAngle): XMapStyleTypePropertiesEntity
     {
         $this->attrAngle = $attrAngle;
         return $this;
@@ -95,7 +95,7 @@ class XMapStyleTypePropertiesEntity extends XMapNodeEntity
     /**
      * @return string
      */
-    public function getAttrArrowBeginClass()
+    public function getAttrArrowBeginClass(): string
     {
         return $this->attrArrowBeginClass;
     }
@@ -104,7 +104,7 @@ class XMapStyleTypePropertiesEntity extends XMapNodeEntity
      * @param string $attrArrowBeginClass
      * @return XMapStyleTypePropertiesEntity
      */
-    public function setAttrArrowBeginClass($attrArrowBeginClass)
+    public function setAttrArrowBeginClass(string $attrArrowBeginClass): XMapStyleTypePropertiesEntity
     {
         $this->attrArrowBeginClass = $attrArrowBeginClass;
         return $this;
@@ -113,7 +113,7 @@ class XMapStyleTypePropertiesEntity extends XMapNodeEntity
     /**
      * @return string
      */
-    public function getAttrArrowEndClass()
+    public function getAttrArrowEndClass(): string
     {
         return $this->attrArrowEndClass;
     }
@@ -122,7 +122,7 @@ class XMapStyleTypePropertiesEntity extends XMapNodeEntity
      * @param string $attrArrowEndClass
      * @return XMapStyleTypePropertiesEntity
      */
-    public function setAttrArrowEndClass($attrArrowEndClass)
+    public function setAttrArrowEndClass(string $attrArrowEndClass): XMapStyleTypePropertiesEntity
     {
         $this->attrArrowEndClass = $attrArrowEndClass;
         return $this;
@@ -131,7 +131,7 @@ class XMapStyleTypePropertiesEntity extends XMapNodeEntity
     /**
      * @return string
      */
-    public function getAttrBackground()
+    public function getAttrBackground(): string
     {
         return $this->attrBackground;
     }
@@ -140,7 +140,7 @@ class XMapStyleTypePropertiesEntity extends XMapNodeEntity
      * @param string $attrBackground
      * @return XMapStyleTypePropertiesEntity
      */
-    public function setAttrBackground($attrBackground)
+    public function setAttrBackground(string $attrBackground): XMapStyleTypePropertiesEntity
     {
         $this->attrBackground = $attrBackground;
         return $this;
@@ -149,7 +149,7 @@ class XMapStyleTypePropertiesEntity extends XMapNodeEntity
     /**
      * @return string
      */
-    public function getAttrFoBackgroundColor()
+    public function getAttrFoBackgroundColor(): string
     {
         return $this->attrFoBackgroundColor;
     }
@@ -158,7 +158,7 @@ class XMapStyleTypePropertiesEntity extends XMapNodeEntity
      * @param string $attrFoBackgroundColor
      * @return XMapStyleTypePropertiesEntity
      */
-    public function setAttrFoBackgroundColor($attrFoBackgroundColor)
+    public function setAttrFoBackgroundColor(string $attrFoBackgroundColor): XMapStyleTypePropertiesEntity
     {
         $this->attrFoBackgroundColor = $attrFoBackgroundColor;
         return $this;
@@ -167,7 +167,7 @@ class XMapStyleTypePropertiesEntity extends XMapNodeEntity
     /**
      * @return string
      */
-    public function getAttrFoColor()
+    public function getAttrFoColor(): string
     {
         return $this->attrFoColor;
     }
@@ -176,7 +176,7 @@ class XMapStyleTypePropertiesEntity extends XMapNodeEntity
      * @param string $attrFoColor
      * @return XMapStyleTypePropertiesEntity
      */
-    public function setAttrFoColor($attrFoColor)
+    public function setAttrFoColor(string $attrFoColor): XMapStyleTypePropertiesEntity
     {
         $this->attrFoColor = $attrFoColor;
         return $this;
@@ -185,7 +185,7 @@ class XMapStyleTypePropertiesEntity extends XMapNodeEntity
     /**
      * @return string
      */
-    public function getAttrSvgFill()
+    public function getAttrSvgFill(): string
     {
         return $this->attrSvgFill;
     }
@@ -194,7 +194,7 @@ class XMapStyleTypePropertiesEntity extends XMapNodeEntity
      * @param string $attrSvgFill
      * @return XMapStyleTypePropertiesEntity
      */
-    public function setAttrSvgFill($attrSvgFill)
+    public function setAttrSvgFill(string $attrSvgFill): XMapStyleTypePropertiesEntity
     {
         $this->attrSvgFill = $attrSvgFill;
         return $this;
@@ -203,7 +203,7 @@ class XMapStyleTypePropertiesEntity extends XMapNodeEntity
     /**
      * @return string
      */
-    public function getAttrFoTextDecoration()
+    public function getAttrFoTextDecoration(): string
     {
         return $this->attrFoTextDecoration;
     }
@@ -212,7 +212,7 @@ class XMapStyleTypePropertiesEntity extends XMapNodeEntity
      * @param string $attrFoTextDecoration
      * @return XMapStyleTypePropertiesEntity
      */
-    public function setAttrFoTextDecoration($attrFoTextDecoration)
+    public function setAttrFoTextDecoration(string $attrFoTextDecoration): XMapStyleTypePropertiesEntity
     {
         $this->attrFoTextDecoration = $attrFoTextDecoration;
         return $this;
@@ -221,7 +221,7 @@ class XMapStyleTypePropertiesEntity extends XMapNodeEntity
     /**
      * @return string
      */
-    public function getAttrFoFontFamily()
+    public function getAttrFoFontFamily(): string
     {
         return $this->attrFoFontFamily;
     }
@@ -230,7 +230,7 @@ class XMapStyleTypePropertiesEntity extends XMapNodeEntity
      * @param string $attrFoFontFamily
      * @return XMapStyleTypePropertiesEntity
      */
-    public function setAttrFoFontFamily($attrFoFontFamily)
+    public function setAttrFoFontFamily(string $attrFoFontFamily): XMapStyleTypePropertiesEntity
     {
         $this->attrFoFontFamily = $attrFoFontFamily;
         return $this;
@@ -239,7 +239,7 @@ class XMapStyleTypePropertiesEntity extends XMapNodeEntity
     /**
      * @return string
      */
-    public function getAttrFoFontSize()
+    public function getAttrFoFontSize(): string
     {
         return $this->attrFoFontSize;
     }
@@ -248,7 +248,7 @@ class XMapStyleTypePropertiesEntity extends XMapNodeEntity
      * @param string $attrFoFontSize
      * @return XMapStyleTypePropertiesEntity
      */
-    public function setAttrFoFontSize($attrFoFontSize)
+    public function setAttrFoFontSize(string $attrFoFontSize): XMapStyleTypePropertiesEntity
     {
         $this->attrFoFontSize = $attrFoFontSize;
         return $this;
@@ -257,7 +257,7 @@ class XMapStyleTypePropertiesEntity extends XMapNodeEntity
     /**
      * @return string
      */
-    public function getAttrFoFontStyle()
+    public function getAttrFoFontStyle(): string
     {
         return $this->attrFoFontStyle;
     }
@@ -266,7 +266,7 @@ class XMapStyleTypePropertiesEntity extends XMapNodeEntity
      * @param string $attrFoFontStyle
      * @return XMapStyleTypePropertiesEntity
      */
-    public function setAttrFoFontStyle($attrFoFontStyle)
+    public function setAttrFoFontStyle(string $attrFoFontStyle): XMapStyleTypePropertiesEntity
     {
         $this->attrFoFontStyle = $attrFoFontStyle;
         return $this;
@@ -275,7 +275,7 @@ class XMapStyleTypePropertiesEntity extends XMapNodeEntity
     /**
      * @return string
      */
-    public function getAttrFoFontWeight()
+    public function getAttrFoFontWeight(): string
     {
         return $this->attrFoFontWeight;
     }
@@ -284,7 +284,7 @@ class XMapStyleTypePropertiesEntity extends XMapNodeEntity
      * @param string $attrFoFontWeight
      * @return XMapStyleTypePropertiesEntity
      */
-    public function setAttrFoFontWeight($attrFoFontWeight)
+    public function setAttrFoFontWeight(string $attrFoFontWeight): XMapStyleTypePropertiesEntity
     {
         $this->attrFoFontWeight = $attrFoFontWeight;
         return $this;
@@ -293,7 +293,7 @@ class XMapStyleTypePropertiesEntity extends XMapNodeEntity
     /**
      * @return string
      */
-    public function getAttrSvgHeight()
+    public function getAttrSvgHeight(): string
     {
         return $this->attrSvgHeight;
     }
@@ -302,7 +302,7 @@ class XMapStyleTypePropertiesEntity extends XMapNodeEntity
      * @param string $attrSvgHeight
      * @return XMapStyleTypePropertiesEntity
      */
-    public function setAttrSvgHeight($attrSvgHeight)
+    public function setAttrSvgHeight(string $attrSvgHeight): XMapStyleTypePropertiesEntity
     {
         $this->attrSvgHeight = $attrSvgHeight;
         return $this;
@@ -311,7 +311,7 @@ class XMapStyleTypePropertiesEntity extends XMapNodeEntity
     /**
      * @return string
      */
-    public function getAttrLineClass()
+    public function getAttrLineClass(): string
     {
         return $this->attrLineClass;
     }
@@ -320,7 +320,7 @@ class XMapStyleTypePropertiesEntity extends XMapNodeEntity
      * @param string $attrLineClass
      * @return XMapStyleTypePropertiesEntity
      */
-    public function setAttrLineClass($attrLineClass)
+    public function setAttrLineClass(string $attrLineClass): XMapStyleTypePropertiesEntity
     {
         $this->attrLineClass = $attrLineClass;
         return $this;
@@ -329,7 +329,7 @@ class XMapStyleTypePropertiesEntity extends XMapNodeEntity
     /**
      * @return string
      */
-    public function getAttrLineColor()
+    public function getAttrLineColor(): string
     {
         return $this->attrLineColor;
     }
@@ -338,7 +338,7 @@ class XMapStyleTypePropertiesEntity extends XMapNodeEntity
      * @param string $attrLineColor
      * @return XMapStyleTypePropertiesEntity
      */
-    public function setAttrLineColor($attrLineColor)
+    public function setAttrLineColor(string $attrLineColor): XMapStyleTypePropertiesEntity
     {
         $this->attrLineColor = $attrLineColor;
         return $this;
@@ -347,7 +347,7 @@ class XMapStyleTypePropertiesEntity extends XMapNodeEntity
     /**
      * @return string
      */
-    public function getAttrLineCorner()
+    public function getAttrLineCorner(): string
     {
         return $this->attrLineCorner;
     }
@@ -356,7 +356,7 @@ class XMapStyleTypePropertiesEntity extends XMapNodeEntity
      * @param string $attrLineCorner
      * @return XMapStyleTypePropertiesEntity
      */
-    public function setAttrLineCorner($attrLineCorner)
+    public function setAttrLineCorner(string $attrLineCorner): XMapStyleTypePropertiesEntity
     {
         $this->attrLineCorner = $attrLineCorner;
         return $this;
@@ -365,7 +365,7 @@ class XMapStyleTypePropertiesEntity extends XMapNodeEntity
     /**
      * @return string
      */
-    public function getAttrLinePattern()
+    public function getAttrLinePattern(): string
     {
         return $this->attrLinePattern;
     }
@@ -374,7 +374,7 @@ class XMapStyleTypePropertiesEntity extends XMapNodeEntity
      * @param string $attrLinePattern
      * @return XMapStyleTypePropertiesEntity
      */
-    public function setAttrLinePattern($attrLinePattern)
+    public function setAttrLinePattern(string $attrLinePattern): XMapStyleTypePropertiesEntity
     {
         $this->attrLinePattern = $attrLinePattern;
         return $this;
@@ -383,7 +383,7 @@ class XMapStyleTypePropertiesEntity extends XMapNodeEntity
     /**
      * @return string
      */
-    public function getAttrLineTapered()
+    public function getAttrLineTapered(): string
     {
         return $this->attrLineTapered;
     }
@@ -392,7 +392,7 @@ class XMapStyleTypePropertiesEntity extends XMapNodeEntity
      * @param string $attrLineTapered
      * @return XMapStyleTypePropertiesEntity
      */
-    public function setAttrLineTapered($attrLineTapered)
+    public function setAttrLineTapered(string $attrLineTapered): XMapStyleTypePropertiesEntity
     {
         $this->attrLineTapered = $attrLineTapered;
         return $this;
@@ -401,7 +401,7 @@ class XMapStyleTypePropertiesEntity extends XMapNodeEntity
     /**
      * @return string
      */
-    public function getAttrLineWidth()
+    public function getAttrLineWidth(): string
     {
         return $this->attrLineWidth;
     }
@@ -410,7 +410,7 @@ class XMapStyleTypePropertiesEntity extends XMapNodeEntity
      * @param string $attrLineWidth
      * @return XMapStyleTypePropertiesEntity
      */
-    public function setAttrLineWidth($attrLineWidth)
+    public function setAttrLineWidth(string $attrLineWidth): XMapStyleTypePropertiesEntity
     {
         $this->attrLineWidth = $attrLineWidth;
         return $this;
@@ -419,7 +419,7 @@ class XMapStyleTypePropertiesEntity extends XMapNodeEntity
     /**
      * @return string
      */
-    public function getAttrFoMarginBottom()
+    public function getAttrFoMarginBottom(): string
     {
         return $this->attrFoMarginBottom;
     }
@@ -428,7 +428,7 @@ class XMapStyleTypePropertiesEntity extends XMapNodeEntity
      * @param string $attrFoMarginBottom
      * @return XMapStyleTypePropertiesEntity
      */
-    public function setAttrFoMarginBottom($attrFoMarginBottom)
+    public function setAttrFoMarginBottom(string $attrFoMarginBottom): XMapStyleTypePropertiesEntity
     {
         $this->attrFoMarginBottom = $attrFoMarginBottom;
         return $this;
@@ -437,7 +437,7 @@ class XMapStyleTypePropertiesEntity extends XMapNodeEntity
     /**
      * @return string
      */
-    public function getAttrFoMarginLeft()
+    public function getAttrFoMarginLeft(): string
     {
         return $this->attrFoMarginLeft;
     }
@@ -446,7 +446,7 @@ class XMapStyleTypePropertiesEntity extends XMapNodeEntity
      * @param string $attrFoMarginLeft
      * @return XMapStyleTypePropertiesEntity
      */
-    public function setAttrFoMarginLeft($attrFoMarginLeft)
+    public function setAttrFoMarginLeft(string $attrFoMarginLeft): XMapStyleTypePropertiesEntity
     {
         $this->attrFoMarginLeft = $attrFoMarginLeft;
         return $this;
@@ -455,7 +455,7 @@ class XMapStyleTypePropertiesEntity extends XMapNodeEntity
     /**
      * @return string
      */
-    public function getAttrFoMarginRight()
+    public function getAttrFoMarginRight(): string
     {
         return $this->attrFoMarginRight;
     }
@@ -464,7 +464,7 @@ class XMapStyleTypePropertiesEntity extends XMapNodeEntity
      * @param string $attrFoMarginRight
      * @return XMapStyleTypePropertiesEntity
      */
-    public function setAttrFoMarginRight($attrFoMarginRight)
+    public function setAttrFoMarginRight(string $attrFoMarginRight): XMapStyleTypePropertiesEntity
     {
         $this->attrFoMarginRight = $attrFoMarginRight;
         return $this;
@@ -473,7 +473,7 @@ class XMapStyleTypePropertiesEntity extends XMapNodeEntity
     /**
      * @return string
      */
-    public function getAttrFoMarginTop()
+    public function getAttrFoMarginTop(): string
     {
         return $this->attrFoMarginTop;
     }
@@ -482,7 +482,7 @@ class XMapStyleTypePropertiesEntity extends XMapNodeEntity
      * @param string $attrFoMarginTop
      * @return XMapStyleTypePropertiesEntity
      */
-    public function setAttrFoMarginTop($attrFoMarginTop)
+    public function setAttrFoMarginTop(string $attrFoMarginTop): XMapStyleTypePropertiesEntity
     {
         $this->attrFoMarginTop = $attrFoMarginTop;
         return $this;
@@ -491,7 +491,7 @@ class XMapStyleTypePropertiesEntity extends XMapNodeEntity
     /**
      * @return string
      */
-    public function getAttrMultiLineColors()
+    public function getAttrMultiLineColors(): string
     {
         return $this->attrMultiLineColors;
     }
@@ -500,7 +500,7 @@ class XMapStyleTypePropertiesEntity extends XMapNodeEntity
      * @param string $attrMultiLineColors
      * @return XMapStyleTypePropertiesEntity
      */
-    public function setAttrMultiLineColors($attrMultiLineColors)
+    public function setAttrMultiLineColors(string $attrMultiLineColors): XMapStyleTypePropertiesEntity
     {
         $this->attrMultiLineColors = $attrMultiLineColors;
         return $this;
@@ -509,7 +509,7 @@ class XMapStyleTypePropertiesEntity extends XMapNodeEntity
     /**
      * @return string
      */
-    public function getAttrSvgOpacity()
+    public function getAttrSvgOpacity(): string
     {
         return $this->attrSvgOpacity;
     }
@@ -518,7 +518,7 @@ class XMapStyleTypePropertiesEntity extends XMapNodeEntity
      * @param string $attrSvgOpacity
      * @return XMapStyleTypePropertiesEntity
      */
-    public function setAttrSvgOpacity($attrSvgOpacity)
+    public function setAttrSvgOpacity(string $attrSvgOpacity): XMapStyleTypePropertiesEntity
     {
         $this->attrSvgOpacity = $attrSvgOpacity;
         return $this;
@@ -527,7 +527,7 @@ class XMapStyleTypePropertiesEntity extends XMapNodeEntity
     /**
      * @return string
      */
-    public function getAttrShapeClass()
+    public function getAttrShapeClass(): string
     {
         return $this->attrShapeClass;
     }
@@ -536,7 +536,7 @@ class XMapStyleTypePropertiesEntity extends XMapNodeEntity
      * @param string $attrShapeClass
      * @return XMapStyleTypePropertiesEntity
      */
-    public function setAttrShapeClass($attrShapeClass)
+    public function setAttrShapeClass(string $attrShapeClass): XMapStyleTypePropertiesEntity
     {
         $this->attrShapeClass = $attrShapeClass;
         return $this;
@@ -545,7 +545,7 @@ class XMapStyleTypePropertiesEntity extends XMapNodeEntity
     /**
      * @return string
      */
-    public function getAttrShapeCorner()
+    public function getAttrShapeCorner(): string
     {
         return $this->attrShapeCorner;
     }
@@ -554,7 +554,7 @@ class XMapStyleTypePropertiesEntity extends XMapNodeEntity
      * @param string $attrShapeCorner
      * @return XMapStyleTypePropertiesEntity
      */
-    public function setAttrShapeCorner($attrShapeCorner)
+    public function setAttrShapeCorner(string $attrShapeCorner): XMapStyleTypePropertiesEntity
     {
         $this->attrShapeCorner = $attrShapeCorner;
         return $this;
@@ -563,7 +563,7 @@ class XMapStyleTypePropertiesEntity extends XMapNodeEntity
     /**
      * @return string
      */
-    public function getAttrSpacingMajor()
+    public function getAttrSpacingMajor(): string
     {
         return $this->attrSpacingMajor;
     }
@@ -572,7 +572,7 @@ class XMapStyleTypePropertiesEntity extends XMapNodeEntity
      * @param string $attrSpacingMajor
      * @return XMapStyleTypePropertiesEntity
      */
-    public function setAttrSpacingMajor($attrSpacingMajor)
+    public function setAttrSpacingMajor(string $attrSpacingMajor): XMapStyleTypePropertiesEntity
     {
         $this->attrSpacingMajor = $attrSpacingMajor;
         return $this;
@@ -581,7 +581,7 @@ class XMapStyleTypePropertiesEntity extends XMapNodeEntity
     /**
      * @return string
      */
-    public function getAttrSpacingMinor()
+    public function getAttrSpacingMinor(): string
     {
         return $this->attrSpacingMinor;
     }
@@ -590,7 +590,7 @@ class XMapStyleTypePropertiesEntity extends XMapNodeEntity
      * @param string $attrSpacingMinor
      * @return XMapStyleTypePropertiesEntity
      */
-    public function setAttrSpacingMinor($attrSpacingMinor)
+    public function setAttrSpacingMinor(string $attrSpacingMinor): XMapStyleTypePropertiesEntity
     {
         $this->attrSpacingMinor = $attrSpacingMinor;
         return $this;
@@ -599,7 +599,7 @@ class XMapStyleTypePropertiesEntity extends XMapNodeEntity
     /**
      * @return string
      */
-    public function getAttrFoTextAlign()
+    public function getAttrFoTextAlign(): string
     {
         return $this->attrFoTextAlign;
     }
@@ -608,7 +608,7 @@ class XMapStyleTypePropertiesEntity extends XMapNodeEntity
      * @param string $attrFoTextAlign
      * @return XMapStyleTypePropertiesEntity
      */
-    public function setAttrFoTextAlign($attrFoTextAlign)
+    public function setAttrFoTextAlign(string $attrFoTextAlign): XMapStyleTypePropertiesEntity
     {
         $this->attrFoTextAlign = $attrFoTextAlign;
         return $this;
@@ -617,7 +617,7 @@ class XMapStyleTypePropertiesEntity extends XMapNodeEntity
     /**
      * @return string
      */
-    public function getAttrFoTextBullet()
+    public function getAttrFoTextBullet(): string
     {
         return $this->attrFoTextBullet;
     }
@@ -626,7 +626,7 @@ class XMapStyleTypePropertiesEntity extends XMapNodeEntity
      * @param string $attrFoTextBullet
      * @return XMapStyleTypePropertiesEntity
      */
-    public function setAttrFoTextBullet($attrFoTextBullet)
+    public function setAttrFoTextBullet(string $attrFoTextBullet): XMapStyleTypePropertiesEntity
     {
         $this->attrFoTextBullet = $attrFoTextBullet;
         return $this;
@@ -635,7 +635,7 @@ class XMapStyleTypePropertiesEntity extends XMapNodeEntity
     /**
      * @return string
      */
-    public function getAttrSvgWidth()
+    public function getAttrSvgWidth(): string
     {
         return $this->attrSvgWidth;
     }
@@ -644,7 +644,7 @@ class XMapStyleTypePropertiesEntity extends XMapNodeEntity
      * @param string $attrSvgWidth
      * @return XMapStyleTypePropertiesEntity
      */
-    public function setAttrSvgWidth($attrSvgWidth)
+    public function setAttrSvgWidth(string $attrSvgWidth): XMapStyleTypePropertiesEntity
     {
         $this->attrSvgWidth = $attrSvgWidth;
         return $this;
@@ -653,7 +653,7 @@ class XMapStyleTypePropertiesEntity extends XMapNodeEntity
     /**
      * @return string
      */
-    public function getAttrSvgX()
+    public function getAttrSvgX(): string
     {
         return $this->attrSvgX;
     }
@@ -662,7 +662,7 @@ class XMapStyleTypePropertiesEntity extends XMapNodeEntity
      * @param string $attrSvgX
      * @return XMapStyleTypePropertiesEntity
      */
-    public function setAttrSvgX($attrSvgX)
+    public function setAttrSvgX(string $attrSvgX): XMapStyleTypePropertiesEntity
     {
         $this->attrSvgX = $attrSvgX;
         return $this;
@@ -671,7 +671,7 @@ class XMapStyleTypePropertiesEntity extends XMapNodeEntity
     /**
      * @return string
      */
-    public function getAttrSvgY()
+    public function getAttrSvgY(): string
     {
         return $this->attrSvgY;
     }
@@ -680,7 +680,7 @@ class XMapStyleTypePropertiesEntity extends XMapNodeEntity
      * @param string $attrSvgY
      * @return XMapStyleTypePropertiesEntity
      */
-    public function setAttrSvgY($attrSvgY)
+    public function setAttrSvgY(string $attrSvgY): XMapStyleTypePropertiesEntity
     {
         $this->attrSvgY = $attrSvgY;
         return $this;
@@ -689,7 +689,7 @@ class XMapStyleTypePropertiesEntity extends XMapNodeEntity
     /**
      * @return XMapDefaultStyleEntity
      */
-    public function getDefaultStyle()
+    public function getDefaultStyle(): XMapDefaultStyleEntity
     {
         return $this->defaultStyle;
     }
@@ -698,7 +698,7 @@ class XMapStyleTypePropertiesEntity extends XMapNodeEntity
      * @param XMapDefaultStyleEntity $defaultStyle
      * @return XMapStyleTypePropertiesEntity
      */
-    public function setDefaultStyle($defaultStyle)
+    public function setDefaultStyle(XMapDefaultStyleEntity $defaultStyle): XMapStyleTypePropertiesEntity
     {
         $this->defaultStyle = $defaultStyle;
         return $this;
@@ -708,7 +708,7 @@ class XMapStyleTypePropertiesEntity extends XMapNodeEntity
      * @param XMLWriter $xmlWriter
      * @return void
      */
-    protected function writeThisNode($xmlWriter)
+    protected function writeThisNode(XMLWriter $xmlWriter)
     {
         $xmlWriter->startElement($this->nodeTag());
 
@@ -751,7 +751,7 @@ class XMapStyleTypePropertiesEntity extends XMapNodeEntity
         $xmlWriter->endElement();
     }
 
-    protected function nodeTag()
+    protected function nodeTag(): string
     {
         return $this->type . '-properties';
     }

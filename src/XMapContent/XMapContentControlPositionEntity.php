@@ -19,7 +19,7 @@ class XMapContentControlPositionEntity extends XMapNodeEntity
      */
     protected $position;
 
-    protected function nodeTag()
+    protected function nodeTag(): string
     {
         return "control-point";
     }
@@ -27,7 +27,7 @@ class XMapContentControlPositionEntity extends XMapNodeEntity
     /**
      * @return int
      */
-    public function getAttrIndex()
+    public function getAttrIndex(): int
     {
         return $this->attrIndex;
     }
@@ -36,7 +36,7 @@ class XMapContentControlPositionEntity extends XMapNodeEntity
      * @param int $attrIndex
      * @return XMapContentControlPositionEntity
      */
-    public function setAttrIndex($attrIndex)
+    public function setAttrIndex(int $attrIndex): XMapContentControlPositionEntity
     {
         $this->attrIndex = $attrIndex;
         return $this;
@@ -45,7 +45,7 @@ class XMapContentControlPositionEntity extends XMapNodeEntity
     /**
      * @return XMapContentPositionEntity
      */
-    public function getPosition()
+    public function getPosition(): XMapContentPositionEntity
     {
         return $this->position;
     }
@@ -54,7 +54,7 @@ class XMapContentControlPositionEntity extends XMapNodeEntity
      * @param XMapContentPositionEntity $position
      * @return XMapContentControlPositionEntity
      */
-    public function setPosition($position)
+    public function setPosition(XMapContentPositionEntity $position): XMapContentControlPositionEntity
     {
         $this->position = $position;
         return $this;
@@ -64,13 +64,13 @@ class XMapContentControlPositionEntity extends XMapNodeEntity
      * @param XMLWriter $xmlWriter
      * @return void
      */
-    protected function writeThisNode($xmlWriter)
+    protected function writeThisNode(XMLWriter $xmlWriter)
     {
         $xmlWriter->startElement($this->nodeTag());
 
-        $xmlWriter->writeAttribute("index",$this->attrIndex);
+        $xmlWriter->writeAttribute("index", $this->attrIndex);
 
-        self::writeThatNode($xmlWriter,$this->position);
+        self::writeThatNode($xmlWriter, $this->position);
 
         $xmlWriter->endElement();
     }

@@ -32,7 +32,7 @@ class XMapContentBoundaryEntity extends XMapNodeEntity
     /**
      * @return string
      */
-    public function getAttrId()
+    public function getAttrId(): string
     {
         return $this->attrId;
     }
@@ -41,7 +41,7 @@ class XMapContentBoundaryEntity extends XMapNodeEntity
      * @param string $attrId
      * @return XMapContentBoundaryEntity
      */
-    public function setAttrId($attrId)
+    public function setAttrId(string $attrId): XMapContentBoundaryEntity
     {
         $this->attrId = $attrId;
         return $this;
@@ -50,7 +50,7 @@ class XMapContentBoundaryEntity extends XMapNodeEntity
     /**
      * @return string
      */
-    public function getAttrStyleId()
+    public function getAttrStyleId(): string
     {
         return $this->attrStyleId;
     }
@@ -59,7 +59,7 @@ class XMapContentBoundaryEntity extends XMapNodeEntity
      * @param string $attrStyleId
      * @return XMapContentBoundaryEntity
      */
-    public function setAttrStyleId($attrStyleId)
+    public function setAttrStyleId(string $attrStyleId): XMapContentBoundaryEntity
     {
         $this->attrStyleId = $attrStyleId;
         return $this;
@@ -68,7 +68,7 @@ class XMapContentBoundaryEntity extends XMapNodeEntity
     /**
      * @return string
      */
-    public function getAttrRange()
+    public function getAttrRange(): string
     {
         return $this->attrRange;
     }
@@ -77,7 +77,7 @@ class XMapContentBoundaryEntity extends XMapNodeEntity
      * @param string $attrRange
      * @return XMapContentBoundaryEntity
      */
-    public function setAttrRange($attrRange)
+    public function setAttrRange(string $attrRange): XMapContentBoundaryEntity
     {
         $this->attrRange = $attrRange;
         return $this;
@@ -86,7 +86,7 @@ class XMapContentBoundaryEntity extends XMapNodeEntity
     /**
      * @return XMapContentTitleEntity
      */
-    public function getTitle()
+    public function getTitle(): XMapContentTitleEntity
     {
         return $this->title;
     }
@@ -95,7 +95,7 @@ class XMapContentBoundaryEntity extends XMapNodeEntity
      * @param XMapContentTitleEntity $title
      * @return XMapContentBoundaryEntity
      */
-    public function setTitle($title)
+    public function setTitle(XMapContentTitleEntity $title): XMapContentBoundaryEntity
     {
         $this->title = $title;
         return $this;
@@ -106,16 +106,16 @@ class XMapContentBoundaryEntity extends XMapNodeEntity
      * @param int $end
      * @return $this
      */
-    public function setRangeWithStartAndEnd($start, $end)
+    public function setRangeWithStartAndEnd(int $start, int $end): XMapContentBoundaryEntity
     {
-        $this->attrRange = "({$start},{$end})";
+        $this->attrRange = "($start,$end)";
         return $this;
     }
 
     /**
      * @return $this
      */
-    public function setRangeAsMaster()
+    public function setRangeAsMaster(): XMapContentBoundaryEntity
     {
         $this->attrRange = "master";
         return $this;
@@ -125,7 +125,7 @@ class XMapContentBoundaryEntity extends XMapNodeEntity
      * @param XMLWriter $xmlWriter
      * @return void
      */
-    protected function writeThisNode($xmlWriter)
+    protected function writeThisNode(XMLWriter $xmlWriter)
     {
         $xmlWriter->startElement($this->nodeTag());
 
@@ -138,7 +138,7 @@ class XMapContentBoundaryEntity extends XMapNodeEntity
         $xmlWriter->endElement();
     }
 
-    protected function nodeTag()
+    protected function nodeTag(): string
     {
         return "boundary";
     }

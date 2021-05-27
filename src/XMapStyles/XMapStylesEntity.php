@@ -17,7 +17,7 @@ class XMapStylesEntity extends XMapNodeEntity
     /**
      * @return string
      */
-    public function getAttrVersion()
+    public function getAttrVersion(): string
     {
         return $this->attrVersion;
     }
@@ -26,7 +26,7 @@ class XMapStylesEntity extends XMapNodeEntity
      * @param string $attrVersion
      * @return XMapStylesEntity
      */
-    public function setAttrVersion($attrVersion)
+    public function setAttrVersion(string $attrVersion): XMapStylesEntity
     {
         $this->attrVersion = $attrVersion;
         return $this;
@@ -35,7 +35,7 @@ class XMapStylesEntity extends XMapNodeEntity
     /**
      * @return XMapNormalStylesEntity
      */
-    public function getStyles()
+    public function getStyles(): XMapNormalStylesEntity
     {
         return $this->styles;
     }
@@ -44,7 +44,7 @@ class XMapStylesEntity extends XMapNodeEntity
      * @param XMapNormalStylesEntity $styles
      * @return XMapStylesEntity
      */
-    public function setStyles($styles)
+    public function setStyles(XMapNormalStylesEntity $styles): XMapStylesEntity
     {
         $this->styles = $styles;
         return $this;
@@ -53,7 +53,7 @@ class XMapStylesEntity extends XMapNodeEntity
     /**
      * @return XMapMasterStylesEntity
      */
-    public function getMasterStyles()
+    public function getMasterStyles(): XMapMasterStylesEntity
     {
         return $this->masterStyles;
     }
@@ -62,7 +62,7 @@ class XMapStylesEntity extends XMapNodeEntity
      * @param XMapMasterStylesEntity $masterStyles
      * @return XMapStylesEntity
      */
-    public function setMasterStyles($masterStyles)
+    public function setMasterStyles(XMapMasterStylesEntity $masterStyles): XMapStylesEntity
     {
         $this->masterStyles = $masterStyles;
         return $this;
@@ -71,7 +71,7 @@ class XMapStylesEntity extends XMapNodeEntity
     /**
      * @return XMapAutomaticStylesEntity
      */
-    public function getAutomaticStyles()
+    public function getAutomaticStyles(): XMapAutomaticStylesEntity
     {
         return $this->automaticStyles;
     }
@@ -80,7 +80,7 @@ class XMapStylesEntity extends XMapNodeEntity
      * @param XMapAutomaticStylesEntity $automaticStyles
      * @return XMapStylesEntity
      */
-    public function setAutomaticStyles($automaticStyles)
+    public function setAutomaticStyles(XMapAutomaticStylesEntity $automaticStyles): XMapStylesEntity
     {
         $this->automaticStyles = $automaticStyles;
         return $this;
@@ -103,7 +103,7 @@ class XMapStylesEntity extends XMapNodeEntity
         $this->attrVersion=$version;
     }
 
-    protected function nodeTag()
+    protected function nodeTag(): string
     {
         return "xmap-styles";
     }
@@ -112,16 +112,17 @@ class XMapStylesEntity extends XMapNodeEntity
      * @param XMLWriter $xmlWriter
      * @return void
      */
-    protected function writeThisNode($xmlWriter)
+    protected function writeThisNode(XMLWriter $xmlWriter)
     {
         $xmlWriter->startElement($this->nodeTag());
 
         $xmlWriter->writeAttribute("xmlns", "urn:xmind:xmap:xmlns:style:2.0");
-        $xmlWriter->writeAttribute("xmlns:fo","http://www.w3.org/1999/XSL/Format");
-        $xmlWriter->writeAttribute("xmlns:svg","http://www.w3.org/2000/svg");
-        $xmlWriter->writeAttribute("version",$this->attrVersion);
+        /** @noinspection HttpUrlsUsage */
+        $xmlWriter->writeAttribute("xmlns:fo", "http://www.w3.org/1999/XSL/Format");
+        $xmlWriter->writeAttribute("xmlns:svg", "http://www.w3.org/2000/svg");
+        $xmlWriter->writeAttribute("version", $this->attrVersion);
 
-        self::writeThatNode($xmlWriter,$this->styles);
+        self::writeThatNode($xmlWriter, $this->styles);
         self::writeThatNode($xmlWriter,$this->masterStyles);
         self::writeThatNode($xmlWriter,$this->automaticStyles);
 

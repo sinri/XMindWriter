@@ -18,7 +18,7 @@ class XMapContentLabelsEntity extends XMapNodeEntity
      * @param XMapContentLabelEntity $labelEntity
      * @return $this
      */
-    public function addLabelAsEntity($labelEntity)
+    public function addLabelAsEntity(XMapContentLabelEntity $labelEntity): XMapContentLabelsEntity
     {
         $this->labelList[] = $labelEntity;
         return $this;
@@ -28,7 +28,7 @@ class XMapContentLabelsEntity extends XMapNodeEntity
      * @param string $text
      * @return $this
      */
-    public function addLabelWithText($text)
+    public function addLabelWithText(string $text): XMapContentLabelsEntity
     {
         $this->labelList[] = new XMapContentLabelEntity($text);
         return $this;
@@ -37,7 +37,7 @@ class XMapContentLabelsEntity extends XMapNodeEntity
     /**
      * @return XMapContentLabelEntity[]
      */
-    public function getLabelList()
+    public function getLabelList(): array
     {
         return $this->labelList;
     }
@@ -45,7 +45,7 @@ class XMapContentLabelsEntity extends XMapNodeEntity
     /**
      * @param XMapContentLabelEntity[] $labelList
      */
-    public function setLabelList($labelList)
+    public function setLabelList(array $labelList)
     {
         $this->labelList = $labelList;
     }
@@ -54,7 +54,7 @@ class XMapContentLabelsEntity extends XMapNodeEntity
      * @param XMLWriter $xmlWriter
      * @return void
      */
-    protected function writeThisNode($xmlWriter)
+    protected function writeThisNode(XMLWriter $xmlWriter)
     {
         $xmlWriter->startElement($this->nodeTag());
         if ($this->labelList !== null) {
@@ -65,7 +65,7 @@ class XMapContentLabelsEntity extends XMapNodeEntity
         $xmlWriter->endElement();
     }
 
-    protected function nodeTag()
+    protected function nodeTag(): string
     {
         return "labels";
     }

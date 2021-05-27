@@ -18,7 +18,7 @@ class XManifestEntity extends XMapNodeEntity
     /**
      * @return string
      */
-    public function getAttrVersion()
+    public function getAttrVersion(): string
     {
         return $this->attrVersion;
     }
@@ -26,7 +26,7 @@ class XManifestEntity extends XMapNodeEntity
     /**
      * @param string $attrVersion
      */
-    public function setAttrVersion($attrVersion)
+    public function setAttrVersion(string $attrVersion)
     {
         $this->attrVersion = $attrVersion;
     }
@@ -34,7 +34,7 @@ class XManifestEntity extends XMapNodeEntity
     /**
      * @return XManifestFileEntryEntity[]
      */
-    public function getFileEntryList()
+    public function getFileEntryList(): array
     {
         return $this->fileEntryList;
     }
@@ -42,15 +42,15 @@ class XManifestEntity extends XMapNodeEntity
     /**
      * @param XManifestFileEntryEntity[] $fileEntryList
      */
-    public function setFileEntryList($fileEntryList)
+    public function setFileEntryList(array $fileEntryList)
     {
         $this->fileEntryList = $fileEntryList;
     }
 
     public function __construct($version='2.0')
     {
-        $this->attrVersion=$version;
-        $this->fileEntryList=[];
+        $this->attrVersion = $version;
+        $this->fileEntryList = [];
 
         // default entries
         $this->addFileEntry("content.xml", "text/xml")
@@ -58,17 +58,19 @@ class XManifestEntity extends XMapNodeEntity
             ->addFileEntry("META-INF/manifest.xml", "text/xml");
     }
 
-    public function addFileEntryEntity($fileEntry){
-        $this->fileEntryList[]=$fileEntry;
+    public function addFileEntryEntity($fileEntry): XManifestEntity
+    {
+        $this->fileEntryList[] = $fileEntry;
         return $this;
     }
 
-    public function addFileEntry($fullPath, $mediaType){
-        $this->fileEntryList[]=new XManifestFileEntryEntity($fullPath,$mediaType);
+    public function addFileEntry($fullPath, $mediaType): XManifestEntity
+    {
+        $this->fileEntryList[] = new XManifestFileEntryEntity($fullPath, $mediaType);
         return $this;
     }
 
-    protected function nodeTag()
+    protected function nodeTag(): string
     {
         return "manifest";
     }
@@ -77,15 +79,15 @@ class XManifestEntity extends XMapNodeEntity
      * @param XMLWriter $xmlWriter
      * @return void
      */
-    protected function writeThisNode($xmlWriter)
+    protected function writeThisNode(XMLWriter $xmlWriter)
     {
         $xmlWriter->startElement($this->nodeTag());
 
-        $xmlWriter->writeAttribute("xmlns","urn:xmind:xmap:xmlns:manifest:1.0");
-        $xmlWriter->writeAttribute("version",$this->attrVersion);
+        $xmlWriter->writeAttribute("xmlns", "urn:xmind:xmap:xmlns:manifest:1.0");
+        $xmlWriter->writeAttribute("version", $this->attrVersion);
 
-        foreach ($this->fileEntryList as $fileEntity){
-            self::writeThatNode($xmlWriter,$fileEntity);
+        foreach ($this->fileEntryList as $fileEntity) {
+            self::writeThatNode($xmlWriter, $fileEntity);
         }
 
         $xmlWriter->endElement();

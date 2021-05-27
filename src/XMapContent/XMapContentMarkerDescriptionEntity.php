@@ -21,7 +21,7 @@ class XMapContentMarkerDescriptionEntity extends XMapNodeEntity
     /**
      * @return string
      */
-    public function getAttrDescription()
+    public function getAttrDescription(): string
     {
         return $this->attrDescription;
     }
@@ -30,7 +30,7 @@ class XMapContentMarkerDescriptionEntity extends XMapNodeEntity
      * @param string $attrDescription
      * @return XMapContentMarkerDescriptionEntity
      */
-    public function setAttrDescription($attrDescription)
+    public function setAttrDescription(string $attrDescription): XMapContentMarkerDescriptionEntity
     {
         $this->attrDescription = $attrDescription;
         return $this;
@@ -39,7 +39,7 @@ class XMapContentMarkerDescriptionEntity extends XMapNodeEntity
     /**
      * @return string
      */
-    public function getAttrMarkerId()
+    public function getAttrMarkerId(): string
     {
         return $this->attrMarkerId;
     }
@@ -48,7 +48,7 @@ class XMapContentMarkerDescriptionEntity extends XMapNodeEntity
      * @param string $attrMarkerId
      * @return XMapContentMarkerDescriptionEntity
      */
-    public function setAttrMarkerId($attrMarkerId)
+    public function setAttrMarkerId(string $attrMarkerId): XMapContentMarkerDescriptionEntity
     {
         $this->attrMarkerId = $attrMarkerId;
         return $this;
@@ -58,7 +58,7 @@ class XMapContentMarkerDescriptionEntity extends XMapNodeEntity
      * @param XMLWriter $xmlWriter
      * @return void
      */
-    protected function writeThisNode($xmlWriter)
+    protected function writeThisNode(XMLWriter $xmlWriter)
     {
         $xmlWriter->startElement($this->nodeTag());
         $xmlWriter->writeAttribute("marker-id", $this->attrMarkerId);
@@ -66,7 +66,7 @@ class XMapContentMarkerDescriptionEntity extends XMapNodeEntity
         $xmlWriter->endElement();
     }
 
-    protected function nodeTag()
+    protected function nodeTag(): string
     {
         return "marker-description";
     }

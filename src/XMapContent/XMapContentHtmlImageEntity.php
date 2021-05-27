@@ -22,7 +22,7 @@ class XMapContentHtmlImageEntity extends XMapNodeEntity
     /**
      * @return string
      */
-    public function getAttrXHtmlSrc()
+    public function getAttrXHtmlSrc(): string
     {
         return $this->attrXHtmlSrc;
     }
@@ -31,7 +31,7 @@ class XMapContentHtmlImageEntity extends XMapNodeEntity
      * @param string $attrXHtmlSrc
      * @return XMapContentHtmlImageEntity
      */
-    public function setAttrXHtmlSrc($attrXHtmlSrc)
+    public function setAttrXHtmlSrc(string $attrXHtmlSrc): XMapContentHtmlImageEntity
     {
         $this->attrXHtmlSrc = $attrXHtmlSrc;
         return $this;
@@ -41,14 +41,14 @@ class XMapContentHtmlImageEntity extends XMapNodeEntity
      * @param XMLWriter $xmlWriter
      * @return void
      */
-    protected function writeThisNode($xmlWriter)
+    protected function writeThisNode(XMLWriter $xmlWriter)
     {
         $xmlWriter->startElement($this->nodeTag());
         if ($this->attrXHtmlSrc !== null) $xmlWriter->writeAttribute("xhtml:src", $this->attrXHtmlSrc);
         $xmlWriter->endElement();
     }
 
-    protected function nodeTag()
+    protected function nodeTag(): string
     {
         return "xhtml:img";
 //        return "img";

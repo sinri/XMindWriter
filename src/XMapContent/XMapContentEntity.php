@@ -15,25 +15,26 @@ class XMapContentEntity extends XMapNodeEntity
      */
     protected $sheetList;
 
-    public function __construct($version='2.0')
+    public function __construct($version = '2.0')
     {
-        $this->attrVersion=$version;
-        $this->sheetList=[];
+        $this->attrVersion = $version;
+        $this->sheetList = [];
     }
 
     /**
      * @param XMapContentSheetEntity $sheet
      * @return XMapContentEntity
      */
-    public function addSheet($sheet){
-        $this->sheetList[]=$sheet;
+    public function addSheet(XMapContentSheetEntity $sheet): XMapContentEntity
+    {
+        $this->sheetList[] = $sheet;
         return $this;
     }
 
     /**
      * @return string
      */
-    public function getAttrVersion()
+    public function getAttrVersion(): string
     {
         return $this->attrVersion;
     }
@@ -42,7 +43,7 @@ class XMapContentEntity extends XMapNodeEntity
      * @param string $attrVersion
      * @return XMapContentEntity
      */
-    public function setAttrVersion($attrVersion)
+    public function setAttrVersion(string $attrVersion): XMapContentEntity
     {
         $this->attrVersion = $attrVersion;
         return $this;
@@ -51,7 +52,7 @@ class XMapContentEntity extends XMapNodeEntity
     /**
      * @return XMapContentSheetEntity[]
      */
-    public function getSheetList()
+    public function getSheetList(): array
     {
         return $this->sheetList;
     }
@@ -60,13 +61,13 @@ class XMapContentEntity extends XMapNodeEntity
      * @param XMapContentSheetEntity[] $sheetList
      * @return XMapContentEntity
      */
-    public function setSheetList($sheetList)
+    public function setSheetList(array $sheetList): XMapContentEntity
     {
         $this->sheetList = $sheetList;
         return $this;
     }
 
-    protected function nodeTag()
+    protected function nodeTag(): string
     {
         return "xmap-content";
     }
@@ -74,14 +75,14 @@ class XMapContentEntity extends XMapNodeEntity
     /**
      * @param XMLWriter $xmlWriter
      */
-    protected function writeThisNode($xmlWriter)
+    protected function writeThisNode(XMLWriter $xmlWriter)
     {
         $xmlWriter->startElement($this->nodeTag());
         $xmlWriter->writeAttribute('xmlns', "urn:xmind:xmap:xmlns:content:2.0");
-        $xmlWriter->writeAttribute('version',$this->attrVersion);
+        $xmlWriter->writeAttribute('version', $this->attrVersion);
 
-        foreach ($this->sheetList as $sheetEntity){
-            self::writeThatNode($xmlWriter,$sheetEntity);
+        foreach ($this->sheetList as $sheetEntity) {
+            self::writeThatNode($xmlWriter, $sheetEntity);
         }
 
         $xmlWriter->endElement();

@@ -30,7 +30,7 @@ class XMarkerGroupEntity extends XMapNodeEntity
     /**
      * @return string
      */
-    public function getAttrId()
+    public function getAttrId(): string
     {
         return $this->attrId;
     }
@@ -39,7 +39,7 @@ class XMarkerGroupEntity extends XMapNodeEntity
      * @param string $attrId
      * @return XMarkerGroupEntity
      */
-    public function setAttrId($attrId)
+    public function setAttrId(string $attrId): XMarkerGroupEntity
     {
         $this->attrId = $attrId;
         return $this;
@@ -48,7 +48,7 @@ class XMarkerGroupEntity extends XMapNodeEntity
     /**
      * @return string
      */
-    public function getAttrName()
+    public function getAttrName(): string
     {
         return $this->attrName;
     }
@@ -57,7 +57,7 @@ class XMarkerGroupEntity extends XMapNodeEntity
      * @param string $attrName
      * @return XMarkerGroupEntity
      */
-    public function setAttrName($attrName)
+    public function setAttrName(string $attrName): XMarkerGroupEntity
     {
         $this->attrName = $attrName;
         return $this;
@@ -66,7 +66,7 @@ class XMarkerGroupEntity extends XMapNodeEntity
     /**
      * @return bool
      */
-    public function isAttrSingleton()
+    public function isAttrSingleton(): bool
     {
         return $this->attrSingleton;
     }
@@ -75,7 +75,7 @@ class XMarkerGroupEntity extends XMapNodeEntity
      * @param bool $attrSingleton
      * @return XMarkerGroupEntity
      */
-    public function setAttrSingleton($attrSingleton)
+    public function setAttrSingleton(bool $attrSingleton): XMarkerGroupEntity
     {
         $this->attrSingleton = $attrSingleton;
         return $this;
@@ -84,7 +84,7 @@ class XMarkerGroupEntity extends XMapNodeEntity
     /**
      * @return XMarkerEntity[]
      */
-    public function getMarkerList()
+    public function getMarkerList(): array
     {
         return $this->markerList;
     }
@@ -93,7 +93,7 @@ class XMarkerGroupEntity extends XMapNodeEntity
      * @param XMarkerEntity[] $markerList
      * @return XMarkerGroupEntity
      */
-    public function setMarkerList($markerList)
+    public function setMarkerList(array $markerList): XMarkerGroupEntity
     {
         $this->markerList = $markerList;
         return $this;
@@ -103,7 +103,7 @@ class XMarkerGroupEntity extends XMapNodeEntity
      * @param XMarkerEntity $marker
      * @return $this
      */
-    public function addMarkerEntity($marker)
+    public function addMarkerEntity(XMarkerEntity $marker): XMarkerGroupEntity
     {
         $this->markerList[] = $marker;
         return $this;
@@ -113,7 +113,7 @@ class XMarkerGroupEntity extends XMapNodeEntity
      * @param XMLWriter $xmlWriter
      * @return void
      */
-    protected function writeThisNode($xmlWriter)
+    protected function writeThisNode(XMLWriter $xmlWriter)
     {
         $xmlWriter->startElement($this->nodeTag());
         $xmlWriter->writeAttribute("id", $this->attrId);
@@ -127,7 +127,7 @@ class XMarkerGroupEntity extends XMapNodeEntity
         $xmlWriter->endElement();
     }
 
-    protected function nodeTag()
+    protected function nodeTag(): string
     {
         return "marker-group";
     }

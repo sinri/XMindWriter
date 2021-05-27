@@ -29,7 +29,7 @@ class XMapContentNumberingEntity extends XMapNodeEntity
     /**
      * @return string
      */
-    public function getAttrNumberFormat()
+    public function getAttrNumberFormat(): string
     {
         return $this->attrNumberFormat;
     }
@@ -38,7 +38,7 @@ class XMapContentNumberingEntity extends XMapNodeEntity
      * @param string $attrNumberFormat
      * @return XMapContentNumberingEntity
      */
-    public function setAttrNumberFormat($attrNumberFormat)
+    public function setAttrNumberFormat(string $attrNumberFormat): XMapContentNumberingEntity
     {
         $this->attrNumberFormat = $attrNumberFormat;
         return $this;
@@ -47,7 +47,7 @@ class XMapContentNumberingEntity extends XMapNodeEntity
     /**
      * @return string
      */
-    public function getAttrPrependingNumbers()
+    public function getAttrPrependingNumbers(): string
     {
         return $this->attrPrependingNumbers;
     }
@@ -56,7 +56,7 @@ class XMapContentNumberingEntity extends XMapNodeEntity
      * @param string $attrPrependingNumbers
      * @return XMapContentNumberingEntity
      */
-    public function setAttrPrependingNumbers($attrPrependingNumbers)
+    public function setAttrPrependingNumbers(string $attrPrependingNumbers): XMapContentNumberingEntity
     {
         $this->attrPrependingNumbers = $attrPrependingNumbers;
         return $this;
@@ -65,7 +65,7 @@ class XMapContentNumberingEntity extends XMapNodeEntity
     /**
      * @return string
      */
-    public function getPrefix()
+    public function getPrefix(): string
     {
         return $this->prefix;
     }
@@ -74,7 +74,7 @@ class XMapContentNumberingEntity extends XMapNodeEntity
      * @param string $prefix
      * @return XMapContentNumberingEntity
      */
-    public function setPrefix($prefix)
+    public function setPrefix(string $prefix): XMapContentNumberingEntity
     {
         $this->prefix = $prefix;
         return $this;
@@ -83,7 +83,7 @@ class XMapContentNumberingEntity extends XMapNodeEntity
     /**
      * @return string
      */
-    public function getSuffix()
+    public function getSuffix(): string
     {
         return $this->suffix;
     }
@@ -92,7 +92,7 @@ class XMapContentNumberingEntity extends XMapNodeEntity
      * @param string $suffix
      * @return XMapContentNumberingEntity
      */
-    public function setSuffix($suffix)
+    public function setSuffix(string $suffix): XMapContentNumberingEntity
     {
         $this->suffix = $suffix;
         return $this;
@@ -102,7 +102,7 @@ class XMapContentNumberingEntity extends XMapNodeEntity
      * @param XMLWriter $xmlWriter
      * @return void
      */
-    protected function writeThisNode($xmlWriter)
+    protected function writeThisNode(XMLWriter $xmlWriter)
     {
         $xmlWriter->startElement($this->nodeTag());
 
@@ -126,7 +126,7 @@ class XMapContentNumberingEntity extends XMapNodeEntity
         $xmlWriter->endElement();
     }
 
-    protected function nodeTag()
+    protected function nodeTag(): string
     {
         return "numbering";
     }

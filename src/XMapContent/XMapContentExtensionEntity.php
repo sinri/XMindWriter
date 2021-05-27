@@ -18,7 +18,7 @@ class XMapContentExtensionEntity extends XMapNodeEntity
     /**
      * @return string
      */
-    public function getAttrProvider()
+    public function getAttrProvider(): string
     {
         return $this->attrProvider;
     }
@@ -27,7 +27,7 @@ class XMapContentExtensionEntity extends XMapNodeEntity
      * @param string $attrProvider
      * @return XMapContentExtensionEntity
      */
-    public function setAttrProvider($attrProvider)
+    public function setAttrProvider(string $attrProvider): XMapContentExtensionEntity
     {
         $this->attrProvider = $attrProvider;
         return $this;
@@ -43,7 +43,7 @@ class XMapContentExtensionEntity extends XMapNodeEntity
     /**
      * @return XMapNodeEntity
      */
-    public function getContent()
+    public function getContent(): XMapNodeEntity
     {
         return $this->content;
     }
@@ -52,7 +52,7 @@ class XMapContentExtensionEntity extends XMapNodeEntity
      * @param XMapNodeEntity $content
      * @return XMapContentExtensionEntity
      */
-    public function setContent($content)
+    public function setContent(XMapNodeEntity $content): XMapContentExtensionEntity
     {
         $this->content = $content;
         return $this;
@@ -61,7 +61,7 @@ class XMapContentExtensionEntity extends XMapNodeEntity
     /**
      * @return XMapContentResourceRefsEntity
      */
-    public function getResourceRefs()
+    public function getResourceRefs(): XMapContentResourceRefsEntity
     {
         return $this->resourceRefs;
     }
@@ -70,7 +70,7 @@ class XMapContentExtensionEntity extends XMapNodeEntity
      * @param XMapContentResourceRefsEntity $resourceRefs
      * @return XMapContentExtensionEntity
      */
-    public function setResourceRefs($resourceRefs)
+    public function setResourceRefs(XMapContentResourceRefsEntity $resourceRefs): XMapContentExtensionEntity
     {
         $this->resourceRefs = $resourceRefs;
         return $this;
@@ -81,7 +81,7 @@ class XMapContentExtensionEntity extends XMapNodeEntity
      */
     protected $resourceRefs;
 
-    protected function nodeTag()
+    protected function nodeTag(): string
     {
         return "extension";
     }
@@ -90,7 +90,7 @@ class XMapContentExtensionEntity extends XMapNodeEntity
      * @param XMLWriter $xmlWriter
      * @return void
      */
-    protected function writeThisNode($xmlWriter)
+    protected function writeThisNode(XMLWriter $xmlWriter)
     {
         $xmlWriter->startElement($this->nodeTag());
         $xmlWriter->writeAttribute("provider", $this->attrProvider);

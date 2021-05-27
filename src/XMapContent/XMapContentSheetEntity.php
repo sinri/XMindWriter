@@ -43,16 +43,16 @@ class XMapContentSheetEntity extends XMapNodeEntity
      * @param string $id
      * @param string|null $titleText
      */
-    public function __construct($id,$titleText=null)
+    public function __construct(string $id, string $titleText = null)
     {
-        $this->attrId=$id;
-        if($titleText!==null)$this->title=new XMapContentTitleEntity($titleText);
+        $this->attrId = $id;
+        if ($titleText !== null) $this->title = new XMapContentTitleEntity($titleText);
     }
 
     /**
      * @return XMapContentTitleEntity
      */
-    public function getTitle()
+    public function getTitle(): XMapContentTitleEntity
     {
         return $this->title;
     }
@@ -61,7 +61,7 @@ class XMapContentSheetEntity extends XMapNodeEntity
      * @param XMapContentTitleEntity $title
      * @return XMapContentSheetEntity
      */
-    public function setTitle($title)
+    public function setTitle(XMapContentTitleEntity $title): XMapContentSheetEntity
     {
         $this->title = $title;
         return $this;
@@ -70,7 +70,7 @@ class XMapContentSheetEntity extends XMapNodeEntity
     /**
      * @return XMapContentTopicEntity
      */
-    public function getTopic()
+    public function getTopic(): XMapContentTopicEntity
     {
         return $this->topic;
     }
@@ -79,7 +79,7 @@ class XMapContentSheetEntity extends XMapNodeEntity
      * @param XMapContentTopicEntity $topic
      * @return XMapContentSheetEntity
      */
-    public function setTopic($topic)
+    public function setTopic(XMapContentTopicEntity $topic): XMapContentSheetEntity
     {
         $this->topic = $topic;
         return $this;
@@ -88,7 +88,7 @@ class XMapContentSheetEntity extends XMapNodeEntity
     /**
      * @return XMapContentRelationshipsEntity
      */
-    public function getRelationships()
+    public function getRelationships(): XMapContentRelationshipsEntity
     {
         return $this->relationships;
     }
@@ -97,7 +97,7 @@ class XMapContentSheetEntity extends XMapNodeEntity
      * @param XMapContentRelationshipsEntity $relationships
      * @return XMapContentSheetEntity
      */
-    public function setRelationships($relationships)
+    public function setRelationships(XMapContentRelationshipsEntity $relationships): XMapContentSheetEntity
     {
         $this->relationships = $relationships;
         return $this;
@@ -106,7 +106,7 @@ class XMapContentSheetEntity extends XMapNodeEntity
     /**
      * @return XMapContentLegendEntity
      */
-    public function getLegend()
+    public function getLegend(): XMapContentLegendEntity
     {
         return $this->legend;
     }
@@ -115,7 +115,7 @@ class XMapContentSheetEntity extends XMapNodeEntity
      * @param XMapContentLegendEntity $legend
      * @return XMapContentSheetEntity
      */
-    public function setLegend($legend)
+    public function setLegend(XMapContentLegendEntity $legend): XMapContentSheetEntity
     {
         $this->legend = $legend;
         return $this;
@@ -124,7 +124,7 @@ class XMapContentSheetEntity extends XMapNodeEntity
     /**
      * @return string
      */
-    public function getAttrId()
+    public function getAttrId(): string
     {
         return $this->attrId;
     }
@@ -132,7 +132,7 @@ class XMapContentSheetEntity extends XMapNodeEntity
     /**
      * @return string
      */
-    public function getAttrStyleId()
+    public function getAttrStyleId(): string
     {
         return $this->attrStyleId;
     }
@@ -140,7 +140,7 @@ class XMapContentSheetEntity extends XMapNodeEntity
     /**
      * @return string
      */
-    public function getAttrTheme()
+    public function getAttrTheme(): string
     {
         return $this->attrTheme;
     }
@@ -148,16 +148,16 @@ class XMapContentSheetEntity extends XMapNodeEntity
     /**
      * @param XMLWriter $xmlWriter
      */
-    protected function writeThisNode($xmlWriter)
+    protected function writeThisNode(XMLWriter $xmlWriter)
     {
         $xmlWriter->startElement($this->nodeTag());
 
-        $xmlWriter->writeAttribute('id',$this->attrId);
-        if($this->attrStyleId!==null){
-            $xmlWriter->writeAttribute('style-id',$this->attrStyleId);
+        $xmlWriter->writeAttribute('id', $this->attrId);
+        if ($this->attrStyleId !== null) {
+            $xmlWriter->writeAttribute('style-id', $this->attrStyleId);
         }
-        if($this->attrTheme!==null){
-            $xmlWriter->writeAttribute('theme',$this->attrTheme);
+        if ($this->attrTheme !== null) {
+            $xmlWriter->writeAttribute('theme', $this->attrTheme);
         }
 
         self::writeThatNode($xmlWriter,$this->title);
@@ -168,7 +168,7 @@ class XMapContentSheetEntity extends XMapNodeEntity
         $xmlWriter->endElement();
     }
 
-    protected function nodeTag()
+    protected function nodeTag(): string
     {
         return "sheet";
     }

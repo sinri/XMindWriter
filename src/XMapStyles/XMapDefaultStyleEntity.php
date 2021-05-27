@@ -32,7 +32,7 @@ class XMapDefaultStyleEntity extends XMapNodeEntity
     /**
      * @return string
      */
-    public function getAttrStyleFamily()
+    public function getAttrStyleFamily(): string
     {
         return $this->attrStyleFamily;
     }
@@ -41,7 +41,7 @@ class XMapDefaultStyleEntity extends XMapNodeEntity
      * @param string $attrStyleFamily
      * @return XMapDefaultStyleEntity
      */
-    public function setAttrStyleFamily($attrStyleFamily)
+    public function setAttrStyleFamily(string $attrStyleFamily): XMapDefaultStyleEntity
     {
         $this->attrStyleFamily = $attrStyleFamily;
         return $this;
@@ -50,7 +50,7 @@ class XMapDefaultStyleEntity extends XMapNodeEntity
     /**
      * @return string
      */
-    public function getAttrStyleId()
+    public function getAttrStyleId(): string
     {
         return $this->attrStyleId;
     }
@@ -59,7 +59,7 @@ class XMapDefaultStyleEntity extends XMapNodeEntity
      * @param string $attrStyleId
      * @return XMapDefaultStyleEntity
      */
-    public function setAttrStyleId($attrStyleId)
+    public function setAttrStyleId(string $attrStyleId): XMapDefaultStyleEntity
     {
         $this->attrStyleId = $attrStyleId;
         return $this;
@@ -69,7 +69,7 @@ class XMapDefaultStyleEntity extends XMapNodeEntity
      * @param XMLWriter $xmlWriter
      * @return void
      */
-    protected function writeThisNode($xmlWriter)
+    protected function writeThisNode(XMLWriter $xmlWriter)
     {
         $xmlWriter->startElement($this->nodeTag());
         $xmlWriter->writeAttribute("style-family", $this->attrStyleFamily);
@@ -77,7 +77,7 @@ class XMapDefaultStyleEntity extends XMapNodeEntity
         $xmlWriter->endElement();
     }
 
-    protected function nodeTag()
+    protected function nodeTag(): string
     {
         return "default-style";
     }

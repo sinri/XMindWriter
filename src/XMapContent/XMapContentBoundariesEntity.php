@@ -17,7 +17,7 @@ class XMapContentBoundariesEntity extends XMapNodeEntity
     /**
      * @return XMapContentBoundaryEntity[]
      */
-    public function getBoundaryList()
+    public function getBoundaryList(): array
     {
         return $this->boundaryList;
     }
@@ -26,7 +26,7 @@ class XMapContentBoundariesEntity extends XMapNodeEntity
      * @param XMapContentBoundaryEntity[] $boundaryList
      * @return XMapContentBoundariesEntity
      */
-    public function setBoundaryList($boundaryList)
+    public function setBoundaryList(array $boundaryList): XMapContentBoundariesEntity
     {
         $this->boundaryList = $boundaryList;
         return $this;
@@ -35,7 +35,7 @@ class XMapContentBoundariesEntity extends XMapNodeEntity
     /**
      * @param XMapContentBoundaryEntity $boundary
      */
-    public function addBoundaryEntity($boundary)
+    public function addBoundaryEntity(XMapContentBoundaryEntity $boundary)
     {
         $this->boundaryList[] = $boundary;
     }
@@ -44,7 +44,7 @@ class XMapContentBoundariesEntity extends XMapNodeEntity
      * @param XMLWriter $xmlWriter
      * @return void
      */
-    protected function writeThisNode($xmlWriter)
+    protected function writeThisNode(XMLWriter $xmlWriter)
     {
         $xmlWriter->startElement($this->nodeTag());
         if ($this->boundaryList !== null) {
@@ -55,7 +55,7 @@ class XMapContentBoundariesEntity extends XMapNodeEntity
         $xmlWriter->endElement();
     }
 
-    protected function nodeTag()
+    protected function nodeTag(): string
     {
         return "boundaries";
     }

@@ -22,7 +22,7 @@ class XMapContentLabelEntity extends XMapNodeEntity
     /**
      * @return string
      */
-    public function getTextContent()
+    public function getTextContent(): string
     {
         return $this->textContent;
     }
@@ -31,7 +31,7 @@ class XMapContentLabelEntity extends XMapNodeEntity
      * @param string $textContent
      * @return XMapContentLabelEntity
      */
-    public function setTextContent($textContent)
+    public function setTextContent(string $textContent): XMapContentLabelEntity
     {
         $this->textContent = $textContent;
         return $this;
@@ -41,14 +41,14 @@ class XMapContentLabelEntity extends XMapNodeEntity
      * @param XMLWriter $xmlWriter
      * @return void
      */
-    protected function writeThisNode($xmlWriter)
+    protected function writeThisNode(XMLWriter $xmlWriter)
     {
         $xmlWriter->startElement($this->nodeTag());
         $xmlWriter->text($this->textContent);
         $xmlWriter->endElement();
     }
 
-    protected function nodeTag()
+    protected function nodeTag(): string
     {
         return "label";
     }

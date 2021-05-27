@@ -17,7 +17,7 @@ class XMapNormalStylesEntity extends XMapNodeEntity
     /**
      * @return XMapStyleEntity[]
      */
-    public function getStyleList()
+    public function getStyleList(): array
     {
         return $this->styleList;
     }
@@ -26,7 +26,7 @@ class XMapNormalStylesEntity extends XMapNodeEntity
      * @param XMapStyleEntity[] $styleList
      * @return XMapNormalStylesEntity
      */
-    public function setStyleList($styleList)
+    public function setStyleList(array $styleList): XMapNormalStylesEntity
     {
         $this->styleList = $styleList;
         return $this;
@@ -36,13 +36,13 @@ class XMapNormalStylesEntity extends XMapNodeEntity
      * @param XMapStyleEntity $styleEntity
      * @return $this
      */
-    public function addStyleEntity($styleEntity)
+    public function addStyleEntity(XMapStyleEntity $styleEntity): XMapNormalStylesEntity
     {
         $this->styleList[] = $styleEntity;
         return $this;
     }
 
-    protected function nodeTag()
+    protected function nodeTag(): string
     {
         return "styles";
     }
@@ -51,12 +51,12 @@ class XMapNormalStylesEntity extends XMapNodeEntity
      * @param XMLWriter $xmlWriter
      * @return void
      */
-    protected function writeThisNode($xmlWriter)
+    protected function writeThisNode(XMLWriter $xmlWriter)
     {
         $xmlWriter->startElement($this->nodeTag());
 
-        foreach ($this->styleList as $styleEntity){
-            self::writeThatNode($xmlWriter,$styleEntity);
+        foreach ($this->styleList as $styleEntity) {
+            self::writeThatNode($xmlWriter, $styleEntity);
         }
 
         $xmlWriter->endElement();

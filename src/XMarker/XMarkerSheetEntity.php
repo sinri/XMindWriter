@@ -26,7 +26,7 @@ class XMarkerSheetEntity extends XMapNodeEntity
     /**
      * @return string
      */
-    public function getAttrVersion()
+    public function getAttrVersion(): string
     {
         return $this->attrVersion;
     }
@@ -35,7 +35,7 @@ class XMarkerSheetEntity extends XMapNodeEntity
      * @param string $attrVersion
      * @return XMarkerSheetEntity
      */
-    public function setAttrVersion($attrVersion)
+    public function setAttrVersion(string $attrVersion): XMarkerSheetEntity
     {
         $this->attrVersion = $attrVersion;
         return $this;
@@ -44,7 +44,7 @@ class XMarkerSheetEntity extends XMapNodeEntity
     /**
      * @return XMarkerGroupEntity[]
      */
-    public function getMarkerGroupList()
+    public function getMarkerGroupList(): array
     {
         return $this->markerGroupList;
     }
@@ -53,7 +53,7 @@ class XMarkerSheetEntity extends XMapNodeEntity
      * @param XMarkerGroupEntity[] $markerGroupList
      * @return XMarkerSheetEntity
      */
-    public function setMarkerGroupList($markerGroupList)
+    public function setMarkerGroupList(array $markerGroupList): XMarkerSheetEntity
     {
         $this->markerGroupList = $markerGroupList;
         return $this;
@@ -63,7 +63,7 @@ class XMarkerSheetEntity extends XMapNodeEntity
      * @param XMarkerGroupEntity $markerGroup
      * @return XMarkerSheetEntity
      */
-    public function addMarkerGroup($markerGroup)
+    public function addMarkerGroup(XMarkerGroupEntity $markerGroup): XMarkerSheetEntity
     {
         $this->markerGroupList[] = $markerGroup;
         return $this;
@@ -73,7 +73,7 @@ class XMarkerSheetEntity extends XMapNodeEntity
      * @param XMLWriter $xmlWriter
      * @return void
      */
-    protected function writeThisNode($xmlWriter)
+    protected function writeThisNode(XMLWriter $xmlWriter)
     {
         $xmlWriter->startElement($this->nodeTag());
         $xmlWriter->writeAttribute("xmlns", "urn:xmind:xmap:xmlns:marker:2.0");
@@ -88,7 +88,7 @@ class XMarkerSheetEntity extends XMapNodeEntity
         $xmlWriter->endElement();
     }
 
-    protected function nodeTag()
+    protected function nodeTag(): string
     {
         return "marker-sheet";
     }

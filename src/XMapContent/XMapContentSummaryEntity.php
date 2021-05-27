@@ -30,14 +30,14 @@ class XMapContentSummaryEntity extends XMapNodeEntity
     public function __construct($id, $startIndex, $endIndex, $summaryTopicId)
     {
         $this->attrId = $id;
-        $this->attrRange = "({$startIndex}, {$endIndex})";
+        $this->attrRange = "($startIndex, $endIndex)";
         $this->attrTopicId = $summaryTopicId;
     }
 
     /**
      * @return string
      */
-    public function getAttrId()
+    public function getAttrId(): string
     {
         return $this->attrId;
     }
@@ -46,7 +46,7 @@ class XMapContentSummaryEntity extends XMapNodeEntity
      * @param string $attrId
      * @return XMapContentSummaryEntity
      */
-    public function setAttrId($attrId)
+    public function setAttrId(string $attrId): XMapContentSummaryEntity
     {
         $this->attrId = $attrId;
         return $this;
@@ -55,7 +55,7 @@ class XMapContentSummaryEntity extends XMapNodeEntity
     /**
      * @return string
      */
-    public function getAttrStyleId()
+    public function getAttrStyleId(): string
     {
         return $this->attrStyleId;
     }
@@ -64,7 +64,7 @@ class XMapContentSummaryEntity extends XMapNodeEntity
      * @param string $attrStyleId
      * @return XMapContentSummaryEntity
      */
-    public function setAttrStyleId($attrStyleId)
+    public function setAttrStyleId(string $attrStyleId): XMapContentSummaryEntity
     {
         $this->attrStyleId = $attrStyleId;
         return $this;
@@ -73,7 +73,7 @@ class XMapContentSummaryEntity extends XMapNodeEntity
     /**
      * @return string
      */
-    public function getAttrRange()
+    public function getAttrRange(): string
     {
         return $this->attrRange;
     }
@@ -82,7 +82,7 @@ class XMapContentSummaryEntity extends XMapNodeEntity
      * @param string $attrRange
      * @return XMapContentSummaryEntity
      */
-    public function setAttrRange($attrRange)
+    public function setAttrRange(string $attrRange): XMapContentSummaryEntity
     {
         $this->attrRange = $attrRange;
         return $this;
@@ -91,7 +91,7 @@ class XMapContentSummaryEntity extends XMapNodeEntity
     /**
      * @return string
      */
-    public function getAttrTopicId()
+    public function getAttrTopicId(): string
     {
         return $this->attrTopicId;
     }
@@ -100,15 +100,15 @@ class XMapContentSummaryEntity extends XMapNodeEntity
      * @param string $attrTopicId
      * @return XMapContentSummaryEntity
      */
-    public function setAttrTopicId($attrTopicId)
+    public function setAttrTopicId(string $attrTopicId): XMapContentSummaryEntity
     {
         $this->attrTopicId = $attrTopicId;
         return $this;
     }
 
-    public function setRangeOfSummarizedTopics($startIndex, $endIndex)
+    public function setRangeOfSummarizedTopics($startIndex, $endIndex): XMapContentSummaryEntity
     {
-        $this->attrRange = "({$startIndex}, {$endIndex})";
+        $this->attrRange = "($startIndex, $endIndex)";
         return $this;
     }
 
@@ -116,7 +116,7 @@ class XMapContentSummaryEntity extends XMapNodeEntity
      * @param XMLWriter $xmlWriter
      * @return void
      */
-    protected function writeThisNode($xmlWriter)
+    protected function writeThisNode(XMLWriter $xmlWriter)
     {
         $xmlWriter->startElement($this->nodeTag());
 
@@ -132,7 +132,7 @@ class XMapContentSummaryEntity extends XMapNodeEntity
         $xmlWriter->endElement();
     }
 
-    protected function nodeTag()
+    protected function nodeTag(): string
     {
         return "summary";
     }

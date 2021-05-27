@@ -23,7 +23,7 @@ class XMapContentMarkerRefEntity extends XMapNodeEntity
     /**
      * @return string
      */
-    public function getAttrMarkerId()
+    public function getAttrMarkerId(): string
     {
         return $this->attrMarkerId;
     }
@@ -32,7 +32,7 @@ class XMapContentMarkerRefEntity extends XMapNodeEntity
      * @param string $attrMarkerId
      * @return XMapContentMarkerRefEntity
      */
-    public function setAttrMarkerId($attrMarkerId)
+    public function setAttrMarkerId(string $attrMarkerId): XMapContentMarkerRefEntity
     {
         $this->attrMarkerId = $attrMarkerId;
         return $this;
@@ -42,14 +42,14 @@ class XMapContentMarkerRefEntity extends XMapNodeEntity
      * @param XMLWriter $xmlWriter
      * @return void
      */
-    protected function writeThisNode($xmlWriter)
+    protected function writeThisNode(XMLWriter $xmlWriter)
     {
         $xmlWriter->startElement($this->nodeTag());
         $xmlWriter->writeAttribute("marker-id", $this->attrMarkerId);
         $xmlWriter->endElement();
     }
 
-    protected function nodeTag()
+    protected function nodeTag(): string
     {
         return "marker-ref";
     }

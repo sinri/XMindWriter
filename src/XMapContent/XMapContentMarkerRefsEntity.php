@@ -18,7 +18,7 @@ class XMapContentMarkerRefsEntity extends XMapNodeEntity
      * @param XMapContentMarkerRefEntity $markerEntity
      * @return XMapContentMarkerRefsEntity
      */
-    public function addMarkerAsEntity($markerEntity)
+    public function addMarkerAsEntity(XMapContentMarkerRefEntity $markerEntity): XMapContentMarkerRefsEntity
     {
         $this->markerRefList[] = $markerEntity;
         return $this;
@@ -28,7 +28,7 @@ class XMapContentMarkerRefsEntity extends XMapNodeEntity
      * @param string $markerId
      * @return $this
      */
-    public function addMarkerWithId($markerId)
+    public function addMarkerWithId(string $markerId): XMapContentMarkerRefsEntity
     {
         $this->markerRefList[] = new XMapContentMarkerRefEntity($markerId);
         return $this;
@@ -37,7 +37,7 @@ class XMapContentMarkerRefsEntity extends XMapNodeEntity
     /**
      * @return XMapContentMarkerRefEntity[]
      */
-    public function getMarkerRefList()
+    public function getMarkerRefList(): array
     {
         return $this->markerRefList;
     }
@@ -46,7 +46,7 @@ class XMapContentMarkerRefsEntity extends XMapNodeEntity
      * @param mixed $markerRefList
      * @return XMapContentMarkerRefsEntity
      */
-    public function setMarkerRefList($markerRefList)
+    public function setMarkerRefList($markerRefList): XMapContentMarkerRefsEntity
     {
         $this->markerRefList = $markerRefList;
         return $this;
@@ -56,7 +56,7 @@ class XMapContentMarkerRefsEntity extends XMapNodeEntity
      * @param XMLWriter $xmlWriter
      * @return void
      */
-    protected function writeThisNode($xmlWriter)
+    protected function writeThisNode(XMLWriter $xmlWriter)
     {
         $xmlWriter->startElement($this->nodeTag());
 
@@ -69,7 +69,7 @@ class XMapContentMarkerRefsEntity extends XMapNodeEntity
         $xmlWriter->endElement();
     }
 
-    protected function nodeTag()
+    protected function nodeTag(): string
     {
         return "marker-refs";
     }

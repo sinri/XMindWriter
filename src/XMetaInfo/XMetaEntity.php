@@ -37,7 +37,7 @@ class XMetaEntity extends XMapNodeEntity
      * @param mixed $authorName
      * @return XMetaEntity
      */
-    public function setAuthorName($authorName)
+    public function setAuthorName($authorName): XMetaEntity
     {
         $this->authorName = $authorName;
         return $this;
@@ -55,7 +55,7 @@ class XMetaEntity extends XMapNodeEntity
      * @param mixed $authorEmail
      * @return XMetaEntity
      */
-    public function setAuthorEmail($authorEmail)
+    public function setAuthorEmail($authorEmail): XMetaEntity
     {
         $this->authorEmail = $authorEmail;
         return $this;
@@ -73,7 +73,7 @@ class XMetaEntity extends XMapNodeEntity
      * @param mixed $authorOrg
      * @return XMetaEntity
      */
-    public function setAuthorOrg($authorOrg)
+    public function setAuthorOrg($authorOrg): XMetaEntity
     {
         $this->authorOrg = $authorOrg;
         return $this;
@@ -91,7 +91,7 @@ class XMetaEntity extends XMapNodeEntity
      * @param mixed $createTime
      * @return XMetaEntity
      */
-    public function setCreateTime($createTime)
+    public function setCreateTime($createTime): XMetaEntity
     {
         $this->createTime = $createTime;
         return $this;
@@ -109,7 +109,7 @@ class XMetaEntity extends XMapNodeEntity
      * @param mixed $creatorName
      * @return XMetaEntity
      */
-    public function setCreatorName($creatorName)
+    public function setCreatorName($creatorName): XMetaEntity
     {
         $this->creatorName = $creatorName;
         return $this;
@@ -127,7 +127,7 @@ class XMetaEntity extends XMapNodeEntity
      * @param mixed $creatorVersion
      * @return XMetaEntity
      */
-    public function setCreatorVersion($creatorVersion)
+    public function setCreatorVersion($creatorVersion): XMetaEntity
     {
         $this->creatorVersion = $creatorVersion;
         return $this;
@@ -136,7 +136,7 @@ class XMetaEntity extends XMapNodeEntity
     /**
      * @return string
      */
-    public function getAttrVersion()
+    public function getAttrVersion(): string
     {
         return $this->attrVersion;
     }
@@ -145,7 +145,7 @@ class XMetaEntity extends XMapNodeEntity
      * @param string $attrVersion
      * @return XMetaEntity
      */
-    public function setAttrVersion($attrVersion)
+    public function setAttrVersion(string $attrVersion): XMetaEntity
     {
         $this->attrVersion = $attrVersion;
         return $this;
@@ -155,7 +155,7 @@ class XMetaEntity extends XMapNodeEntity
      * @param XMLWriter $xmlWriter
      * @return void
      */
-    protected function writeThisNode($xmlWriter)
+    protected function writeThisNode(XMLWriter $xmlWriter)
     {
         $xmlWriter->startElement($this->nodeTag());
 
@@ -227,7 +227,7 @@ class XMetaEntity extends XMapNodeEntity
         $xmlWriter->endElement();
     }
 
-    protected function nodeTag()
+    protected function nodeTag(): string
     {
         return "meta";
     }

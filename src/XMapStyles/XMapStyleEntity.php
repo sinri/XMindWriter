@@ -42,7 +42,7 @@ class XMapStyleEntity extends XMapNodeEntity
      * @param string $name
      * @param XMapStyleTypePropertiesEntity $properties
      */
-    public function __construct($id, $type, $name, $properties)
+    public function __construct(string $id, string $type, string $name, XMapStyleTypePropertiesEntity $properties)
     {
         $this->attrId = $id;
         $this->attrType = $type;
@@ -53,7 +53,7 @@ class XMapStyleEntity extends XMapNodeEntity
     /**
      * @return string
      */
-    public function getAttrId()
+    public function getAttrId(): string
     {
         return $this->attrId;
     }
@@ -62,7 +62,7 @@ class XMapStyleEntity extends XMapNodeEntity
      * @param string $attrId
      * @return XMapStyleEntity
      */
-    public function setAttrId($attrId)
+    public function setAttrId(string $attrId): XMapStyleEntity
     {
         $this->attrId = $attrId;
         return $this;
@@ -71,7 +71,7 @@ class XMapStyleEntity extends XMapNodeEntity
     /**
      * @return string
      */
-    public function getAttrType()
+    public function getAttrType(): string
     {
         return $this->attrType;
     }
@@ -80,7 +80,7 @@ class XMapStyleEntity extends XMapNodeEntity
      * @param string $attrType
      * @return XMapStyleEntity
      */
-    public function setAttrType($attrType)
+    public function setAttrType(string $attrType): XMapStyleEntity
     {
         $this->attrType = $attrType;
         return $this;
@@ -89,7 +89,7 @@ class XMapStyleEntity extends XMapNodeEntity
     /**
      * @return string
      */
-    public function getAttrName()
+    public function getAttrName(): string
     {
         return $this->attrName;
     }
@@ -98,7 +98,7 @@ class XMapStyleEntity extends XMapNodeEntity
      * @param string $attrName
      * @return XMapStyleEntity
      */
-    public function setAttrName($attrName)
+    public function setAttrName(string $attrName): XMapStyleEntity
     {
         $this->attrName = $attrName;
         return $this;
@@ -107,7 +107,7 @@ class XMapStyleEntity extends XMapNodeEntity
     /**
      * @return XMapStyleTypePropertiesEntity[]
      */
-    public function getTypePropertiesDict()
+    public function getTypePropertiesDict(): array
     {
         return $this->typePropertiesDict;
     }
@@ -116,7 +116,7 @@ class XMapStyleEntity extends XMapNodeEntity
      * @param XMapStyleTypePropertiesEntity[] $typePropertiesDict
      * @return XMapStyleEntity
      */
-    public function setTypePropertiesDict($typePropertiesDict)
+    public function setTypePropertiesDict(array $typePropertiesDict): XMapStyleEntity
     {
         $this->typePropertiesDict = $typePropertiesDict;
         return $this;
@@ -126,7 +126,7 @@ class XMapStyleEntity extends XMapNodeEntity
      * @param string $type
      * @param XMapStyleTypePropertiesEntity $properties
      */
-    public function setPropertiesForType($type, $properties)
+    public function setPropertiesForType(string $type, XMapStyleTypePropertiesEntity $properties)
     {
         $this->typePropertiesDict[$type] = $properties;
     }
@@ -135,7 +135,7 @@ class XMapStyleEntity extends XMapNodeEntity
      * @param XMLWriter $xmlWriter
      * @return void
      */
-    protected function writeThisNode($xmlWriter)
+    protected function writeThisNode(XMLWriter $xmlWriter)
     {
         $xmlWriter->startElement($this->nodeTag());
 
@@ -152,7 +152,7 @@ class XMapStyleEntity extends XMapNodeEntity
         $xmlWriter->endElement();
     }
 
-    protected function nodeTag()
+    protected function nodeTag(): string
     {
         return "style";
     }

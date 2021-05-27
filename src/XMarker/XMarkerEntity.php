@@ -32,7 +32,7 @@ class XMarkerEntity extends XMapNodeEntity
     /**
      * @return string
      */
-    public function getAttrId()
+    public function getAttrId(): string
     {
         return $this->attrId;
     }
@@ -41,7 +41,7 @@ class XMarkerEntity extends XMapNodeEntity
      * @param string $attrId
      * @return XMarkerEntity
      */
-    public function setAttrId($attrId)
+    public function setAttrId(string $attrId): XMarkerEntity
     {
         $this->attrId = $attrId;
         return $this;
@@ -50,7 +50,7 @@ class XMarkerEntity extends XMapNodeEntity
     /**
      * @return string
      */
-    public function getAttrName()
+    public function getAttrName(): string
     {
         return $this->attrName;
     }
@@ -59,7 +59,7 @@ class XMarkerEntity extends XMapNodeEntity
      * @param string $attrName
      * @return XMarkerEntity
      */
-    public function setAttrName($attrName)
+    public function setAttrName(string $attrName): XMarkerEntity
     {
         $this->attrName = $attrName;
         return $this;
@@ -68,7 +68,7 @@ class XMarkerEntity extends XMapNodeEntity
     /**
      * @return string
      */
-    public function getAttrResource()
+    public function getAttrResource(): string
     {
         return $this->attrResource;
     }
@@ -77,7 +77,7 @@ class XMarkerEntity extends XMapNodeEntity
      * @param string $attrResource
      * @return XMarkerEntity
      */
-    public function setAttrResource($attrResource)
+    public function setAttrResource(string $attrResource): XMarkerEntity
     {
         $this->attrResource = $attrResource;
         return $this;
@@ -87,7 +87,7 @@ class XMarkerEntity extends XMapNodeEntity
      * @param XMLWriter $xmlWriter
      * @return void
      */
-    protected function writeThisNode($xmlWriter)
+    protected function writeThisNode(XMLWriter $xmlWriter)
     {
         $xmlWriter->startElement($this->nodeTag());
         $xmlWriter->writeAttribute("id", $this->attrId);
@@ -96,7 +96,7 @@ class XMarkerEntity extends XMapNodeEntity
         $xmlWriter->endElement();
     }
 
-    protected function nodeTag()
+    protected function nodeTag(): string
     {
         return "marker";
     }

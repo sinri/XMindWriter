@@ -4,7 +4,7 @@
 namespace sinri\XMindWriter\core;
 
 
-use Exception;
+use sinri\XMindWriter\exception\FileSystemException;
 use sinri\XMindWriter\XMapContent\XMapContentEntity;
 use sinri\XMindWriter\XMapStyles\XMapStylesEntity;
 use sinri\XMindWriter\XMarker\XMarkerSheetEntity;
@@ -44,7 +44,7 @@ class XMindDirZipper
      */
     protected $markerSheetEntity;
 
-    public function __construct($workspace)
+    public function __construct(string $workspace)
     {
         $this->workspace = $workspace;
 
@@ -68,9 +68,8 @@ class XMindDirZipper
 
     /**
      * @param string $target
-     * @throws Exception
      */
-    public function buildXMind($target)
+    public function buildXMind(string $target)
     {
         $this->targetXMindFile = $target;
 
@@ -91,16 +90,18 @@ class XMindDirZipper
 
         // generate ZIP file
         $rootDir = realpath($this->workspace) . DIRECTORY_SEPARATOR;
-        if (!is_dir($rootDir)) throw new Exception("Not a dir");
+        if (!is_dir($rootDir)) {
+            throw new FileSystemException("Not a dir");
+        }
 
-        $zip=new ZipArchive();
+        $zip = new ZipArchive();
         $zip->open($this->targetXMindFile, ZIPARCHIVE::CREATE | ZipArchive::OVERWRITE);
 
-        $list=glob($rootDir.'*');
-        if($list)foreach ($list as $item) {
-            if(is_dir($item))continue;
+        $list = glob($rootDir . '*');
+        if ($list) foreach ($list as $item) {
+            if (is_dir($item)) continue;
             //echo $item.PHP_EOL;
-            $zip->addFile($item,substr($item,strlen($rootDir)));
+            $zip->addFile($item, substr($item, strlen($rootDir)));
         }
         $zip->addEmptyDir("META-INF");
         $list=glob($rootDir.'META-INF'.DIRECTORY_SEPARATOR.'*');
@@ -139,7 +140,12 @@ class XMindDirZipper
         $zip->close();
     }
 
-    protected function fetchFolderChildrenAsList($rootDir, $parent, &$items)
+    /**
+     * @param string $rootDir
+     * @param string $parent
+     * @param array $items
+     */
+    protected function fetchFolderChildrenAsList(string $rootDir, string $parent, array &$items)
     {
         $list = glob($parent . DIRECTORY_SEPARATOR . '*');
         if (!empty($list)) {
@@ -157,7 +163,7 @@ class XMindDirZipper
      * @param XMapContentEntity $contentEntity
      * @return XMindDirZipper
      */
-    public function setContentEntity($contentEntity)
+    public function setContentEntity(XMapContentEntity $contentEntity): XMindDirZipper
     {
         $this->contentEntity = $contentEntity;
         return $this;
@@ -167,7 +173,7 @@ class XMindDirZipper
      * @param XManifestEntity $manifestEntity
      * @return XMindDirZipper
      */
-    public function setManifestEntity($manifestEntity)
+    public function setManifestEntity(XManifestEntity $manifestEntity): XMindDirZipper
     {
         $this->manifestEntity = $manifestEntity;
         return $this;
@@ -177,7 +183,7 @@ class XMindDirZipper
      * @param XMapStylesEntity $stylesEntity
      * @return XMindDirZipper
      */
-    public function setStylesEntity($stylesEntity)
+    public function setStylesEntity(XMapStylesEntity $stylesEntity): XMindDirZipper
     {
         $this->stylesEntity = $stylesEntity;
         return $this;
@@ -187,7 +193,7 @@ class XMindDirZipper
      * @param XMetaEntity $metaEntity
      * @return XMindDirZipper
      */
-    public function setMetaEntity($metaEntity)
+    public function setMetaEntity(XMetaEntity $metaEntity): XMindDirZipper
     {
         $this->metaEntity = $metaEntity;
         return $this;
@@ -197,7 +203,7 @@ class XMindDirZipper
      * @param XMarkerSheetEntity $markerSheetEntity
      * @return XMindDirZipper
      */
-    public function setMarkerSheetEntity($markerSheetEntity)
+    public function setMarkerSheetEntity(XMarkerSheetEntity $markerSheetEntity): XMindDirZipper
     {
         $this->markerSheetEntity = $markerSheetEntity;
         return $this;

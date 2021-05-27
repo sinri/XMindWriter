@@ -22,7 +22,7 @@ class XMapContentTopicsEntity extends XMapNodeEntity
     /**
      * @return string
      */
-    public function getAttrType()
+    public function getAttrType(): string
     {
         return $this->attrType;
     }
@@ -31,7 +31,7 @@ class XMapContentTopicsEntity extends XMapNodeEntity
      * @param string $attrType
      * @return XMapContentTopicsEntity
      */
-    public function setAttrType($attrType)
+    public function setAttrType(string $attrType): XMapContentTopicsEntity
     {
         $this->attrType = $attrType;
         return $this;
@@ -40,7 +40,7 @@ class XMapContentTopicsEntity extends XMapNodeEntity
     /**
      * @return XMapContentTopicEntity[]
      */
-    public function getTopicList()
+    public function getTopicList(): array
     {
         return $this->topicList;
     }
@@ -49,7 +49,7 @@ class XMapContentTopicsEntity extends XMapNodeEntity
      * @param XMapContentTopicEntity[] $topicList
      * @return XMapContentTopicsEntity
      */
-    public function setTopicList($topicList)
+    public function setTopicList(array $topicList): XMapContentTopicsEntity
     {
         $this->topicList = $topicList;
         return $this;
@@ -61,19 +61,20 @@ class XMapContentTopicsEntity extends XMapNodeEntity
 
     public function __construct($type)
     {
-        $this->attrType=$type;
+        $this->attrType = $type;
     }
 
     /**
      * @param XMapContentTopicEntity $topicEntity
      * @return XMapContentTopicsEntity
      */
-    public function addTopicEntity($topicEntity){
-        $this->topicList[]=$topicEntity;
+    public function addTopicEntity(XMapContentTopicEntity $topicEntity): XMapContentTopicsEntity
+    {
+        $this->topicList[] = $topicEntity;
         return $this;
     }
 
-    protected function nodeTag()
+    protected function nodeTag(): string
     {
         return "topics";
     }
@@ -82,14 +83,14 @@ class XMapContentTopicsEntity extends XMapNodeEntity
      * @param XMLWriter $xmlWriter
      * @return void
      */
-    protected function writeThisNode($xmlWriter)
+    protected function writeThisNode(XMLWriter $xmlWriter)
     {
         $xmlWriter->startElement($this->nodeTag());
 
-        $xmlWriter->writeAttribute("type",$this->attrType);
+        $xmlWriter->writeAttribute("type", $this->attrType);
 
-        foreach ($this->topicList as $topicEntity){
-            self::writeThatNode($xmlWriter,$topicEntity);
+        foreach ($this->topicList as $topicEntity) {
+            self::writeThatNode($xmlWriter, $topicEntity);
         }
 
         $xmlWriter->endElement();

@@ -17,7 +17,7 @@ class XManifestFileEntryEntity extends XMapNodeEntity
     /**
      * @return string
      */
-    public function getAttrFullPath()
+    public function getAttrFullPath(): string
     {
         return $this->attrFullPath;
     }
@@ -26,7 +26,7 @@ class XManifestFileEntryEntity extends XMapNodeEntity
      * @param string $attrFullPath
      * @return XManifestFileEntryEntity
      */
-    public function setAttrFullPath($attrFullPath)
+    public function setAttrFullPath(string $attrFullPath): XManifestFileEntryEntity
     {
         $this->attrFullPath = $attrFullPath;
         return $this;
@@ -35,7 +35,7 @@ class XManifestFileEntryEntity extends XMapNodeEntity
     /**
      * @return string
      */
-    public function getAttrMediaType()
+    public function getAttrMediaType(): string
     {
         return $this->attrMediaType;
     }
@@ -44,7 +44,7 @@ class XManifestFileEntryEntity extends XMapNodeEntity
      * @param string $attrMediaType
      * @return XManifestFileEntryEntity
      */
-    public function setAttrMediaType($attrMediaType)
+    public function setAttrMediaType(string $attrMediaType): XManifestFileEntryEntity
     {
         $this->attrMediaType = $attrMediaType;
         return $this;
@@ -54,7 +54,9 @@ class XManifestFileEntryEntity extends XMapNodeEntity
      */
     protected $attrMediaType;
     /**
-     * @var ? [0,1] the encryption data of this file entry (if encrypted)
+     * @var XManifestEncryptionDataEntity [0,1] the encryption data of this file entry (if encrypted)
+     * A encryption-data element contains encryption information of a file entry.
+     * See [Encryption](https://github.com/xmindltd/xmind/wiki/XMindFileFormat#encryption) section for details.
      */
     protected $encryptionData;
 
@@ -64,7 +66,7 @@ class XManifestFileEntryEntity extends XMapNodeEntity
         $this->attrMediaType=$mediaType;
     }
 
-    protected function nodeTag()
+    protected function nodeTag(): string
     {
         return "file-entry";
     }
@@ -73,14 +75,14 @@ class XManifestFileEntryEntity extends XMapNodeEntity
      * @param XMLWriter $xmlWriter
      * @return void
      */
-    protected function writeThisNode($xmlWriter)
+    protected function writeThisNode(XMLWriter $xmlWriter)
     {
         $xmlWriter->startElement($this->nodeTag());
 
-        $xmlWriter->writeAttribute("full-path",$this->attrFullPath);
-        if($this->attrMediaType!==null)$xmlWriter->writeAttribute("media-type",$this->attrMediaType);
+        $xmlWriter->writeAttribute("full-path", $this->attrFullPath);
+        if ($this->attrMediaType !== null) $xmlWriter->writeAttribute("media-type", $this->attrMediaType);
 
-        self::writeThatNode($xmlWriter,$this->encryptionData);
+        self::writeThatNode($xmlWriter, $this->encryptionData);
 
         $xmlWriter->endElement();
     }
