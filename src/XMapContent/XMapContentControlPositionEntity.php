@@ -15,7 +15,7 @@ class XMapContentControlPositionEntity extends XMapNodeEntity
      */
     protected $attrIndex;
     /**
-     * @var XMapContentPositionEntity [0,1] the relative position of this control point
+     * @var XMapContentPositionEntity|null [0,1] the relative position of this control point
      */
     protected $position;
 
@@ -42,19 +42,12 @@ class XMapContentControlPositionEntity extends XMapNodeEntity
         return $this;
     }
 
-    /**
-     * @return XMapContentPositionEntity
-     */
-    public function getPosition(): XMapContentPositionEntity
+    public function getPosition(): ?XMapContentPositionEntity
     {
         return $this->position;
     }
 
-    /**
-     * @param XMapContentPositionEntity $position
-     * @return XMapContentControlPositionEntity
-     */
-    public function setPosition(XMapContentPositionEntity $position): XMapContentControlPositionEntity
+    public function setPosition(?XMapContentPositionEntity $position): XMapContentControlPositionEntity
     {
         $this->position = $position;
         return $this;

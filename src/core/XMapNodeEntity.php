@@ -41,9 +41,9 @@ abstract class XMapNodeEntity
 
     /**
      * @param XMLWriter $xmlWriter
-     * @param XMapNodeEntity $nodeEntity
+     * @param XMapNodeEntity|null $nodeEntity
      */
-    final protected static function writeThatNode(XMLWriter $xmlWriter, XMapNodeEntity $nodeEntity)
+    final protected static function writeThatNode(XMLWriter $xmlWriter, ?XMapNodeEntity $nodeEntity)
     {
         if ($nodeEntity !== null) {
             $nodeEntity->writeThisNode($xmlWriter);

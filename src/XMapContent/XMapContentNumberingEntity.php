@@ -18,11 +18,11 @@ class XMapContentNumberingEntity extends XMapNodeEntity
      */
     protected $attrPrependingNumbers;
     /**
-     * @var string [0,1] the prefix content
+     * @var string|null [0,1] the prefix content
      */
     protected $prefix;
     /**
-     * @var string [0,1] the suffix content
+     * @var string|null [0,1] the suffix content
      */
     protected $suffix;
 
@@ -62,37 +62,23 @@ class XMapContentNumberingEntity extends XMapNodeEntity
         return $this;
     }
 
-    /**
-     * @return string
-     */
-    public function getPrefix(): string
+    public function getPrefix(): ?string
     {
         return $this->prefix;
     }
 
-    /**
-     * @param string $prefix
-     * @return XMapContentNumberingEntity
-     */
-    public function setPrefix(string $prefix): XMapContentNumberingEntity
+    public function setPrefix(?string $prefix): XMapContentNumberingEntity
     {
         $this->prefix = $prefix;
         return $this;
     }
 
-    /**
-     * @return string
-     */
-    public function getSuffix(): string
+    public function getSuffix(): ?string
     {
         return $this->suffix;
     }
 
-    /**
-     * @param string $suffix
-     * @return XMapContentNumberingEntity
-     */
-    public function setSuffix(string $suffix): XMapContentNumberingEntity
+    public function setSuffix(?string $suffix): XMapContentNumberingEntity
     {
         $this->suffix = $suffix;
         return $this;

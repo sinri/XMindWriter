@@ -33,51 +33,37 @@ class XMapContentExtensionEntity extends XMapNodeEntity
         return $this;
     }
     /**
-     * @var XMapNodeEntity [0,1] the content of this extension
+     * @var XMapNodeEntity|null [0,1] the content of this extension
      * Format Free
      * A content element represents the content of a topic extension.
      * This element is not restricted and is available to store any information provided by the extension provider.
      */
     protected $content;
 
-    /**
-     * @return XMapNodeEntity
-     */
-    public function getContent(): XMapNodeEntity
+    public function getContent(): ?XMapNodeEntity
     {
         return $this->content;
     }
 
-    /**
-     * @param XMapNodeEntity $content
-     * @return XMapContentExtensionEntity
-     */
-    public function setContent(XMapNodeEntity $content): XMapContentExtensionEntity
+    public function setContent(?XMapNodeEntity $content): XMapContentExtensionEntity
     {
         $this->content = $content;
         return $this;
     }
 
-    /**
-     * @return XMapContentResourceRefsEntity
-     */
-    public function getResourceRefs(): XMapContentResourceRefsEntity
+    public function getResourceRefs(): ?XMapContentResourceRefsEntity
     {
         return $this->resourceRefs;
     }
 
-    /**
-     * @param XMapContentResourceRefsEntity $resourceRefs
-     * @return XMapContentExtensionEntity
-     */
-    public function setResourceRefs(XMapContentResourceRefsEntity $resourceRefs): XMapContentExtensionEntity
+    public function setResourceRefs(?XMapContentResourceRefsEntity $resourceRefs): XMapContentExtensionEntity
     {
         $this->resourceRefs = $resourceRefs;
         return $this;
     }
 
     /**
-     * @var XMapContentResourceRefsEntity [0,1] the container of resource references used by this extension
+     * @var XMapContentResourceRefsEntity|null [0,1] the container of resource references used by this extension
      */
     protected $resourceRefs;
 

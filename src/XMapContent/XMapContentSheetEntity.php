@@ -22,19 +22,19 @@ class XMapContentSheetEntity extends XMapNodeEntity
      */
     protected $attrTheme;
     /**
-     * @var XMapContentTitleEntity [0,1] the title of this sheet
+     * @var XMapContentTitleEntity|null [0,1] the title of this sheet
      */
     protected $title;
     /**
-     * @var XMapContentTopicEntity [0,1] the root topic of this sheet
+     * @var XMapContentTopicEntity|null [0,1] the root topic of this sheet
      */
     protected $topic;
     /**
-     * @var XMapContentRelationshipsEntity [0,1] the relationship container of this sheet
+     * @var XMapContentRelationshipsEntity|null [0,1] the relationship container of this sheet
      */
     protected $relationships;
     /**
-     * @var XMapContentLegendEntity [0,1] the legend of this sheet
+     * @var XMapContentLegendEntity|null [0,1] the legend of this sheet
      */
     protected $legend;
 
@@ -49,73 +49,45 @@ class XMapContentSheetEntity extends XMapNodeEntity
         if ($titleText !== null) $this->title = new XMapContentTitleEntity($titleText);
     }
 
-    /**
-     * @return XMapContentTitleEntity
-     */
-    public function getTitle(): XMapContentTitleEntity
+    public function getTitle(): ?XMapContentTitleEntity
     {
         return $this->title;
     }
 
-    /**
-     * @param XMapContentTitleEntity $title
-     * @return XMapContentSheetEntity
-     */
-    public function setTitle(XMapContentTitleEntity $title): XMapContentSheetEntity
+    public function setTitle(?XMapContentTitleEntity $title): XMapContentSheetEntity
     {
         $this->title = $title;
         return $this;
     }
 
-    /**
-     * @return XMapContentTopicEntity
-     */
-    public function getTopic(): XMapContentTopicEntity
+    public function getTopic(): ?XMapContentTopicEntity
     {
         return $this->topic;
     }
 
-    /**
-     * @param XMapContentTopicEntity $topic
-     * @return XMapContentSheetEntity
-     */
-    public function setTopic(XMapContentTopicEntity $topic): XMapContentSheetEntity
+    public function setTopic(?XMapContentTopicEntity $topic): XMapContentSheetEntity
     {
         $this->topic = $topic;
         return $this;
     }
 
-    /**
-     * @return XMapContentRelationshipsEntity
-     */
-    public function getRelationships(): XMapContentRelationshipsEntity
+    public function getRelationships(): ?XMapContentRelationshipsEntity
     {
         return $this->relationships;
     }
 
-    /**
-     * @param XMapContentRelationshipsEntity $relationships
-     * @return XMapContentSheetEntity
-     */
-    public function setRelationships(XMapContentRelationshipsEntity $relationships): XMapContentSheetEntity
+    public function setRelationships(?XMapContentRelationshipsEntity $relationships): XMapContentSheetEntity
     {
         $this->relationships = $relationships;
         return $this;
     }
 
-    /**
-     * @return XMapContentLegendEntity
-     */
-    public function getLegend(): XMapContentLegendEntity
+    public function getLegend(): ?XMapContentLegendEntity
     {
         return $this->legend;
     }
 
-    /**
-     * @param XMapContentLegendEntity $legend
-     * @return XMapContentSheetEntity
-     */
-    public function setLegend(XMapContentLegendEntity $legend): XMapContentSheetEntity
+    public function setLegend(?XMapContentLegendEntity $legend): XMapContentSheetEntity
     {
         $this->legend = $legend;
         return $this;

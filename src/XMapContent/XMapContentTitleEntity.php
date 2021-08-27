@@ -14,7 +14,7 @@ use XMLWriter;
 class XMapContentTitleEntity extends XMapNodeEntity
 {
     /**
-     * @var string svg:width: the wrap width of this title (only available in topic elements)
+     * @var string|null svg:width: the wrap width of this title (only available in topic elements)
      */
     protected $attrSvgWidth;
     /**
@@ -22,16 +22,16 @@ class XMapContentTitleEntity extends XMapNodeEntity
      */
     protected $textContent;
 
-    public function __construct($text, $widthInsideTopic=null)
+    public function __construct(string $text, ?string $widthInsideTopic = null)
     {
-        $this->textContent=$text;
-        $this->attrSvgWidth=$widthInsideTopic;
+        $this->textContent = $text;
+        $this->attrSvgWidth = $widthInsideTopic;
     }
 
     /**
      * @return string
      */
-    public function getAttrSvgWidth()
+    public function getAttrSvgWidth(): ?string
     {
         return $this->attrSvgWidth;
     }

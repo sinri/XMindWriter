@@ -27,6 +27,7 @@
   },
   "require": {
     "ext-xmlwriter": "*",
-    "ext-zip": "*"
+    "ext-zip": "*",
+    "php": ">=7.1"
   }
 }

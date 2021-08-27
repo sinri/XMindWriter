@@ -10,7 +10,7 @@ use XMLWriter;
 class XMapContentHtmlSpanEntity extends XMapNodeEntity
 {
     /**
-     * @var string the identifier of the style used by this span
+     * @var string|null the identifier of the style used by this span
      */
     protected $attrStyleId;
     /**
@@ -45,16 +45,16 @@ class XMapContentHtmlSpanEntity extends XMapNodeEntity
     /**
      * @return string
      */
-    public function getAttrStyleId()
+    public function getAttrStyleId(): ?string
     {
         return $this->attrStyleId;
     }
 
     /**
-     * @param string $attrStyleId
+     * @param string|null $attrStyleId
      * @return XMapContentHtmlSpanEntity
      */
-    public function setAttrStyleId(string $attrStyleId): XMapContentHtmlSpanEntity
+    public function setAttrStyleId(?string $attrStyleId): XMapContentHtmlSpanEntity
     {
         $this->attrStyleId = $attrStyleId;
         return $this;

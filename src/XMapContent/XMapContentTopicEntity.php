@@ -36,72 +36,75 @@ class XMapContentTopicEntity extends XMapNodeEntity
      */
     protected $attrStructureClass;
     /**
-     * @var XMapContentTitleEntity [0,1] the title of this topic
+     * @var XMapContentTitleEntity|null [0,1] the title of this topic
      */
     protected $title;
     /**
-     * @var XMapContentImageEntity [0,1] the image of this topic
+     * @var XMapContentImageEntity|null [0,1] the image of this topic
      */
     protected $image;
     /**
-     * @var XMapContentNotesEntity [0,1] the notes of this topic
+     * @var XMapContentNotesEntity|null [0,1] the notes of this topic
      */
     protected $notes;
     /**
-     * @var XMapContentPositionEntity [0,1] the position of this topic
+     * @var XMapContentPositionEntity|null [0,1] the position of this topic
      */
     protected $position;
     /**
-     * @var XMapContentNumberingEntity [0,1] the numbering information of this topic's subtopics
+     * @var XMapContentNumberingEntity|null [0,1] the numbering information of this topic's subtopics
      */
     protected $numbering;
     /**
-     * @var XMapContentChildrenOfTopicsEntity [0,1] the container of subtopics of this topic
+     * @var XMapContentChildrenOfTopicsEntity|null [0,1] the container of subtopics of this topic
      */
     protected $children;
     /**
-     * @var XMapContentMarkerRefsEntity $marker -refs: [0,1] the container of marker references from this topic
+     * @var XMapContentMarkerRefsEntity|null $marker -refs: [0,1] the container of marker references from this topic
      */
     protected $markerRefs;
 
     /**
-     * @return XMapContentMarkerRefsEntity
+     * @return XMapContentMarkerRefsEntity|null
      */
-    public function getMarkerRefs(): XMapContentMarkerRefsEntity
+    public function getMarkerRefs(): ?XMapContentMarkerRefsEntity
     {
         return $this->markerRefs;
     }
 
     /**
-     * @param XMapContentMarkerRefsEntity $markerRefs
+     * @param XMapContentMarkerRefsEntity|null $markerRefs
      * @return XMapContentTopicEntity
      */
-    public function setMarkerRefs(XMapContentMarkerRefsEntity $markerRefs): XMapContentTopicEntity
+    public function setMarkerRefs(?XMapContentMarkerRefsEntity $markerRefs): XMapContentTopicEntity
     {
         $this->markerRefs = $markerRefs;
         return $this;
     }
+
     /**
-     * @var XMapContentLabelsEntity [0,1] the container of labels of this topic
+     * @var XMapContentLabelsEntity|null [0,1] the container of labels of this topic
      */
     protected $labels;
     /**
-     * @var XMapContentBoundariesEntity [0,1] the container of boundaries of this topic
+     * @var XMapContentBoundariesEntity|null [0,1] the container of boundaries of this topic
      */
     protected $boundaries;
     /**
-     * @var XMapContentSummariesEntity [0,1] the container of summaries of this topic
+     * @var XMapContentSummariesEntity|null [0,1] the container of summaries of this topic
      */
     protected $summaries;
     /**
-     * @var XMapContentResourceRefsEntity [0,1] the container of extensions of this topic
+     * @var XMapContentResourceRefsEntity|null [0,1] the container of extensions of this topic
      */
     protected $extensions;
 
-    public function __construct($id,$titleText=null)
+    public function __construct(string $id, ?string $titleText = null)
     {
-        $this->attrId=$id;
-        if($titleText!==null)$this->title=new XMapContentTitleEntity($titleText);
+        $this->attrId = $id;
+        if ($titleText !== null) {
+            $this->title = new XMapContentTitleEntity($titleText);
+        }
     }
 
     /**
@@ -227,54 +230,54 @@ class XMapContentTopicEntity extends XMapNodeEntity
     }
 
     /**
-     * @return XMapContentTitleEntity
+     * @return XMapContentTitleEntity|null
      */
-    public function getTitle(): XMapContentTitleEntity
+    public function getTitle(): ?XMapContentTitleEntity
     {
         return $this->title;
     }
 
     /**
-     * @param XMapContentTitleEntity $title
+     * @param XMapContentTitleEntity|null $title
      * @return XMapContentTopicEntity
      */
-    public function setTitle(XMapContentTitleEntity $title): XMapContentTopicEntity
+    public function setTitle(?XMapContentTitleEntity $title): XMapContentTopicEntity
     {
         $this->title = $title;
         return $this;
     }
 
     /**
-     * @return XMapContentPositionEntity
+     * @return XMapContentPositionEntity|null
      */
-    public function getPosition(): XMapContentPositionEntity
+    public function getPosition(): ?XMapContentPositionEntity
     {
         return $this->position;
     }
 
     /**
-     * @param XMapContentPositionEntity $position
+     * @param XMapContentPositionEntity|null $position
      * @return XMapContentTopicEntity
      */
-    public function setPosition(XMapContentPositionEntity $position): XMapContentTopicEntity
+    public function setPosition(?XMapContentPositionEntity $position): XMapContentTopicEntity
     {
         $this->position = $position;
         return $this;
     }
 
     /**
-     * @return XMapContentChildrenOfTopicsEntity
+     * @return XMapContentChildrenOfTopicsEntity|null
      */
-    public function getChildren(): XMapContentChildrenOfTopicsEntity
+    public function getChildren(): ?XMapContentChildrenOfTopicsEntity
     {
         return $this->children;
     }
 
     /**
-     * @param XMapContentChildrenOfTopicsEntity $children
+     * @param XMapContentChildrenOfTopicsEntity|null $children
      * @return XMapContentTopicEntity
      */
-    public function setChildren(XMapContentChildrenOfTopicsEntity $children): XMapContentTopicEntity
+    public function setChildren(?XMapContentChildrenOfTopicsEntity $children): XMapContentTopicEntity
     {
         $this->children = $children;
         return $this;
@@ -303,124 +306,124 @@ class XMapContentTopicEntity extends XMapNodeEntity
     }
 
     /**
-     * @return XMapContentNotesEntity
+     * @return XMapContentNotesEntity|null
      */
-    public function getNotes(): XMapContentNotesEntity
+    public function getNotes(): ?XMapContentNotesEntity
     {
         return $this->notes;
     }
 
     /**
-     * @param XMapContentNotesEntity $notes
+     * @param XMapContentNotesEntity|null $notes
      * @return XMapContentTopicEntity
      */
-    public function setNotes(XMapContentNotesEntity $notes): XMapContentTopicEntity
+    public function setNotes(?XMapContentNotesEntity $notes): XMapContentTopicEntity
     {
         $this->notes = $notes;
         return $this;
     }
 
     /**
-     * @return XMapContentNumberingEntity
+     * @return XMapContentNumberingEntity|null
      */
-    public function getNumbering(): XMapContentNumberingEntity
+    public function getNumbering(): ?XMapContentNumberingEntity
     {
         return $this->numbering;
     }
 
     /**
-     * @param XMapContentNumberingEntity $numbering
+     * @param XMapContentNumberingEntity|null $numbering
      * @return XMapContentTopicEntity
      */
-    public function setNumbering(XMapContentNumberingEntity $numbering): XMapContentTopicEntity
+    public function setNumbering(?XMapContentNumberingEntity $numbering): XMapContentTopicEntity
     {
         $this->numbering = $numbering;
         return $this;
     }
 
     /**
-     * @return XMapContentSummariesEntity
+     * @return XMapContentSummariesEntity|null
      */
-    public function getSummaries(): XMapContentSummariesEntity
+    public function getSummaries(): ?XMapContentSummariesEntity
     {
         return $this->summaries;
     }
 
     /**
-     * @param XMapContentSummariesEntity $summaries
+     * @param XMapContentSummariesEntity|null $summaries
      */
-    public function setSummaries(XMapContentSummariesEntity $summaries)
+    public function setSummaries(?XMapContentSummariesEntity $summaries)
     {
         $this->summaries = $summaries;
     }
 
     /**
-     * @param XMapContentImageEntity $image
+     * @param XMapContentImageEntity|null $image
      * @return XMapContentTopicEntity
      */
-    public function setImage(XMapContentImageEntity $image): XMapContentTopicEntity
+    public function setImage(?XMapContentImageEntity $image): XMapContentTopicEntity
     {
         $this->image = $image;
         return $this;
     }
 
     /**
-     * @return XMapContentImageEntity
+     * @return XMapContentImageEntity|null
      */
-    public function getImage(): XMapContentImageEntity
+    public function getImage(): ?XMapContentImageEntity
     {
         return $this->image;
     }
 
     /**
-     * @return XMapContentLabelsEntity
+     * @return XMapContentLabelsEntity|null
      */
-    public function getLabels(): XMapContentLabelsEntity
+    public function getLabels(): ?XMapContentLabelsEntity
     {
         return $this->labels;
     }
 
     /**
-     * @param XMapContentLabelsEntity $labels
+     * @param XMapContentLabelsEntity|null $labels
      * @return XMapContentTopicEntity
      */
-    public function setLabels(XMapContentLabelsEntity $labels): XMapContentTopicEntity
+    public function setLabels(?XMapContentLabelsEntity $labels): XMapContentTopicEntity
     {
         $this->labels = $labels;
         return $this;
     }
 
     /**
-     * @return XMapContentBoundariesEntity
+     * @return XMapContentBoundariesEntity|null
      */
-    public function getBoundaries(): XMapContentBoundariesEntity
+    public function getBoundaries(): ?XMapContentBoundariesEntity
     {
         return $this->boundaries;
     }
 
     /**
-     * @param XMapContentBoundariesEntity $boundaries
+     * @param XMapContentBoundariesEntity|null $boundaries
      * @return XMapContentTopicEntity
      */
-    public function setBoundaries(XMapContentBoundariesEntity $boundaries): XMapContentTopicEntity
+    public function setBoundaries(?XMapContentBoundariesEntity $boundaries): XMapContentTopicEntity
     {
         $this->boundaries = $boundaries;
         return $this;
     }
 
     /**
-     * @return XMapContentResourceRefsEntity
+     * @return XMapContentResourceRefsEntity|null
      */
-    public function getExtensions(): XMapContentResourceRefsEntity
+    public function getExtensions(): ?XMapContentResourceRefsEntity
     {
         return $this->extensions;
     }
 
     /**
-     * @param XMapContentResourceRefsEntity $extensions
+     * @param XMapContentResourceRefsEntity|null $extensions
      * @return XMapContentTopicEntity
      */
-    public function setExtensions(XMapContentResourceRefsEntity $extensions): XMapContentTopicEntity
+    public function setExtensions(?XMapContentResourceRefsEntity $extensions): XMapContentTopicEntity
     {
         $this->extensions = $extensions;
         return $this;

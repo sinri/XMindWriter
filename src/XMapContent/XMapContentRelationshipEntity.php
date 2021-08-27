@@ -30,11 +30,11 @@ class XMapContentRelationshipEntity extends XMapNodeEntity
      */
     protected $attrEnd2;
     /**
-     * @var XMapContentTitleEntity [0,1] the title of this relationship
+     * @var XMapContentTitleEntity|null [0,1] the title of this relationship
      */
     protected $title;
     /**
-     * @var XMapContentControlPositionsEntity [0,1] the container of control points of this relationship
+     * @var XMapContentControlPositionsEntity|null [0,1] the container of control points of this relationship
      */
     protected $controlPoints;
 
@@ -118,37 +118,23 @@ class XMapContentRelationshipEntity extends XMapNodeEntity
         return $this;
     }
 
-    /**
-     * @return XMapContentTitleEntity
-     */
-    public function getTitle(): XMapContentTitleEntity
+    public function getTitle(): ?XMapContentTitleEntity
     {
         return $this->title;
     }
 
-    /**
-     * @param XMapContentTitleEntity $title
-     * @return XMapContentRelationshipEntity
-     */
-    public function setTitle(XMapContentTitleEntity $title): XMapContentRelationshipEntity
+    public function setTitle(?XMapContentTitleEntity $title): XMapContentRelationshipEntity
     {
         $this->title = $title;
         return $this;
     }
 
-    /**
-     * @return XMapContentControlPositionsEntity
-     */
-    public function getControlPoints(): XMapContentControlPositionsEntity
+    public function getControlPoints(): ?XMapContentControlPositionsEntity
     {
         return $this->controlPoints;
     }
 
-    /**
-     * @param XMapContentControlPositionsEntity $controlPoints
-     * @return XMapContentRelationshipEntity
-     */
-    public function setControlPoints(XMapContentControlPositionsEntity $controlPoints): XMapContentRelationshipEntity
+    public function setControlPoints(?XMapContentControlPositionsEntity $controlPoints): XMapContentRelationshipEntity
     {
         $this->controlPoints = $controlPoints;
         return $this;

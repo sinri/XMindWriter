@@ -193,13 +193,9 @@ class XMetaEntity extends XMapNodeEntity
         ) {
             $xmlWriter->startElement('Create');
 
-            if (
-                $this->createTime !== null
-            ) {
-                $xmlWriter->startElement("Time");
-                $xmlWriter->text($this->createTime);
-                $xmlWriter->endElement();
-            }
+            $xmlWriter->startElement("Time");
+            $xmlWriter->text($this->createTime);
+            $xmlWriter->endElement();
 
             $xmlWriter->endElement();
         }

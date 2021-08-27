@@ -1,3 +1,4 @@
-debug
-vendor
+/debug
+/vendor
 composer.phar
+/.idea

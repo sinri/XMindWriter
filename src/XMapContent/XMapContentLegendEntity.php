@@ -16,45 +16,31 @@ class XMapContentLegendEntity extends XMapNodeEntity
      */
     protected $attrVisibility;
     /**
-     * @var XMapContentPositionEntity [0,1] the position of this legend on the sheet
+     * @var XMapContentPositionEntity|null [0,1] the position of this legend on the sheet
      */
     protected $position;
     /**
-     * @var XMapContentMarkerDescriptionsEntity [0,1] the container of marker descriptions of this legend
+     * @var XMapContentMarkerDescriptionsEntity|null [0,1] the container of marker descriptions of this legend
      */
     protected $markerDescriptions;
 
-    /**
-     * @return XMapContentPositionEntity
-     */
-    public function getPosition(): XMapContentPositionEntity
+    public function getPosition(): ?XMapContentPositionEntity
     {
         return $this->position;
     }
 
-    /**
-     * @param XMapContentPositionEntity $position
-     * @return XMapContentLegendEntity
-     */
-    public function setPosition(XMapContentPositionEntity $position): XMapContentLegendEntity
+    public function setPosition(?XMapContentPositionEntity $position): XMapContentLegendEntity
     {
         $this->position = $position;
         return $this;
     }
 
-    /**
-     * @return XMapContentMarkerDescriptionsEntity
-     */
-    public function getMarkerDescriptions(): XMapContentMarkerDescriptionsEntity
+    public function getMarkerDescriptions(): ?XMapContentMarkerDescriptionsEntity
     {
         return $this->markerDescriptions;
     }
 
-    /**
-     * @param XMapContentMarkerDescriptionsEntity $markerDescriptions
-     * @return XMapContentLegendEntity
-     */
-    public function setMarkerDescriptions(XMapContentMarkerDescriptionsEntity $markerDescriptions): XMapContentLegendEntity
+    public function setMarkerDescriptions(?XMapContentMarkerDescriptionsEntity $markerDescriptions): XMapContentLegendEntity
     {
         $this->markerDescriptions = $markerDescriptions;
         return $this;
