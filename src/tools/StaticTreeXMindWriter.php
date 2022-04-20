@@ -24,11 +24,11 @@ class StaticTreeXMindWriter
     /**
      * @var StaticTreeNode[]
      */
-    protected $floatingNodes;
+    protected $floatingNodes = [];
     /**
      * @var StaticTreeNodeRelationship[]
      */
-    protected $relationships;
+    protected $relationships = [];
     /**
      * @var XMindDirZipper
      */
@@ -132,10 +132,11 @@ class StaticTreeXMindWriter
 
     /**
      * @param $target
+     * @param $cleanWorkspace
      */
-    public function archiveXMindFile($target)
+    public function archiveXMindFile($target, $cleanWorkspace = false)
     {
-        $this->zipper->buildXMind($target);
+        $this->zipper->buildXMind($target, $cleanWorkspace);
     }
 
 }

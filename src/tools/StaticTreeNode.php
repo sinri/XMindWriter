@@ -17,7 +17,7 @@ class StaticTreeNode
     /**
      * @var StaticTreeNode[]
      */
-    public $children;
+    public $children = [];
     /**
      * @var boolean
      */

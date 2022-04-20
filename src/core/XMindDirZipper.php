@@ -68,8 +68,9 @@ class XMindDirZipper
 
     /**
      * @param string $target
+     * @param bool $cleanWorkspace
      */
-    public function buildXMind(string $target)
+    public function buildXMind(string $target, bool $cleanWorkspace = false)
     {
         $this->targetXMindFile = $target;
 
@@ -103,7 +104,7 @@ class XMindDirZipper
             //echo $item.PHP_EOL;
             $zip->addFile($item, substr($item, strlen($rootDir)));
         }
-        $zip->addEmptyDir("META-INF");
+        //$zip->addEmptyDir("META-INF");
         $list=glob($rootDir.'META-INF'.DIRECTORY_SEPARATOR.'*');
         if($list)foreach ($list as $item) {
             //echo $item.PHP_EOL;
@@ -138,6 +139,10 @@ class XMindDirZipper
         }
 
         $zip->close();
+
+        if ($cleanWorkspace) {
+            $this->deleteFolder($rootDir);
+        }
     }
 
     /**
@@ -157,6 +162,23 @@ class XMindDirZipper
                 }
             }
         }
+    }
+
+    /**
+     * @param string $rootDir
+     */
+    protected function deleteFolder(string $rootDir){
+        $list = glob($rootDir . DIRECTORY_SEPARATOR . '*');
+        if (!empty($list)) {
+            foreach($list as $item) {
+                if (is_dir($item)) {
+                    $this->deleteFolder($item);
+                } else {
+                    @unlink($item);
+                }
+            }
+        }
+        @rmdir($rootDir);
     }
 
     /**
