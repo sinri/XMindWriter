@@ -86,7 +86,8 @@ class StaticTreeXMindWriter
 
         foreach ($children as $child) {
             $topicEntity = (new XMapContentTopicEntity($child->id, $child->title))
-                ->setChildrenFolded($child->isBranchFolded);
+                ->setChildrenFolded($child->isBranchFolded)
+                ->setMarkerRefs($child->markerRefs);
             $topicsEntity->addTopicEntity($topicEntity);
 
             $this->appendChildren($topicEntity, $child->children, $type);
