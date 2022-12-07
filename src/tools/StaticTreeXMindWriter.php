@@ -24,11 +24,11 @@ class StaticTreeXMindWriter
     /**
      * @var StaticTreeNode[]
      */
-    protected $floatingNodes;
+    protected $floatingNodes = [];
     /**
      * @var StaticTreeNodeRelationship[]
      */
-    protected $relationships;
+    protected $relationships = [];
     /**
      * @var XMindDirZipper
      */
@@ -86,7 +86,8 @@ class StaticTreeXMindWriter
 
         foreach ($children as $child) {
             $topicEntity = (new XMapContentTopicEntity($child->id, $child->title))
-                ->setChildrenFolded($child->isBranchFolded);
+                ->setChildrenFolded($child->isBranchFolded)
+                ->setMarkerRefs($child->markerRefs);
             $topicsEntity->addTopicEntity($topicEntity);
 
             $this->appendChildren($topicEntity, $child->children, $type);
@@ -132,10 +133,11 @@ class StaticTreeXMindWriter
 
     /**
      * @param $target
+     * @param $cleanWorkspace
      */
-    public function archiveXMindFile($target)
+    public function archiveXMindFile($target, $cleanWorkspace = false)
     {
-        $this->zipper->buildXMind($target);
+        $this->zipper->buildXMind($target, $cleanWorkspace);
     }
 
 }
